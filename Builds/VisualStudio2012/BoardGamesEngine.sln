@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2012
+Project("{F1969DEF-A20D-66C0-3CB9-C6999F63D566}") = "BoardGamesEngine", "BoardGamesEngine.vcxproj", "{23DB3CD9-A667-37E3-D946-A497D0477CA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23DB3CD9-A667-37E3-D946-A497D0477CA2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{23DB3CD9-A667-37E3-D946-A497D0477CA2}.Debug|Win32.Build.0 = Debug|Win32
+		{23DB3CD9-A667-37E3-D946-A497D0477CA2}.Release|Win32.ActiveCfg = Release|Win32
+		{23DB3CD9-A667-37E3-D946-A497D0477CA2}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,36 @@
+{
+    "id":           "BoardGamesEngine_Graphics",
+    "name":         "Board Games Engine (Graphics)",
+    "version":      "1.0.0",
+    "description":  "Graphical code for designing any basic board game based on the JUCE library.",
+    "website":      "http://www.jrlanglois.com",
+    "license":      "GPL v2+",
+
+    "dependencies": [
+                        { "id": "BoardGamesEngine_Core" },
+                        { "id": "BoardGamesEngine_GUIBasics" },
+                        { "id": "juce_audio_basics" },
+                        { "id": "juce_audio_devices" },
+                        { "id": "juce_audio_formats" },
+                        { "id": "juce_audio_utils" },
+                        { "id": "juce_core" },
+                        { "id": "juce_cryptography" },
+                        { "id": "juce_data_structures" },
+                        { "id": "juce_events" },
+                        { "id": "juce_graphics" },
+                        { "id": "juce_gui_basics" },
+                        { "id": "juce_gui_extra" }
+                    ],
+
+    "include":      "BoardGamesEngine_Graphics.h",
+
+    "compile":      [
+                        { "file": "BoardGamesEngine_Graphics.cpp", "target": "! xcode" },
+                        { "file": "BoardGamesEngine_Graphics.cpp", "target": "xcode" }
+                    ],
+
+    "browse":       [
+                        "Game/*",
+                        "Misc/*"
+                    ]
+}

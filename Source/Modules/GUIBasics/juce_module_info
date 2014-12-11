@@ -1,0 +1,23 @@
+{
+    "id":           "BoardGamesEngine_GUI",
+    "name":         "Board Games Engine (GUI)",
+    "version":      "1.0.0",
+    "description":  "GUI code interfaces used for designing board game user interfaces.",
+    "website":      "http://www.jrlanglois.com",
+    "license":      "GPL v2+",
+
+    "dependencies": [
+                        { "id": "BoardGamesEngine_Core" }
+                    ],
+
+    "include":      "BoardGamesEngine_Graphics.h",
+
+    "compile":      [
+                        { "file": "BoardGamesEngine_GUI.cpp", "target": "! xcode" },
+                        { "file": "BoardGamesEngine_GUI.cpp", "target": "xcode" }
+                    ],
+
+    "browse":       [
+                        "Game/*",
+                    ]
+}

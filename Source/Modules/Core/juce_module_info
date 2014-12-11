@@ -1,0 +1,22 @@
+{
+    "id":           "BoardGamesEngine_Core",
+    "name":         "Board Games Engine (Core)",
+    "version":      "1.0.0",
+    "description":  "Core code for designing any basic board game.",
+    "website":      "http://www.jrlanglois.com",
+    "license":      "GPL v2+",
+
+	"dependencies": [ ],
+
+    "include":      "BoardGamesEngine_Core.h",
+
+    "compile":      [
+                        { "file": "BoardGamesEngine_Core.cpp", "target": "! xcode" },
+                        { "file": "BoardGamesEngine_Core.cpp", "target": "xcode" }
+                    ],
+
+    "browse":       [
+                        "Game/*",
+                        "Misc/*"
+                    ]
+}

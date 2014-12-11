@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="aFrj8F" name="BoardGamesEngine" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.jrlanglois.BoardGamesEngine" includeBinaryInAppConfig="0"
+              jucerVersion="3.1.0" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
+              companyEmail="joel.r.langlois@gmail.com" maxBinaryFileSize="">
+  <MAINGROUP id="NqTpeL" name="BoardGamesEngine">
+    <GROUP id="{5BA5E9FA-07C1-8466-5085-23D1EF6AC693}" name="Main">
+      <FILE id="aFAm5O" name="Main.cpp" compile="1" resource="0" file="Source/Main/Main.cpp"/>
+      <FILE id="eciGHv" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/Main/MainComponent.cpp"/>
+      <FILE id="DZcB4D" name="MainComponent.h" compile="0" resource="0" file="Source/Main/MainComponent.h"/>
+    </GROUP>
+    <GROUP id="{D793EB2D-606B-43E2-8B02-20390E4E5721}" name="Media">
+      <GROUP id="{9806CADA-564F-4B8E-0244-566EDDC807E8}" name="Graphics">
+        <FILE id="VQWl6q" name="about.svg" compile="0" resource="0" file="Media/Graphics/about.svg"/>
+        <FILE id="B3Xicx" name="gear.svg" compile="0" resource="0" file="Media/Graphics/gear.svg"/>
+        <FILE id="zmc48D" name="open.svg" compile="0" resource="0" file="Media/Graphics/open.svg"/>
+        <FILE id="Ajm3qK" name="restart.svg" compile="0" resource="0" file="Media/Graphics/restart.svg"/>
+        <FILE id="Rp5jAQ" name="save.svg" compile="0" resource="0" file="Media/Graphics/save.svg"/>
+      </GROUP>
+      <GROUP id="{9B8F3B50-E095-755F-39DF-A0CCC1F187C8}" name="Languages">
+        <FILE id="EiNqkL" name="en-ca.txt" compile="0" resource="0" file="Media/Languages/en-ca.txt"/>
+        <FILE id="uU1Dkl" name="en-us.txt" compile="0" resource="0" file="Media/Languages/en-us.txt"/>
+        <FILE id="VomaWi" name="fr-ca.txt" compile="0" resource="0" file="Media/Languages/fr-ca.txt"/>
+      </GROUP>
+      <GROUP id="{31EE7EA4-069E-A776-2458-923475C69E7B}" name="Music">
+        <FILE id="wL5icI" name="bensound-theelevatorbossanova.mp3" compile="0"
+              resource="0" file="Media/Music/bensound-theelevatorbossanova.mp3"/>
+      </GROUP>
+      <GROUP id="{FA6EFFF9-4E21-21CE-FA47-39A131293E0F}" name="SFX">
+        <FILE id="nvMS7H" name="Tile_Change.wav" compile="0" resource="0" file="Media/SFX/Tile_Change.wav"/>
+        <FILE id="UZ8x2a" name="Tile_FailedChange.wav" compile="0" resource="0"
+              file="Media/SFX/Tile_FailedChange.wav"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{D364E44D-64A4-9446-30B7-D157FB49E069}" name="Modules">
+      <GROUP id="{F38017BA-B22B-FE84-F978-4C83EF32502F}" name="Core">
+        <GROUP id="{0A6130AE-FFB6-7B6D-F06B-63B3AA04F27C}" name="Game">
+          <FILE id="lbYe55" name="BoardGame.cpp" compile="0" resource="0" file="Source/Modules/Core/Game/BoardGame.cpp"/>
+          <FILE id="I9ewSa" name="BoardGame.h" compile="0" resource="0" file="Source/Modules/Core/Game/BoardGame.h"/>
+          <FILE id="iaHeXT" name="ReversiBoardGame.cpp" compile="0" resource="0"
+                file="Source/Modules/Core/Game/ReversiBoardGame.cpp"/>
+          <FILE id="jpz1WT" name="ReversiBoardGame.h" compile="0" resource="0"
+                file="Source/Modules/Core/Game/ReversiBoardGame.h"/>
+          <FILE id="hsmbNZ" name="ReversiTileBoard.cpp" compile="0" resource="0"
+                file="Source/Modules/Core/Game/ReversiTileBoard.cpp"/>
+          <FILE id="gFYszX" name="ReversiTileBoard.h" compile="0" resource="0"
+                file="Source/Modules/Core/Game/ReversiTileBoard.h"/>
+          <FILE id="h93D7p" name="Tile.h" compile="0" resource="0" file="Source/Modules/Core/Game/Tile.h"/>
+          <FILE id="cPJT61" name="TileBoard.cpp" compile="0" resource="0" file="Source/Modules/Core/Game/TileBoard.cpp"/>
+          <FILE id="NykO6b" name="TileBoard.h" compile="0" resource="0" file="Source/Modules/Core/Game/TileBoard.h"/>
+        </GROUP>
+        <GROUP id="{747C8DC3-3C72-A95F-CCE1-CBB1737CAFE6}" name="Misc">
+          <FILE id="HAwzhM" name="CompilerSupport.h" compile="0" resource="0"
+                file="Source/Modules/Core/Misc/CompilerSupport.h"/>
+          <FILE id="o6SbjG" name="Macros.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Macros.h"/>
+          <FILE id="N4Q9DY" name="Math.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Math.h"/>
+          <FILE id="cJrphm" name="Misc.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Misc.h"/>
+        </GROUP>
+        <FILE id="T8W7F1" name="BoardGamesEngine_Core.cpp" compile="1" resource="0"
+              file="Source/Modules/Core/BoardGamesEngine_Core.cpp"/>
+        <FILE id="z1cUKL" name="BoardGamesEngine_Core.h" compile="0" resource="0"
+              file="Source/Modules/Core/BoardGamesEngine_Core.h"/>
+        <FILE id="fJ2gEY" name="juce_module_info" compile="0" resource="0"
+              file="Source/Modules/Core/juce_module_info"/>
+      </GROUP>
+      <GROUP id="{25B6764F-419D-07DE-67A7-DB6DB868B743}" name="Graphics">
+        <GROUP id="{E51F413B-E364-1855-F7D6-C062A8CCB906}" name="Game">
+          <FILE id="QrxswH" name="BoardGameComponent.cpp" compile="0" resource="0"
+                file="Source/Modules/Graphics/Game/BoardGameComponent.cpp"/>
+          <FILE id="L2xY8z" name="BoardGameComponent.h" compile="0" resource="0"
+                file="Source/Modules/Graphics/Game/BoardGameComponent.h"/>
+          <FILE id="onrJfx" name="ReversiBoardGameComponent.cpp" compile="0"
+                resource="0" file="Source/Modules/Graphics/Game/ReversiBoardGameComponent.cpp"/>
+          <FILE id="QzVVNF" name="ReversiBoardGameComponent.h" compile="0" resource="0"
+                file="Source/Modules/Graphics/Game/ReversiBoardGameComponent.h"/>
+          <FILE id="kP8l7w" name="ReversiTileBoardComponent.cpp" compile="0"
+                resource="0" file="Source/Modules/Graphics/Game/ReversiTileBoardComponent.cpp"/>
+          <FILE id="vFjauX" name="ReversiTileBoardComponent.h" compile="0" resource="0"
+                file="Source/Modules/Graphics/Game/ReversiTileBoardComponent.h"/>
+          <FILE id="QR5MGC" name="TileBoardComponent.cpp" compile="0" resource="0"
+                file="Source/Modules/Graphics/Game/TileBoardComponent.cpp"/>
+          <FILE id="vWocCX" name="TileBoardComponent.h" compile="0" resource="0"
+                file="Source/Modules/Graphics/Game/TileBoardComponent.h"/>
+        </GROUP>
+        <GROUP id="{AC56572D-344B-B71D-16ED-BD16835E4FFE}" name="Misc">
+          <FILE id="Qda9Qh" name="BGELookAndFeel.cpp" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/BGELookAndFeel.cpp"/>
+          <FILE id="t0mZY1" name="BGELookAndFeel.h" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/BGELookAndFeel.h"/>
+          <FILE id="JOtsQh" name="Fonts.cpp" compile="0" resource="0" file="Source/Modules/Graphics/Misc/Fonts.cpp"/>
+          <FILE id="Buyxop" name="Fonts.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/Fonts.h"/>
+          <FILE id="hMmgCB" name="LocalisationManager.cpp" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/LocalisationManager.cpp"/>
+          <FILE id="Q75dCM" name="LocalisationManager.h" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/LocalisationManager.h"/>
+          <FILE id="xMo87Z" name="SettingsWindowComponent.cpp" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/SettingsWindowComponent.cpp"/>
+          <FILE id="cK17l5" name="SettingsWindowComponent.h" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/SettingsWindowComponent.h"/>
+          <FILE id="d7yxzl" name="SoundManager.cpp" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/SoundManager.cpp"/>
+          <FILE id="jfbNb3" name="SoundManager.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/SoundManager.h"/>
+          <FILE id="I8g0s5" name="ToolbarIcons.cpp" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/ToolbarIcons.cpp"/>
+          <FILE id="SewjpY" name="ToolbarIcons.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/ToolbarIcons.h"/>
+        </GROUP>
+        <FILE id="DvZy8o" name="BoardGamesEngine_Graphics.cpp" compile="1"
+              resource="0" file="Source/Modules/Graphics/BoardGamesEngine_Graphics.cpp"/>
+        <FILE id="aCQi9y" name="BoardGamesEngine_Graphics.h" compile="0" resource="0"
+              file="Source/Modules/Graphics/BoardGamesEngine_Graphics.h"/>
+        <FILE id="KYdhMB" name="juce_module_info" compile="0" resource="0"
+              file="Source/Modules/Graphics/juce_module_info"/>
+      </GROUP>
+      <GROUP id="{542D5C6B-BA6A-AB1B-568D-F4DCB7B11F26}" name="GUIBasics">
+        <GROUP id="{10308BC7-76C0-4761-18C6-78987C427631}" name="Game">
+          <FILE id="N3WaPA" name="BoardGameView.cpp" compile="0" resource="0"
+                file="Source/Modules/GUIBasics/Game/BoardGameView.cpp"/>
+          <FILE id="r6J7L4" name="BoardGameView.h" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/BoardGameView.h"/>
+          <FILE id="oO8ilh" name="PlayerView.cpp" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/PlayerView.cpp"/>
+          <FILE id="EXkaCA" name="PlayerView.h" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/PlayerView.h"/>
+        </GROUP>
+        <FILE id="ZjmMFv" name="BoardGamesEngine_GUIBasics.cpp" compile="1"
+              resource="0" file="Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.cpp"/>
+        <FILE id="W4aajN" name="BoardGamesEngine_GUIBasics.h" compile="0" resource="0"
+              file="Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.h"/>
+        <FILE id="U78NNp" name="juce_module_info" compile="0" resource="0"
+              file="Source/Modules/GUIBasics/juce_module_info"/>
+      </GROUP>
+      <FILE id="p8awC6" name="BoardGamesEngine_Master.h" compile="0" resource="0"
+            file="Source/Modules/BoardGamesEngine_Master.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2015 targetFolder="Builds/VisualStudio2015" toolset="v140">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Reversi"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="Reversi"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
+      </MODULEPATHS>
+    </VS2015>
+    <VS2013 targetFolder="Builds/VisualStudio2013" toolset="v120">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Reversi"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="Reversi"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
+      </MODULEPATHS>
+    </VS2013>
+    <VS2012 targetFolder="Builds/VisualStudio2012" toolset="v110">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Reversi"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="Reversi"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
+      </MODULEPATHS>
+    </VS2012>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="Reversi"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="0" optimisation="2" targetName="Reversi"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <CODEBLOCKS targetFolder="Builds/CodeBlocks">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="BoardGamesEngine"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
+      </MODULEPATHS>
+    </CODEBLOCKS>
+    <LINUX_MAKE targetFolder="Builds/Linux">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"
+                       targetName="BoardGamesEngine"/>
+        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="2"
+                       targetName="BoardGamesEngine"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_ASIO="disabled" JUCE_WASAPI="enabled" JUCE_DIRECTSOUND="enabled"
+               JUCE_ALSA="disabled" JUCE_JACK="disabled" JUCE_USE_ANDROID_OPENSLES="disabled"
+               JUCE_USE_CDREADER="disabled" JUCE_USE_CDBURNER="disabled" JUCE_USE_FLAC="enabled"
+               JUCE_USE_OGGVORBIS="enabled" JUCE_USE_WINDOWS_MEDIA_FORMAT="enabled"
+               JUCE_PLUGINHOST_VST="disabled" JUCE_PLUGINHOST_VST3="disabled"
+               JUCE_PLUGINHOST_AU="disabled" JUCE_ENABLE_REPAINT_DEBUGGING="disabled"
+               JUCE_WEB_BROWSER="disabled" JUCE_ENABLE_LIVE_CONSTANT_EDITOR="disabled"/>
+</JUCERPROJECT>
