@@ -93,12 +93,12 @@ protected:
     BoardGame& boardGame;
 
     //==============================================================================
-    /** Creates a view to represent the specified player. 
+    /** Creates a view to represent the specified player.
 
         @param[in] forFirstPlayer Lets your implementation know which player
                                   the PlayerView will represent.
 
-        @result Must not be null! 
+        @result Must not be null!
     */
     virtual PlayerView* createPlayerView (bool forFirstPlayer) = 0;
 

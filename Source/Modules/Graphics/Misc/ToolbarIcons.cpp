@@ -62,7 +62,7 @@ static const unsigned char internalTemp1[] =
 const unsigned char* save_svg = internalTemp1;
 
 //==============================================================================
-static const unsigned char internalTemp2[] = 
+static const unsigned char internalTemp2[] =
 "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"32px\"\r\n"
 "\t height=\"32px\" viewBox=\"0 0 32 32\" style=\"enable-background:new 0 0 32 32;\" xml:space=\"preserve\">\r\n"
 "<g id=\"Layer_1\">\r\n"
@@ -80,7 +80,7 @@ static const unsigned char internalTemp2[] =
 const unsigned char* gear_svg = internalTemp2;
 
 //==============================================================================
-static const unsigned char internalTemp3[] = 
+static const unsigned char internalTemp3[] =
 "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n"
 "\t width=\"512px\" height=\"512px\" viewBox=\"0 0 512 512\" enable-background=\"new 0 0 512 512\" xml:space=\"preserve\">\r\n"
 "<path d=\"M416,351.998h-32c-35.344,0-64-28.656-64-64v-20.563c14.156-16.828,24.313-36.734,30.625-57.766\r\n"
@@ -95,7 +95,7 @@ static const unsigned char internalTemp3[] =
 const unsigned char* about_svg = internalTemp3;
 
 //==============================================================================
-static const unsigned char internalTemp4[] = 
+static const unsigned char internalTemp4[] =
 "<svg version=\"1.1\" id=\"Artwork\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n"
 "\t width=\"512px\" height=\"512px\" viewBox=\"0 0 512 512\" enable-background=\"new 0 0 512 512\" xml:space=\"preserve\">\r\n"
 "<g>\r\n"

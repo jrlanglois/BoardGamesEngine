@@ -48,7 +48,7 @@ std::string ReversiTileBoard::saveState() const
         const std::vector<Tile>& t = getTiles();
         std::ostringstream s;
 
-        for (int i = 0; i < numTiles; ++i) 
+        for (int i = 0; i < numTiles; ++i)
             s << (int) t[i].state;
 
         state.append (s.str());

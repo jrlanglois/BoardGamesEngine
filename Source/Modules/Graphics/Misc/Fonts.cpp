@@ -28,7 +28,7 @@
 namespace Fonts
 {
 
-static const unsigned char internalTemp1[] = 
+static const unsigned char internalTemp1[] =
 {
     79,84,84,79,0,11,0,128,0,3,0,48,67,70,70,32,248,96,183,118,0,0,7,124,0,0,28,33,71,80,
     79,83,37,69,32,88,0,0,37,52,0,0,7,76,71,83,85,66,0,1,0,0,0,0,37,40,0,0,0,10,
@@ -415,7 +415,7 @@ static const unsigned char internalTemp1[] =
 const char* norwester_otforwester_otf = (const char*) internalTemp1;
 
 //==============================================================================
-static const unsigned char internalTemp2[] = 
+static const unsigned char internalTemp2[] =
 {
     0,1,0,0,0,19,1,0,0,4,0,48,71,68,69,70,0,38,3,135,0,2,61,32,0,0,0,30,71,80,
     79,83,148,189,162,240,0,2,61,64,0,0,168,250,71,83,85,66,108,145,116,143,0,2,230,60,0,0,0,32,

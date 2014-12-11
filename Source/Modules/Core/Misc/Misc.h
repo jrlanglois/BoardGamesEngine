@@ -49,7 +49,7 @@ static void append (std::string& destination, const ContainerType<Type>& source)
 {
     std::ostringstream s;
 
-    for (int i = 0; i < source.size(); ++i) 
+    for (int i = 0; i < source.size(); ++i)
         s << source[i];
 
     destination.append (s.str());

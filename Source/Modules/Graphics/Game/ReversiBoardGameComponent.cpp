@@ -45,7 +45,7 @@ public:
         addAndMakeVisible (&playerName);
         addAndMakeVisible (&score);
     }
- 
+
     //==============================================================================
     void paint (juce::Graphics& g) override
     {
