@@ -25,33 +25,11 @@
 
     ==============================================================================
 */
-#ifndef BOARD_GAMES_ENGINE_MASTER_H
-#define BOARD_GAMES_ENGINE_MASTER_H
+#include "BoardGamesEngine_Master.h"
 
-#ifndef BOARD_GAMES_ENGINE_CORE_H
- #include "Core/BoardGamesEngine_Core.h"
-#endif //BOARD_GAMES_ENGINE_CORE_H
+#include "Core/BoardGamesEngine_Core.cpp"
+#include "GUIBasics/BoardGamesEngine_GUIBasics.cpp"
 
-#ifndef BOARD_GAMES_ENGINE_GUI_BASICS_H
- #include "GUIBasics/BoardGamesEngine_GUIBasics.h"
-#endif //BOARD_GAMES_ENGINE_GUI_BASICS_H
-
-/** If your project is setup using JUCE, you can use BoardGameEngine's Graphics module.
-
-    Simply add the flag BGE_INCLUDE_JUCE_BASED_MODULES to your project.
-*/
-#if defined (JUCE_APP_VERSION) && defined (BGE_INCLUDE_JUCE_BASED_MODULES)
-    #include "JuceHeader.h"
-
-   #ifndef BOARD_GAMES_ENGINE_GRAPHICS_H
-    #include "Graphics/BoardGamesEngine_Graphics.h"
-   #endif //BOARD_GAMES_ENGINE_GRAPHICS_H
-
-    #define BGE_MODULE_AVAILABLE_GRAPHICS 1
+#if BGE_MODULE_AVAILABLE_GRAPHICS
+ #include "Graphics/BoardGamesEngine_Graphics.cpp"
 #endif
-
-#if BGE_SET_USING_NAMESPACE
- using namespace bge;
-#endif
-
-#endif //BOARD_GAMES_ENGINE_MASTER_H

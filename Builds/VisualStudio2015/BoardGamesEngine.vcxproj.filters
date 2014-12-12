@@ -379,6 +379,9 @@
     <ClCompile Include="..\..\Source\Modules\GUIBasics\BoardGamesEngine_GUIBasics.cpp">
       <Filter>BoardGamesEngine\Modules\GUIBasics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Modules\BoardGamesEngine_Master.cpp">
+      <Filter>BoardGamesEngine\Modules</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>

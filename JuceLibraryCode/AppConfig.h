@@ -18,7 +18,6 @@
 // [BEGIN_USER_CODE_SECTION]
 
 #define DONT_SET_USING_JUCE_NAMESPACE                   1
-#define BGE_SILENT_AUDIO                                0
 
 // [END_USER_CODE_SECTION]
 

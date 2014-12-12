@@ -3,7 +3,8 @@
 <JUCERPROJECT id="aFrj8F" name="BoardGamesEngine" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.jrlanglois.BoardGamesEngine" includeBinaryInAppConfig="0"
               jucerVersion="3.1.0" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
-              companyEmail="joel.r.langlois@gmail.com" maxBinaryFileSize="">
+              companyEmail="joel.r.langlois@gmail.com" maxBinaryFileSize=""
+              defines="BGE_INCLUDE_JUCE_BASED_MODULES=1">
   <MAINGROUP id="NqTpeL" name="BoardGamesEngine">
     <GROUP id="{5BA5E9FA-07C1-8466-5085-23D1EF6AC693}" name="Main">
       <FILE id="aFAm5O" name="Main.cpp" compile="1" resource="0" file="Source/Main/Main.cpp"/>
@@ -58,7 +59,7 @@
           <FILE id="N4Q9DY" name="Math.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Math.h"/>
           <FILE id="cJrphm" name="Misc.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Misc.h"/>
         </GROUP>
-        <FILE id="T8W7F1" name="BoardGamesEngine_Core.cpp" compile="1" resource="0"
+        <FILE id="T8W7F1" name="BoardGamesEngine_Core.cpp" compile="0" resource="0"
               file="Source/Modules/Core/BoardGamesEngine_Core.cpp"/>
         <FILE id="z1cUKL" name="BoardGamesEngine_Core.h" compile="0" resource="0"
               file="Source/Modules/Core/BoardGamesEngine_Core.h"/>
@@ -106,7 +107,7 @@
                 file="Source/Modules/Graphics/Misc/ToolbarIcons.cpp"/>
           <FILE id="SewjpY" name="ToolbarIcons.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/ToolbarIcons.h"/>
         </GROUP>
-        <FILE id="DvZy8o" name="BoardGamesEngine_Graphics.cpp" compile="1"
+        <FILE id="DvZy8o" name="BoardGamesEngine_Graphics.cpp" compile="0"
               resource="0" file="Source/Modules/Graphics/BoardGamesEngine_Graphics.cpp"/>
         <FILE id="aCQi9y" name="BoardGamesEngine_Graphics.h" compile="0" resource="0"
               file="Source/Modules/Graphics/BoardGamesEngine_Graphics.h"/>
@@ -121,13 +122,15 @@
           <FILE id="oO8ilh" name="PlayerView.cpp" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/PlayerView.cpp"/>
           <FILE id="EXkaCA" name="PlayerView.h" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/PlayerView.h"/>
         </GROUP>
-        <FILE id="ZjmMFv" name="BoardGamesEngine_GUIBasics.cpp" compile="1"
+        <FILE id="ZjmMFv" name="BoardGamesEngine_GUIBasics.cpp" compile="0"
               resource="0" file="Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.cpp"/>
         <FILE id="W4aajN" name="BoardGamesEngine_GUIBasics.h" compile="0" resource="0"
               file="Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.h"/>
         <FILE id="U78NNp" name="juce_module_info" compile="0" resource="0"
               file="Source/Modules/GUIBasics/juce_module_info"/>
       </GROUP>
+      <FILE id="X5a68p" name="BoardGamesEngine_Master.cpp" compile="1" resource="0"
+            file="Source/Modules/BoardGamesEngine_Master.cpp"/>
       <FILE id="p8awC6" name="BoardGamesEngine_Master.h" compile="0" resource="0"
             file="Source/Modules/BoardGamesEngine_Master.h"/>
     </GROUP>
