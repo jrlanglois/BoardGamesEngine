@@ -67,6 +67,8 @@
   #define BGE_COMPILER_SUPPORTS_NOEXCEPT            1
   #define BGE_COMPILER_SUPPORTS_DELETED_FUNCTION    1
  #endif
+
+ #pragma warning (default: 4191 4265 4355 4505 4738 4946)
 #endif
 
 //==============================================================================
