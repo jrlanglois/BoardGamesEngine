@@ -104,6 +104,14 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../Media/Graphics/AppIcon.ai">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../Media/Graphics/AppIcon.svg">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../Media/Graphics/gear.svg">
       <Option compile="0"/>
       <Option link="0"/>

@@ -27,25 +27,6 @@
 */
 BGESystemTrayIconComponent::BGESystemTrayIconComponent()
 {
-    initialiseImage();
-}
-
-//==============================================================================
-void BGESystemTrayIconComponent::initialiseImage()
-{
-    const int size = 128;
-    const int halfSize = size / 2;
-
-    juce::Image image (juce::Image::ARGB, 128, 128, true);
-    juce::Graphics g (image);
-
-    const juce::Rectangle<int> b (halfSize, halfSize);
-    BGELookAndFeel::drawReversiToken (g, true, false, false, false, false, b);
-    BGELookAndFeel::drawReversiToken (g, true, false, false, false, false, b.withPosition (halfSize, halfSize));
-    BGELookAndFeel::drawReversiToken (g, false, false, false, false, false, b.withPosition (halfSize, 0));
-    BGELookAndFeel::drawReversiToken (g, false, false, false, false, false, b.withPosition (0, halfSize));
-
-    setIconImage (image);
 }
 
 //==============================================================================

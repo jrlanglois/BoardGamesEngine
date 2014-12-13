@@ -1700,6 +1700,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Media\Graphics\about.svg"/>
+    <None Include="..\..\Media\Graphics\AppIcon.ai"/>
+    <None Include="..\..\Media\Graphics\AppIcon.svg"/>
     <None Include="..\..\Media\Graphics\gear.svg"/>
     <None Include="..\..\Media\Graphics\open.svg"/>
     <None Include="..\..\Media\Graphics\restart.svg"/>
@@ -1724,6 +1726,7 @@
     <None Include="..\..\..\juce\modules\juce_graphics\juce_module_info"/>
     <None Include="..\..\..\juce\modules\juce_gui_basics\juce_module_info"/>
     <None Include="..\..\..\juce\modules\juce_gui_extra\juce_module_info"/>
+    <None Include=".\icon.ico"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc"/>
