@@ -31,7 +31,7 @@
 #include "CompilerSupport.h"
 
 //==============================================================================
-}
+} //Escape bge namespace since OS headers must be in global scope.
 
 #if defined (_WIN32) || defined (_WIN64)
   #define BGE_WINDOWS           1
@@ -59,7 +59,7 @@
  #error "Board Games Engine: unknown platform!"
 #endif
 
-namespace bge
+namespace bge //Back into bge namespace
 {
 
 //==============================================================================
