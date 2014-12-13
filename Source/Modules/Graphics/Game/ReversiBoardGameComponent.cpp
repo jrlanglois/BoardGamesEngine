@@ -32,6 +32,8 @@ public:
         PlayerComponent (bg, fp),
         playerName (juce::String::empty, TRANS ("PLAYER #").replace ("#", juce::String (fp ? 1 : 2)))
     {
+        boardGame.addListener (this);
+
         playerName.setFont (juce::Font ("Norwester", 36.0f, juce::Font::plain));
         playerName.setColour (juce::Label::textColourId, juce::Colours::white);
         playerName.setJustificationType (juce::Justification::centred);
@@ -44,6 +46,11 @@ public:
 
         addAndMakeVisible (&playerName);
         addAndMakeVisible (&score);
+    }
+
+    ~ReversiPlayerComponent()
+    {
+        boardGame.removeListener (this);
     }
 
     //==============================================================================
