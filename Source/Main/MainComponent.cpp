@@ -498,15 +498,8 @@ void MainComponent::changeGame (BoardGame* const newBoardGame)
 
 void MainComponent::updateTrayIconTooltip()
 {
-    jassert (boardGame != nullptr);
-
-    juce::String tooltip = TRANS ("Board Games Engine");
-
-    tooltip += juce::newLine;
-    tooltip += TRANS ("Score") + ": ";
-    tooltip += juce::String (boardGame->getScore (true)) + " - " + juce::String (boardGame->getScore (false));
-
-    systemTrayIconComponent.setIconTooltip (tooltip);
+    if (boardGame != nullptr)
+        systemTrayIconComponent.updateTooltipFromBoardGame (*boardGame);
 }
 
 //==============================================================================

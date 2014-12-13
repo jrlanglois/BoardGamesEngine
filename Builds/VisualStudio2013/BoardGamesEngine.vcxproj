@@ -163,6 +163,9 @@
     <ClCompile Include="..\..\Source\Modules\Graphics\Misc\BGELookAndFeel.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Modules\Graphics\Misc\BGESystemTrayIconComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Graphics\Misc\Fonts.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1264,6 +1267,7 @@
     <ClInclude Include="..\..\Source\Modules\Graphics\Game\ReversiTileBoardComponent.h"/>
     <ClInclude Include="..\..\Source\Modules\Graphics\Game\TileBoardComponent.h"/>
     <ClInclude Include="..\..\Source\Modules\Graphics\Misc\BGELookAndFeel.h"/>
+    <ClInclude Include="..\..\Source\Modules\Graphics\Misc\BGESystemTrayIconComponent.h"/>
     <ClInclude Include="..\..\Source\Modules\Graphics\Misc\Fonts.h"/>
     <ClInclude Include="..\..\Source\Modules\Graphics\Misc\LocalisationManager.h"/>
     <ClInclude Include="..\..\Source\Modules\Graphics\Misc\SettingsWindowComponent.h"/>

@@ -90,6 +90,10 @@
                 file="Source/Modules/Graphics/Misc/BGELookAndFeel.cpp"/>
           <FILE id="t0mZY1" name="BGELookAndFeel.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/BGELookAndFeel.h"/>
+          <FILE id="lAK97T" name="BGESystemTrayIconComponent.cpp" compile="0"
+                resource="0" file="Source/Modules/Graphics/Misc/BGESystemTrayIconComponent.cpp"/>
+          <FILE id="QVUmsl" name="BGESystemTrayIconComponent.h" compile="0" resource="0"
+                file="Source/Modules/Graphics/Misc/BGESystemTrayIconComponent.h"/>
           <FILE id="JOtsQh" name="Fonts.cpp" compile="0" resource="0" file="Source/Modules/Graphics/Misc/Fonts.cpp"/>
           <FILE id="Buyxop" name="Fonts.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/Fonts.h"/>
           <FILE id="hMmgCB" name="LocalisationManager.cpp" compile="0" resource="0"

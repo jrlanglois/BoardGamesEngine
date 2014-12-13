@@ -96,6 +96,10 @@ namespace bge
     #include "Misc/BGELookAndFeel.h"
    #endif //BGE_LOOK_AND_FEEL_H
 
+   #ifndef BGE_SYSTEM_TRAY_ICON_COMPONENT_H
+    #include "Misc/BGESystemTrayIconComponent.h"
+   #endif //BGE_SYSTEM_TRAY_ICON_COMPONENT_H
+
    #ifndef BGE_SOUND_MANAGER_H
     #include "Misc/SoundManager.h"
    #endif //SOUND_MANAGER_H

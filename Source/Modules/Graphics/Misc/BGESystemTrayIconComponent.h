@@ -25,19 +25,28 @@
 
     ==============================================================================
 */
-#include "BoardGamesEngine_Graphics.h"
+#ifndef BGE_SYSTEM_TRAY_ICON_COMPONENT_H
+#define BGE_SYSTEM_TRAY_ICON_COMPONENT_H
 
-namespace bge
+class BGESystemTrayIconComponent : public juce::SystemTrayIconComponent
 {
-    #include "Game/BoardGameComponent.cpp"
-    #include "Game/ReversiBoardGameComponent.cpp"
-    #include "Game/ReversiTileBoardComponent.cpp"
-    #include "Game/TileBoardComponent.cpp"
-    #include "Misc/BGELookAndFeel.cpp"
-    #include "Misc/BGESystemTrayIconComponent.cpp"
-    #include "Misc/Fonts.cpp"
-    #include "Misc/LocalisationManager.cpp"
-    #include "Misc/SettingsWindowComponent.cpp"
-    #include "Misc/SoundManager.cpp"
-    #include "Misc/ToolbarIcons.cpp"
-}
+public:
+    BGESystemTrayIconComponent();
+
+    //==============================================================================
+    void updateTooltipFromBoardGame (BoardGame& boardGame);
+
+    //==============================================================================
+    /** @internal */
+    void mouseDown (const juce::MouseEvent& e) override;
+
+private:
+    //==============================================================================
+    void initialiseImage();
+    void bringWindowToFocus();
+
+    //==============================================================================
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BGESystemTrayIconComponent)
+};
+
+#endif //BGE_SYSTEM_TRAY_ICON_COMPONENT_H

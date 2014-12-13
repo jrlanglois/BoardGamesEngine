@@ -47,7 +47,7 @@ private:
     //==============================================================================
     LocalisationManager localisationManager;
     SoundManager soundManager;
-    juce::SystemTrayIconComponent systemTrayIconComponent;
+    BGESystemTrayIconComponent systemTrayIconComponent;
 
     BGELookAndFeel laf;
     juce::TooltipWindow tooltipWindow;

@@ -352,6 +352,9 @@
     <ClCompile Include="..\..\Source\Modules\Graphics\Misc\BGELookAndFeel.cpp">
       <Filter>BoardGamesEngine\Modules\Graphics\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Modules\Graphics\Misc\BGESystemTrayIconComponent.cpp">
+      <Filter>BoardGamesEngine\Modules\Graphics\Misc</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Graphics\Misc\Fonts.cpp">
       <Filter>BoardGamesEngine\Modules\Graphics\Misc</Filter>
     </ClCompile>
@@ -1576,6 +1579,9 @@
       <Filter>BoardGamesEngine\Modules\Graphics\Game</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Modules\Graphics\Misc\BGELookAndFeel.h">
+      <Filter>BoardGamesEngine\Modules\Graphics\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Modules\Graphics\Misc\BGESystemTrayIconComponent.h">
       <Filter>BoardGamesEngine\Modules\Graphics\Misc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Modules\Graphics\Misc\Fonts.h">
