@@ -32,7 +32,7 @@ static const std::string emptyString;
 
 /** A simple function that allows appending data types to a std::string. */
 template<typename Type>
-static void append (std::string& destination, Type source)
+inline void append (std::string& destination, Type source)
 {
     std::ostringstream s;
     s << source;
@@ -45,19 +45,19 @@ static void append (std::string& destination, Type source)
     and provide the number of elements it contains with the method size().
 */
 template<template<class> class ContainerType, typename Type>
-static void append (std::string& destination, const ContainerType<Type>& source)
+inline void append (std::string& destination, const ContainerType<Type>& source)
 {
-    std::ostringstream s;
+    std::ostringstream oss;
 
     for (int i = 0; i < source.size(); ++i)
-        s << source[i];
+        oss << source[i];
 
-    destination.append (s.str());
+    destination.append (oss.str());
 }
 
 /** Attempts converting a std::string to a desired value type. */
 template<typename Type>
-static Type toValue (const std::string& source)
+inline Type toValue (const std::string& source)
 {
     std::istringstream iss (source);
     Type result = 0;
@@ -66,8 +66,16 @@ static Type toValue (const std::string& source)
     return result;
 }
 
+/** Attempts converting a std::string to an integer. */
+template<>
+inline int toValue (const std::string& source)
+{
+    return std::stoi (source);
+}
+
+/** Attempts converting a char to a desired value type. */
 template<typename Type>
-static Type toValue (char source)
+inline Type toValue (char source)
 {
     std::stringstream ss;
     ss << source;

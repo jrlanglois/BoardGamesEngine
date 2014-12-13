@@ -23,6 +23,7 @@
           <Add option="-D__MINGW_EXTENSION="/>
           <Add option="-DDEBUG=1"/>
           <Add option="-D_DEBUG=1"/>
+          <Add option="-DBGE_INCLUDE_JUCE_BASED_MODULES=1"/>
           <Add option="-DJUCER_CODEBLOCKS_20734A5D=1"/>
           <Add option="-DJUCE_APP_VERSION=1.0.0"/>
           <Add option="-DJUCE_APP_VERSION_HEX=0x10000"/>
@@ -58,6 +59,7 @@
           <Add option="-D__MINGW__=1"/>
           <Add option="-D__MINGW_EXTENSION="/>
           <Add option="-DNDEBUG=1"/>
+          <Add option="-DBGE_INCLUDE_JUCE_BASED_MODULES=1"/>
           <Add option="-DJUCER_CODEBLOCKS_20734A5D=1"/>
           <Add option="-DJUCE_APP_VERSION=1.0.0"/>
           <Add option="-DJUCE_APP_VERSION_HEX=0x10000"/>
@@ -194,7 +196,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../Source/Modules/Core/BoardGamesEngine_Core.cpp"/>
+    <Unit filename="../../Source/Modules/Core/BoardGamesEngine_Core.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../Source/Modules/Core/BoardGamesEngine_Core.h">
       <Option compile="0"/>
       <Option link="0"/>
@@ -283,7 +288,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../Source/Modules/Graphics/BoardGamesEngine_Graphics.cpp"/>
+    <Unit filename="../../Source/Modules/Graphics/BoardGamesEngine_Graphics.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../Source/Modules/Graphics/BoardGamesEngine_Graphics.h">
       <Option compile="0"/>
       <Option link="0"/>
@@ -308,7 +316,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.cpp"/>
+    <Unit filename="../../Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.h">
       <Option compile="0"/>
       <Option link="0"/>
@@ -317,6 +328,7 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../Source/Modules/BoardGamesEngine_Master.cpp"/>
     <Unit filename="../../Source/Modules/BoardGamesEngine_Master.h">
       <Option compile="0"/>
       <Option link="0"/>

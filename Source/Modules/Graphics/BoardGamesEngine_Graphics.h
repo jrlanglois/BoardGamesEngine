@@ -32,11 +32,12 @@
  #include "../GUIBasics/BoardGamesEngine_GUIBasics.h"
 #endif //BOARD_GAMES_ENGINE_GUI_BASICS_H
 
-#include "JuceHeader.h"
-
 //=============================================================================
 /** Config: BGE_SILENT_AUDIO
     Disables all audio playback from all instances of a SoundManager (on all platforms).
+
+    @note This is a JUCE/Introjucer module configuration flag, but may
+		  of course be externally and explicitly enabled or disabled.
 */
 #ifndef BGE_SILENT_AUDIO
  #define BGE_SILENT_AUDIO 0
