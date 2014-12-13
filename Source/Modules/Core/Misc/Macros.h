@@ -31,6 +31,8 @@
 #include "CompilerSupport.h"
 
 //==============================================================================
+}
+
 #if defined (_WIN32) || defined (_WIN64)
   #define BGE_WINDOWS           1
 
@@ -56,6 +58,9 @@
 #else
  #error "Board Games Engine: unknown platform!"
 #endif
+
+namespace bge
+{
 
 //==============================================================================
 #if defined (DEBUG) || defined (_DEBUG) || ! (defined (NDEBUG) || defined (_NDEBUG))
