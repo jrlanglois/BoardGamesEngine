@@ -32,7 +32,8 @@
 
 class MainComponent : public juce::Component,
                       private juce::Button::Listener,
-                      private juce::ChangeListener
+                      private juce::ChangeListener,
+                      private BoardGame::Listener
 {
 public:
     MainComponent();
@@ -46,6 +47,7 @@ private:
     //==============================================================================
     LocalisationManager localisationManager;
     SoundManager soundManager;
+    juce::SystemTrayIconComponent systemTrayIconComponent;
 
     BGELookAndFeel laf;
     juce::TooltipWindow tooltipWindow;
@@ -77,11 +79,17 @@ private:
     */
     void changeGame (BoardGame* newBoardGame);
 
+    void updateTrayIconTooltip();
+
     //==============================================================================
     /** @internal */
     void buttonClicked (juce::Button* button) override;
     /** @internal */
     void changeListenerCallback (juce::ChangeBroadcaster* source) override;
+    /** @internal */
+    void attemptedTileStateChange (int index, bool wasSuccessfullyChanged) override;
+    /** @internal */
+    void playerChanged (bool toFirstPlayer) override;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

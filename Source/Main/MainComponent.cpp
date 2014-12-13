@@ -413,6 +413,22 @@ MainComponent::MainComponent() :
 {
     setLookAndFeel (&laf);
 
+    {
+        const int size = 128;
+        const int halfSize = size / 2;
+
+        juce::Image image (juce::Image::ARGB, 128, 128, true);
+        juce::Graphics g (image);
+
+        const juce::Rectangle<int> b (halfSize, halfSize);
+        BGELookAndFeel::drawReversiToken (g, true, false, false, false, false, b);
+        BGELookAndFeel::drawReversiToken (g, true, false, false, false, false, b.withPosition (halfSize, halfSize));
+        BGELookAndFeel::drawReversiToken (g, false, false, false, false, false, b.withPosition (halfSize, 0));
+        BGELookAndFeel::drawReversiToken (g, false, false, false, false, false, b.withPosition (0, halfSize));
+
+        systemTrayIconComponent.setIconImage (image);
+    }
+
     toolbarItemFactory = new ToolbarItemFactory (*this, localisationManager);
     toolbar->addDefaultItems (*toolbarItemFactory);
     toolbar->setColour (juce::Toolbar::backgroundColourId, juce::Colours::white);
@@ -437,6 +453,8 @@ void MainComponent::initialisBoardGameComponent()
 {
     if (boardGame != nullptr)
     {
+        boardGame->addListener (this);
+
         bool showingMoveHints = true;
         bool showingTileIndices = false;
 
@@ -456,6 +474,8 @@ void MainComponent::initialisBoardGameComponent()
                                                             showingMoveHints,
                                                             showingTileIndices);
         addAndMakeVisible (boardGameComponent);
+
+        updateTrayIconTooltip();
     }
     else
     {
@@ -475,6 +495,20 @@ void MainComponent::changeGame (BoardGame* const newBoardGame)
         resized();
         repaint();
     }
+}
+
+void MainComponent::updateTrayIconTooltip()
+{
+    jassert (boardGame != nullptr);
+
+    juce::String tooltip = TRANS ("Board Games Engine");
+
+    tooltip += juce::newLine;
+
+    tooltip += TRANS ("Score") + ": ";
+    tooltip += juce::String (boardGame->getScore (true)) + " - " + juce::String (boardGame->getScore (false));
+
+    systemTrayIconComponent.setIconTooltip (tooltip);
 }
 
 //==============================================================================
@@ -603,4 +637,14 @@ void MainComponent::buttonClicked (juce::Button* const button)
             break;
         };
     }
+}
+
+void MainComponent::attemptedTileStateChange (const int, const bool)
+{
+    updateTrayIconTooltip();
+}
+
+void MainComponent::playerChanged (const bool)
+{
+    updateTrayIconTooltip();
 }
