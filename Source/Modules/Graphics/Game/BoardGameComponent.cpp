@@ -119,8 +119,8 @@ void BoardGameComponent::attemptedTileStateChange (const int, const bool wasSucc
 
         aw.addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey), juce::KeyPress (juce::KeyPress::escapeKey));
 
-        if (aw.runModalLoop() == 1)
-            reset();
+        aw.runModalLoop(); //Just run the modal loop and no matter the result, reset the game.
+        reset();
     }
 }
 
