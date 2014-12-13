@@ -412,7 +412,7 @@ static const unsigned char internalTemp1[] =
     0,74,0,61,0,78,0,78,0,62,0,82,0,85,0,63,0,96,0,96,0,67,0,0
 };
 
-const char* norwester_otforwester_otf = (const char*) internalTemp1;
+const char* norwester_otf = (const char*) internalTemp1;
 
 //==============================================================================
 static const unsigned char internalTemp2[] =
@@ -6754,6 +6754,6 @@ static const unsigned char internalTemp2[] =
     0,30,0,1,108,97,116,110,0,8,0,4,0,0,0,0,255,255,0,0,0,0,0,0,0,0
 };
 
-const char* droidsans_ttfroidSans_ttf = (const char*) internalTemp2;
+const char* droidsans_ttf = (const char*) internalTemp2;
 
 }

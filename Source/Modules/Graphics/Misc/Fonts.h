@@ -35,11 +35,11 @@
 */
 namespace Fonts
 {
-    extern const char*  norwester_otforwester_otf;
-    static const int    norwester_otforwester_otf_Size = 11392;
+    extern const char*  norwester_otf;
+    static const int    norwester_otf_Size = 11392;
 
-    extern const char*  droidsans_ttfroidSans_ttf;
-    static const int    droidsans_ttfroidSans_ttf_Size = 190044;
+    extern const char*  droidsans_ttf;
+    static const int    droidsans_ttf_Size = 190044;
 }
 
 #endif //BGE_FONTS_H

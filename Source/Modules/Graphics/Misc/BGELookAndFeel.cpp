@@ -40,11 +40,11 @@ BGELookAndFeel::~BGELookAndFeel()
 //==============================================================================
 void BGELookAndFeel::loadAndSetTypefaces()
 {
-    norwester = juce::Typeface::createSystemTypefaceFor (Fonts::norwester_otforwester_otf,
-                                                         Fonts::norwester_otforwester_otf_Size);
+    norwester = juce::Typeface::createSystemTypefaceFor (Fonts::norwester_otf,
+                                                         Fonts::norwester_otf_Size);
 
-    droidSans = juce::Typeface::createSystemTypefaceFor (Fonts::droidsans_ttfroidSans_ttf,
-                                                         Fonts::droidsans_ttfroidSans_ttf_Size);
+    droidSans = juce::Typeface::createSystemTypefaceFor (Fonts::droidsans_ttf,
+                                                         Fonts::droidsans_ttf_Size);
 
     setDefaultSansSerifTypefaceName ("Droid Sans");
 }
@@ -101,4 +101,16 @@ void BGELookAndFeel::drawReversiToken (juce::Graphics& g,
         g.setColour (juce::Colours::white.withAlpha (0.35f));
         g.fillRoundedRectangle (area.toFloat(), juce::float_Pi);
     }
+}
+
+//==============================================================================
+juce::Typeface::Ptr BGELookAndFeel::getTypefaceForFont (const juce::Font& f)
+{
+    if (f.getTypefaceName() == juce::Font::getDefaultSansSerifFontName())
+        return droidSans;
+
+    if (f.getTypefaceName().containsIgnoreCase ("norwester"))
+        return norwester;
+
+    return juce::LookAndFeel_V3::getTypefaceForFont (f);
 }

@@ -28,17 +28,14 @@
 #ifndef BGE_LOOK_AND_FEEL_H
 #define BGE_LOOK_AND_FEEL_H
 
-/**
-
-*/
 class BGELookAndFeel : public juce::LookAndFeel_V3
 {
 public:
-    /** Constructor */
     BGELookAndFeel();
-
-    /** Destructor */
     ~BGELookAndFeel();
+
+    //==============================================================================
+    juce::Typeface::Ptr getTypefaceForFont (const juce::Font&) override;
 
     //==============================================================================
     static void drawReversiToken (juce::Graphics& g,
