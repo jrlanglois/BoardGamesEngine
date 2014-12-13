@@ -473,6 +473,7 @@ void MainComponent::changeGame (BoardGame* const newBoardGame)
         boardGame = newBoardGame;
         initialisBoardGameComponent();
         resized();
+        repaint();
     }
 }
 
