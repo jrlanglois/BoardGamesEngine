@@ -66,8 +66,8 @@ void BGELookAndFeel::drawReversiToken (juce::Graphics& g,
                                     ? juce::Colours::black
                                     : juce::Colours::white;
 
-        if (isButtonDown) baseColour = baseColour.withMultipliedAlpha (0.5f);
-        if (isMoveHint) baseColour = baseColour.withMultipliedAlpha (0.35f);
+        if (isMoveHint) baseColour = baseColour.withAlpha (0.15f);
+        if (isButtonDown) baseColour = baseColour.withAlpha (0.5f);
 
         const juce::Colour startColour = isFirstPlayer
                                             ? baseColour.brighter()
@@ -98,7 +98,7 @@ void BGELookAndFeel::drawReversiToken (juce::Graphics& g,
 
     if (isMouseOver)
     {
-        g.setColour (juce::Colours::white.withAlpha (0.5f));
+        g.setColour (juce::Colours::white.withAlpha (0.35f));
         g.fillRoundedRectangle (area.toFloat(), juce::float_Pi);
     }
 }
