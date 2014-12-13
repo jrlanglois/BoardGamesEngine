@@ -29,6 +29,7 @@
 BoardGameComponent::PlayerComponent::PlayerComponent (BoardGame& bg, const bool firstPlayer) :
     PlayerView (bg, firstPlayer)
 {
+    setOpaque (true);
 }
 
 //==============================================================================
@@ -57,7 +58,9 @@ BoardGameComponent::~BoardGameComponent()
 void BoardGameComponent::reset()
 {
     BoardGameView::reset();
+    tileBoardComponent->reset();
     resized();
+    repaint();
 }
 
 void BoardGameComponent::initialise()

@@ -460,7 +460,7 @@ void MainComponent::initialisBoardGameComponent()
 
         for (int i = toolbar->getNumItems(); --i >= 0;)
         {
-            juce::ToolbarItemComponent* c = toolbar->getItemComponent (i);
+            juce::ToolbarItemComponent* const c = toolbar->getItemComponent (i);
 
             if (c->getItemId() == ToolbarItemFactory::showHints)
                 showingMoveHints = c->getToggleState();
@@ -493,7 +493,6 @@ void MainComponent::changeGame (BoardGame* const newBoardGame)
         boardGame = newBoardGame;
         initialisBoardGameComponent();
         resized();
-        repaint();
     }
 }
 
@@ -504,7 +503,6 @@ void MainComponent::updateTrayIconTooltip()
     juce::String tooltip = TRANS ("Board Games Engine");
 
     tooltip += juce::newLine;
-
     tooltip += TRANS ("Score") + ": ";
     tooltip += juce::String (boardGame->getScore (true)) + " - " + juce::String (boardGame->getScore (false));
 
@@ -514,12 +512,14 @@ void MainComponent::updateTrayIconTooltip()
 //==============================================================================
 void MainComponent::resized()
 {
-    toolbar->setBounds (0, 0, getWidth(), buttonHeight);
+    if (toolbar != nullptr)
+        toolbar->setBounds (0, 0, getWidth(), buttonHeight);
 
-    boardGameComponent->setBounds (margin,
-                                   margin + buttonHeight,
-                                   getWidth() - (margin * 2),
-                                   getHeight() - (margin * 2) - buttonHeight);
+    if (boardGameComponent != nullptr)
+        boardGameComponent->setBounds (margin,
+                                       margin + buttonHeight,
+                                       getWidth() - (margin * 2),
+                                       getHeight() - (margin * 2) - buttonHeight);
 }
 
 void MainComponent::changeListenerCallback (juce::ChangeBroadcaster* const source)

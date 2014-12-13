@@ -51,6 +51,9 @@ public:
                         bool showTileIndices);
 
     //==============================================================================
+    void reset();
+
+    //==============================================================================
     void setShowingMoveHints (bool shouldShowHints);
     void setShowingTileIndices (bool shouldShowTileIndices);
 

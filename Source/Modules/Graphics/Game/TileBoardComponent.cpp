@@ -69,6 +69,15 @@ TileBoardComponent::TileBoardComponent (BoardGame& bg,
 }
 
 //==============================================================================
+void TileBoardComponent::reset()
+{
+    if (isShowingMoveHints())
+        showMoveHints();
+    else
+        hideMoveHints();
+}
+
+//==============================================================================
 void TileBoardComponent::showMoveHints (const std::vector<int>& hintLocations)
 {
     for (int i = 0; i < tiles.size(); ++i)
