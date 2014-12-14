@@ -58,37 +58,38 @@ private:
     //==============================================================================
     /** Base class for bounds checking */
     class Comparator;
-    /** Subclass that checks if an index given is in the specified column */
-    class ColumnComparator;
-    /** Subclass that checks if an index given is in the specified row */
-    class RowComparator;
+    /** Base class for bounds checking */
+    class SingleDirectionComparator;
+    /** Comparator that checks if a given index given is in the specified column */
+    class SameColumnComparator;
+    /** Comparator that checks if a given index is in the specified row */
+    class SameRowComparator;
+    /** Comparator that checks if a given index is not in the specified column */
+    class NotSameRowAndColumnComparator;
 
     //==============================================================================
     int findNextIndex (int sourceIndex,
                        int stepAmount,
                        int totalNumTiles,
-                       const Comparator* comparator = nullptr) const;
+                       const Comparator& comparator) const;
 
-    bool isPossibleMove (bool forFirstPlayer,
-                         int sourceIndex,
-                         int stepAmount,
-                         int totalNumTiles,
-                         const Comparator* comparator = nullptr) const;
-
-    //==============================================================================
     void findMoveSequence (std::vector<int>& sequence,
                            bool forFirstPlayer,
                            int sourceIndex,
                            int stepAmount,
                            int totalNumTiles,
-                           const Comparator* comparator = nullptr) const;
+                           const Comparator& comparator) const;
 
     void appendMoveSequence (std::vector<int>& sequence,
                              bool forFirstPlayer,
                              int sourceIndex,
                              int stepAmount,
                              int totalNumTiles,
-                             const Comparator* comparator = nullptr) const;
+                             const Comparator& comparator) const;
+
+    void generateMoveSequence (std::vector<int>& sequences,
+                               bool forFirstPlayer,
+                               int sourceIndex) const;
 
     //==============================================================================
     ReversiBoardGame() BGE_DELETED_FUNCTION;
