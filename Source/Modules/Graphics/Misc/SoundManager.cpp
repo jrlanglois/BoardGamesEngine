@@ -134,7 +134,7 @@ void SoundManager::setupSoundLibrary()
 {
     const juce::String appLoc (PathHelpers::getMediaFolder());
     music = new Sound (audioFormatManager, juce::File (appLoc + "Music/bensound-theelevatorbossanova.mp3"), true);
-    music->getTransport()->setGain (0.75f);
+    music->getTransport()->setGain (0.6f);
     mixerAudioSource.addInputSource (music->getTransport(), false);
 
     addSound (appLoc, "SFX/Tile_Change.wav");
