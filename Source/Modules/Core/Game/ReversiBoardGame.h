@@ -65,7 +65,7 @@ private:
     /** Comparator that checks if a given index is in the specified row */
     class SameRowComparator;
     /** Comparator that checks if a given index is not in the specified column */
-    class NotSameRowAndColumnComparator;
+    class DiagonalComparator;
 
     //==============================================================================
     int findNextIndex (int sourceIndex,
@@ -78,14 +78,14 @@ private:
                            int sourceIndex,
                            int stepAmount,
                            int totalNumTiles,
-                           const Comparator& comparator) const;
+                           Comparator& comparator) const;
 
     void appendMoveSequence (std::vector<int>& sequence,
                              bool forFirstPlayer,
                              int sourceIndex,
                              int stepAmount,
                              int totalNumTiles,
-                             const Comparator& comparator) const;
+                             Comparator& comparator) const;
 
     void generateMoveSequence (std::vector<int>& sequences,
                                bool forFirstPlayer,
