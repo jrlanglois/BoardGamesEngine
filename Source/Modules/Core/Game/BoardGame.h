@@ -91,9 +91,8 @@ public:
     /** Find out if the game is over.
 
         The default implementation of this method simply checks if all of the
-        moves possible are exhausted for each player.
-
-        Your subclass may override this method if it requires a better set of conditions.
+        moves possible are exhausted for each player. Your subclass may override
+        this method if it requires a different set of conditions.
 
         @returns True if the game is over, false otherwise.
     */

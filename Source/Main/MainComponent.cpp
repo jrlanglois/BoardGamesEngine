@@ -275,6 +275,7 @@ public:
             updateText();
         }
 
+        CustomToolbarButton() JUCE_DELETED_FUNCTION;
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CustomToolbarButton)
     };
 
@@ -403,6 +404,7 @@ private:
     }
 
     //==============================================================================
+    ToolbarItemFactory() JUCE_DELETED_FUNCTION;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ToolbarItemFactory)
 };
 

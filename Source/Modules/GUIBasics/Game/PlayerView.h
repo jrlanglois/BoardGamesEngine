@@ -60,6 +60,7 @@ protected:
 
 private:
     //==============================================================================
+    PlayerView() BGE_DELETED_FUNCTION;
     BGE_DECLARE_NON_COPYABLE (PlayerView)
 };
 

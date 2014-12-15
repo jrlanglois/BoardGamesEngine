@@ -37,9 +37,9 @@ struct Tile
     /** Default states a tile can have */
     enum State
     {
-        blank       = 0,        //< @note Reserve this value for having no states present at all in this tile
-        playerOne   = 1 << 1,   //< A bit to represent that this tile contains the first player
-        playerTwo   = 1 << 2    //< A bit to represent that this tile contains the second player
+        blank       = 0,        //< A reserved value for having no states present at all in a tile
+        playerOne   = 1 << 1,   //< A bit to represent that a tile contains the first player
+        playerTwo   = 1 << 2    //< A bit to represent that a tile contains the second player
     };
 
     /** Constructor */
