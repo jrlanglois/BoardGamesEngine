@@ -77,7 +77,7 @@ void BGESystemTrayIconComponent::mouseDown (const juce::MouseEvent& e)
 
         switch (menu.show())
         {
-            case about: juce::Process::openDocument ("http://www.jrlanglois.com/CV/jrlanglois-cv-2014.pdf", juce::String::empty); break;
+            case about: juce::Process::openDocument ("http://www.jrlanglois.com/CV/jrlanglois-cv.pdf", juce::String::empty); break;
             case exit:  juce::JUCEApplication::getInstance()->quit(); break;
 
             default: break;

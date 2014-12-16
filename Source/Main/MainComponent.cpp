@@ -561,7 +561,7 @@ void MainComponent::buttonClicked (juce::Button* const button)
             break;
 
             case ToolbarItemFactory::about:
-                juce::Process::openDocument ("http://www.jrlanglois.com/CV/jrlanglois-cv-2014.pdf", juce::String::empty);
+                juce::Process::openDocument ("http://www.jrlanglois.com/CV/jrlanglois-cv.pdf", juce::String::empty);
             break;
 
             case ToolbarItemFactory::changeGame:
