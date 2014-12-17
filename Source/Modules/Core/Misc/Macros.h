@@ -133,8 +133,24 @@ namespace bge //Back into bge namespace
 #endif
 
 //==============================================================================
-#define BGE_DECLARE_NON_COPYABLE(className) \
-    className (const className&);\
-    className& operator= (const className&);
+/** This is a shorthand macro for declaring stubs for a class' copy constructor and operator=. */
+#define BGE_DECLARE_NON_COPYABLE(ClassName) \
+    ClassName (const ClassName&) BGE_DELETED_FUNCTION;\
+    ClassName& operator= (const ClassName&) BGE_DELETED_FUNCTION;
+
+/** This macro can be added to class definitions to disable the use of new/delete,
+    thus preventing allocating of the said object on the heap.
+*/
+#define BGE_PREVENT_HEAP_ALLOCATION \
+    static void* operator new (size_t) BGE_DELETED_FUNCTION; \
+    static void operator delete (void*) BGE_DELETED_FUNCTION;
+
+/** This macro can be added to class/structs to design an object whose
+    sole purpose is to contain static functions.
+*/
+#define BGE_DECLARE_UTILITY_CLASS(ClassName) \
+    ClassName() BGE_DELETED_FUNCTION; \
+    BGE_DECLARE_NON_COPYABLE; \
+    BGE_PREVENT_HEAP_ALLOCATION;
 
 #endif //BGE_CORE_MACROS
