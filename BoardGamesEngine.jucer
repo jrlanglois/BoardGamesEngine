@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="aFrj8F" name="BoardGamesEngine" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.jrlanglois.BoardGamesEngine" includeBinaryInAppConfig="0"
-              jucerVersion="3.1.0" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
+              jucerVersion="3.1.1" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
               companyEmail="joel.r.langlois@gmail.com" maxBinaryFileSize=""
               defines="BGE_INCLUDE_JUCE_BASED_MODULES=1">
   <MAINGROUP id="NqTpeL" name="BoardGamesEngine">
@@ -38,106 +38,106 @@
       </GROUP>
     </GROUP>
     <GROUP id="{D364E44D-64A4-9446-30B7-D157FB49E069}" name="Modules">
-      <GROUP id="{F38017BA-B22B-FE84-F978-4C83EF32502F}" name="Core">
-        <GROUP id="{0A6130AE-FFB6-7B6D-F06B-63B3AA04F27C}" name="Game">
-          <FILE id="lbYe55" name="BoardGame.cpp" compile="0" resource="0" file="Source/Modules/Core/Game/BoardGame.cpp"/>
-          <FILE id="I9ewSa" name="BoardGame.h" compile="0" resource="0" file="Source/Modules/Core/Game/BoardGame.h"/>
-          <FILE id="iaHeXT" name="ReversiBoardGame.cpp" compile="0" resource="0"
+      <GROUP id="{ED82FD22-5CA4-3F94-F61F-0DC35F534535}" name="Core">
+        <GROUP id="{28ECE919-FE2F-1D9D-AEF6-3FE69FD8605A}" name="Game">
+          <FILE id="xvYsa6" name="BoardGame.cpp" compile="0" resource="0" file="Source/Modules/Core/Game/BoardGame.cpp"/>
+          <FILE id="Db8fKf" name="BoardGame.h" compile="0" resource="0" file="Source/Modules/Core/Game/BoardGame.h"/>
+          <FILE id="XktAgO" name="ReversiBoardGame.cpp" compile="0" resource="0"
                 file="Source/Modules/Core/Game/ReversiBoardGame.cpp"/>
-          <FILE id="jpz1WT" name="ReversiBoardGame.h" compile="0" resource="0"
+          <FILE id="FpcFC0" name="ReversiBoardGame.h" compile="0" resource="0"
                 file="Source/Modules/Core/Game/ReversiBoardGame.h"/>
-          <FILE id="hsmbNZ" name="ReversiTileBoard.cpp" compile="0" resource="0"
+          <FILE id="Wk1ayy" name="ReversiTileBoard.cpp" compile="0" resource="0"
                 file="Source/Modules/Core/Game/ReversiTileBoard.cpp"/>
-          <FILE id="gFYszX" name="ReversiTileBoard.h" compile="0" resource="0"
+          <FILE id="TBSCfZ" name="ReversiTileBoard.h" compile="0" resource="0"
                 file="Source/Modules/Core/Game/ReversiTileBoard.h"/>
-          <FILE id="h93D7p" name="Tile.h" compile="0" resource="0" file="Source/Modules/Core/Game/Tile.h"/>
-          <FILE id="cPJT61" name="TileBoard.cpp" compile="0" resource="0" file="Source/Modules/Core/Game/TileBoard.cpp"/>
-          <FILE id="NykO6b" name="TileBoard.h" compile="0" resource="0" file="Source/Modules/Core/Game/TileBoard.h"/>
+          <FILE id="djNyjn" name="Tile.h" compile="0" resource="0" file="Source/Modules/Core/Game/Tile.h"/>
+          <FILE id="VOjtWm" name="TileBoard.cpp" compile="0" resource="0" file="Source/Modules/Core/Game/TileBoard.cpp"/>
+          <FILE id="lM5SIo" name="TileBoard.h" compile="0" resource="0" file="Source/Modules/Core/Game/TileBoard.h"/>
         </GROUP>
-        <GROUP id="{747C8DC3-3C72-A95F-CCE1-CBB1737CAFE6}" name="Misc">
-          <FILE id="HAwzhM" name="CompilerSupport.h" compile="0" resource="0"
+        <GROUP id="{E9D909CF-34F2-4E10-D6BF-140F46B55E59}" name="Misc">
+          <FILE id="uoz5eG" name="CompilerSupport.h" compile="0" resource="0"
                 file="Source/Modules/Core/Misc/CompilerSupport.h"/>
-          <FILE id="o6SbjG" name="Macros.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Macros.h"/>
-          <FILE id="N4Q9DY" name="Math.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Math.h"/>
-          <FILE id="cJrphm" name="Misc.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Misc.h"/>
+          <FILE id="gW4sEe" name="Macros.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Macros.h"/>
+          <FILE id="jasKVJ" name="Math.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Math.h"/>
+          <FILE id="nuwAq5" name="Misc.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Misc.h"/>
         </GROUP>
-        <FILE id="T8W7F1" name="BoardGamesEngine_Core.cpp" compile="0" resource="0"
+        <FILE id="qw0M1q" name="BoardGamesEngine_Core.cpp" compile="0" resource="0"
               file="Source/Modules/Core/BoardGamesEngine_Core.cpp"/>
-        <FILE id="z1cUKL" name="BoardGamesEngine_Core.h" compile="0" resource="0"
+        <FILE id="t96RUI" name="BoardGamesEngine_Core.h" compile="0" resource="0"
               file="Source/Modules/Core/BoardGamesEngine_Core.h"/>
-        <FILE id="fJ2gEY" name="juce_module_info" compile="0" resource="0"
+        <FILE id="IQwtZE" name="juce_module_info" compile="0" resource="0"
               file="Source/Modules/Core/juce_module_info"/>
       </GROUP>
-      <GROUP id="{25B6764F-419D-07DE-67A7-DB6DB868B743}" name="Graphics">
-        <GROUP id="{E51F413B-E364-1855-F7D6-C062A8CCB906}" name="Game">
-          <FILE id="QrxswH" name="BoardGameComponent.cpp" compile="0" resource="0"
+      <GROUP id="{27ECD96C-386F-C84F-C1DD-92B62C8321C1}" name="Graphics">
+        <GROUP id="{17FB917F-34BD-8EA2-F891-A53F3128DA8D}" name="Game">
+          <FILE id="DpdlmB" name="BoardGameComponent.cpp" compile="0" resource="0"
                 file="Source/Modules/Graphics/Game/BoardGameComponent.cpp"/>
-          <FILE id="L2xY8z" name="BoardGameComponent.h" compile="0" resource="0"
+          <FILE id="S8sRz8" name="BoardGameComponent.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Game/BoardGameComponent.h"/>
-          <FILE id="onrJfx" name="ReversiBoardGameComponent.cpp" compile="0"
+          <FILE id="LyF6Nx" name="ReversiBoardGameComponent.cpp" compile="0"
                 resource="0" file="Source/Modules/Graphics/Game/ReversiBoardGameComponent.cpp"/>
-          <FILE id="QzVVNF" name="ReversiBoardGameComponent.h" compile="0" resource="0"
+          <FILE id="ia71SV" name="ReversiBoardGameComponent.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Game/ReversiBoardGameComponent.h"/>
-          <FILE id="kP8l7w" name="ReversiTileBoardComponent.cpp" compile="0"
+          <FILE id="zkASwY" name="ReversiTileBoardComponent.cpp" compile="0"
                 resource="0" file="Source/Modules/Graphics/Game/ReversiTileBoardComponent.cpp"/>
-          <FILE id="vFjauX" name="ReversiTileBoardComponent.h" compile="0" resource="0"
+          <FILE id="P55mot" name="ReversiTileBoardComponent.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Game/ReversiTileBoardComponent.h"/>
-          <FILE id="QR5MGC" name="TileBoardComponent.cpp" compile="0" resource="0"
+          <FILE id="L4gpG8" name="TileBoardComponent.cpp" compile="0" resource="0"
                 file="Source/Modules/Graphics/Game/TileBoardComponent.cpp"/>
-          <FILE id="vWocCX" name="TileBoardComponent.h" compile="0" resource="0"
+          <FILE id="mmg10A" name="TileBoardComponent.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Game/TileBoardComponent.h"/>
         </GROUP>
-        <GROUP id="{AC56572D-344B-B71D-16ED-BD16835E4FFE}" name="Misc">
-          <FILE id="Qda9Qh" name="BGELookAndFeel.cpp" compile="0" resource="0"
+        <GROUP id="{DD6A3FA4-537A-613D-9BE0-8B3E86153109}" name="Misc">
+          <FILE id="QFH3Ow" name="BGELookAndFeel.cpp" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/BGELookAndFeel.cpp"/>
-          <FILE id="t0mZY1" name="BGELookAndFeel.h" compile="0" resource="0"
+          <FILE id="XecjEy" name="BGELookAndFeel.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/BGELookAndFeel.h"/>
-          <FILE id="lAK97T" name="BGESystemTrayIconComponent.cpp" compile="0"
+          <FILE id="LTg3ji" name="BGESystemTrayIconComponent.cpp" compile="0"
                 resource="0" file="Source/Modules/Graphics/Misc/BGESystemTrayIconComponent.cpp"/>
-          <FILE id="QVUmsl" name="BGESystemTrayIconComponent.h" compile="0" resource="0"
+          <FILE id="ZFFHzy" name="BGESystemTrayIconComponent.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/BGESystemTrayIconComponent.h"/>
-          <FILE id="JOtsQh" name="Fonts.cpp" compile="0" resource="0" file="Source/Modules/Graphics/Misc/Fonts.cpp"/>
-          <FILE id="Buyxop" name="Fonts.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/Fonts.h"/>
-          <FILE id="hMmgCB" name="LocalisationManager.cpp" compile="0" resource="0"
+          <FILE id="l7l2sf" name="Fonts.cpp" compile="0" resource="0" file="Source/Modules/Graphics/Misc/Fonts.cpp"/>
+          <FILE id="HBSeqg" name="Fonts.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/Fonts.h"/>
+          <FILE id="y9d4XV" name="LocalisationManager.cpp" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/LocalisationManager.cpp"/>
-          <FILE id="Q75dCM" name="LocalisationManager.h" compile="0" resource="0"
+          <FILE id="X74VVC" name="LocalisationManager.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/LocalisationManager.h"/>
-          <FILE id="xMo87Z" name="SettingsWindowComponent.cpp" compile="0" resource="0"
+          <FILE id="cyzXYQ" name="SettingsWindowComponent.cpp" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/SettingsWindowComponent.cpp"/>
-          <FILE id="cK17l5" name="SettingsWindowComponent.h" compile="0" resource="0"
+          <FILE id="j46R0z" name="SettingsWindowComponent.h" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/SettingsWindowComponent.h"/>
-          <FILE id="d7yxzl" name="SoundManager.cpp" compile="0" resource="0"
+          <FILE id="b4mTCc" name="SoundManager.cpp" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/SoundManager.cpp"/>
-          <FILE id="jfbNb3" name="SoundManager.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/SoundManager.h"/>
-          <FILE id="I8g0s5" name="ToolbarIcons.cpp" compile="0" resource="0"
+          <FILE id="lviQS3" name="SoundManager.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/SoundManager.h"/>
+          <FILE id="zub2HS" name="ToolbarIcons.cpp" compile="0" resource="0"
                 file="Source/Modules/Graphics/Misc/ToolbarIcons.cpp"/>
-          <FILE id="SewjpY" name="ToolbarIcons.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/ToolbarIcons.h"/>
+          <FILE id="v5axKV" name="ToolbarIcons.h" compile="0" resource="0" file="Source/Modules/Graphics/Misc/ToolbarIcons.h"/>
         </GROUP>
-        <FILE id="DvZy8o" name="BoardGamesEngine_Graphics.cpp" compile="0"
+        <FILE id="l4qW5R" name="BoardGamesEngine_Graphics.cpp" compile="0"
               resource="0" file="Source/Modules/Graphics/BoardGamesEngine_Graphics.cpp"/>
-        <FILE id="aCQi9y" name="BoardGamesEngine_Graphics.h" compile="0" resource="0"
+        <FILE id="YnS2X5" name="BoardGamesEngine_Graphics.h" compile="0" resource="0"
               file="Source/Modules/Graphics/BoardGamesEngine_Graphics.h"/>
-        <FILE id="KYdhMB" name="juce_module_info" compile="0" resource="0"
+        <FILE id="lelDTV" name="juce_module_info" compile="0" resource="0"
               file="Source/Modules/Graphics/juce_module_info"/>
       </GROUP>
-      <GROUP id="{542D5C6B-BA6A-AB1B-568D-F4DCB7B11F26}" name="GUIBasics">
-        <GROUP id="{10308BC7-76C0-4761-18C6-78987C427631}" name="Game">
-          <FILE id="N3WaPA" name="BoardGameView.cpp" compile="0" resource="0"
+      <GROUP id="{7E6F9056-2DB5-A946-D361-9A3E50936EF7}" name="GUIBasics">
+        <GROUP id="{4C12EE62-5F43-7511-4A00-4FBB29F340F0}" name="Game">
+          <FILE id="iSw6bT" name="BoardGameView.cpp" compile="0" resource="0"
                 file="Source/Modules/GUIBasics/Game/BoardGameView.cpp"/>
-          <FILE id="r6J7L4" name="BoardGameView.h" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/BoardGameView.h"/>
-          <FILE id="oO8ilh" name="PlayerView.cpp" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/PlayerView.cpp"/>
-          <FILE id="EXkaCA" name="PlayerView.h" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/PlayerView.h"/>
+          <FILE id="B6MF1H" name="BoardGameView.h" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/BoardGameView.h"/>
+          <FILE id="bFxgPc" name="PlayerView.cpp" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/PlayerView.cpp"/>
+          <FILE id="DX3QSo" name="PlayerView.h" compile="0" resource="0" file="Source/Modules/GUIBasics/Game/PlayerView.h"/>
         </GROUP>
-        <FILE id="ZjmMFv" name="BoardGamesEngine_GUIBasics.cpp" compile="0"
+        <FILE id="LctoQY" name="BoardGamesEngine_GUIBasics.cpp" compile="0"
               resource="0" file="Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.cpp"/>
-        <FILE id="W4aajN" name="BoardGamesEngine_GUIBasics.h" compile="0" resource="0"
+        <FILE id="fN9jX3" name="BoardGamesEngine_GUIBasics.h" compile="0" resource="0"
               file="Source/Modules/GUIBasics/BoardGamesEngine_GUIBasics.h"/>
-        <FILE id="U78NNp" name="juce_module_info" compile="0" resource="0"
+        <FILE id="S3ODoM" name="juce_module_info" compile="0" resource="0"
               file="Source/Modules/GUIBasics/juce_module_info"/>
       </GROUP>
-      <FILE id="X5a68p" name="BoardGamesEngine_Master.cpp" compile="1" resource="0"
+      <FILE id="IRu4MQ" name="BoardGamesEngine_Master.cpp" compile="1" resource="0"
             file="Source/Modules/BoardGamesEngine_Master.cpp"/>
-      <FILE id="p8awC6" name="BoardGamesEngine_Master.h" compile="0" resource="0"
+      <FILE id="NtYuAY" name="BoardGamesEngine_Master.h" compile="0" resource="0"
             file="Source/Modules/BoardGamesEngine_Master.h"/>
     </GROUP>
   </MAINGROUP>
