@@ -115,9 +115,9 @@ public:
                         int numColumns,
                         int numRows) noexcept :
         sourceIndex (sourceIndex_),
-        lastIndex (sourceIndex_),
         nc (numColumns),
         nr (numRows),
+        lastIndex (sourceIndex_),
         incColumns (false),
         incRows (true)
     {
@@ -133,23 +133,8 @@ public:
 
     bool isValid (int nextIndex) const noexcept override
     {
-        bool valid = false;
-
-        if (incColumns)
-            valid |= findColumnOfTile (lastIndex, nc)
-                     > findColumnOfTile (nextIndex, nc);
-        else
-            valid |= findColumnOfTile (lastIndex, nc)
-                     < findColumnOfTile (nextIndex, nc);
-
-        if (incRows)
-            valid |= findRowOfTile (lastIndex, nr)
-                     > findRowOfTile (nextIndex, nr);
-        else
-            valid |= findRowOfTile (lastIndex, nr)
-                     < findRowOfTile (nextIndex, nr);
-
-        return valid;
+        return isValid (lastIndex, nextIndex, nc, incColumns, &findColumnOfTile)
+            && isValid (lastIndex, nextIndex, nr, incRows, &findRowOfTile);
     }
 
     void tick (int step)
@@ -163,6 +148,24 @@ private:
     int lastIndex;
     bool incColumns, incRows;
 
+    typedef int (*findForTileFunction)(int, int);
+    static bool isValid (int lastIndex, int nextIndex, int range, bool checkIfLarger, findForTileFunction findForTile) noexcept
+    {
+        rassert (findForTile != nullptr);
+        const int last = findForTile (lastIndex, range);
+        const int next = findForTile (nextIndex, range);
+
+        if (last != next)
+        {
+            if (checkIfLarger)
+                return next > last;
+            else
+                return next < last;
+        }
+
+        return false;
+    }
+
     DiagonalComparator() BGE_DELETED_FUNCTION;
     BGE_DECLARE_NON_COPYABLE (DiagonalComparator)
 };
@@ -171,7 +174,7 @@ private:
 int ReversiBoardGame::findNextIndex (const int sourceIndex,
                                      const int stepAmount,
                                      const int totalNumTiles,
-                                     const Comparator& comparator) const
+                                     const Comparator& comparator)
 {
     const int nextIndex = sourceIndex + stepAmount;
 
@@ -183,13 +186,14 @@ int ReversiBoardGame::findNextIndex (const int sourceIndex,
 }
 
 void ReversiBoardGame::findMoveSequence (std::vector<int>& sequence,
+                                         TileBoard& tileBoard,
                                          const bool forFirstPlayer,
                                          const int sourceIndex,
                                          const int stepAmount,
                                          const int totalNumTiles,
-                                         Comparator& comparator) const
+                                         Comparator& comparator)
 {
-    Tile nextTile (tileBoard->getTile (sourceIndex));
+    Tile nextTile (tileBoard.getTile (sourceIndex));
     if (! nextTile.isBlank())
         return; //This tile cannot be played on directly since it already contains a player
 
@@ -212,7 +216,7 @@ void ReversiBoardGame::findMoveSequence (std::vector<int>& sequence,
             diagonalComparator->tick (stepAmount);
 
         const Tile previousTile (nextTile);
-        nextTile = tileBoard->getTile (nextIndex);
+        nextTile = tileBoard.getTile (nextIndex);
 
         if (nextTile.isBlank())
         {
@@ -243,51 +247,86 @@ void ReversiBoardGame::findMoveSequence (std::vector<int>& sequence,
 }
 
 void ReversiBoardGame::appendMoveSequence (std::vector<int>& destination,
+                                           TileBoard& tileBoard,
                                            const bool forFirstPlayer,
                                            const int sourceIndex,
                                            const int stepAmount,
                                            const int totalNumTiles,
-                                           Comparator& comparator) const
+                                           Comparator& comparator)
 {
     std::vector<int> sequence;
-    findMoveSequence (sequence, forFirstPlayer, sourceIndex,
+    findMoveSequence (sequence, tileBoard, forFirstPlayer, sourceIndex,
                       stepAmount, totalNumTiles, comparator);
 
     if (sequence.size() > 0)
         destination.insert (destination.end(), sequence.begin(), sequence.end());
 }
 
-void ReversiBoardGame::generateMoveSequence (std::vector<int>& sequence,
-                                             const bool forFirstPlayer,
-                                             const int index) const
+//==============================================================================
+void ReversiBoardGame::searchVerticalMoveSequences (std::vector<int>& sequence,
+                                                    TileBoard& tileBoard,
+                                                    const bool forFirstPlayer,
+                                                    const int index,
+                                                    const int numColumns,
+                                                    const int total)
 {
-    const int total         = tileBoard->getTotalNumTiles();
-    const int numColumns    = tileBoard->getNumberOfColumns();
-    const int numRows       = tileBoard->getNumberOfRows();
-    const int sourceColumn  = findColumnOfTile (index, numColumns);
-    const int sourceRow     = findRowOfTile (index, numRows);
+    SameColumnComparator scc (findColumnOfTile (index, numColumns), numColumns);
+    appendMoveSequence (sequence, tileBoard, forFirstPlayer, index, -numColumns, total, scc);   //Upwards
+    appendMoveSequence (sequence, tileBoard, forFirstPlayer, index, numColumns, total, scc);    //Downwards
+}
 
-    SameColumnComparator scc (sourceColumn, numColumns);
-    SameRowComparator src (sourceRow, numRows);
+void ReversiBoardGame::searchHorizontalMoveSequences (std::vector<int>& sequence,
+                                                      TileBoard& tileBoard,
+                                                      const bool forFirstPlayer,
+                                                      const int index,
+                                                      const int numRows,
+                                                      const int total)
+{
+    SameRowComparator src (findRowOfTile (index, numRows), numRows);
+    appendMoveSequence (sequence, tileBoard, forFirstPlayer, index, -1, total, src);    //Leftwards
+    appendMoveSequence (sequence, tileBoard, forFirstPlayer, index, 1, total, src);     //Rightwards
+}
+
+void ReversiBoardGame::searchDiagonalMoveSequences (std::vector<int>& sequence,
+                                                    TileBoard& tileBoard,
+                                                    const bool forFirstPlayer,
+                                                    const int index,
+                                                    const int numColumns,
+                                                    const int numRows,
+                                                    const int total)
+{
     DiagonalComparator diag (index, numColumns, numRows);
 
-    //Search for all possible sequences of tiles, in all directions, that a player can overtake:
-    appendMoveSequence (sequence, forFirstPlayer, index, -numColumns, total, scc);          //Upwards
-    appendMoveSequence (sequence, forFirstPlayer, index, numColumns, total, scc);           //Downwards
-    appendMoveSequence (sequence, forFirstPlayer, index, -1, total, src);                   //Leftwards
-    appendMoveSequence (sequence, forFirstPlayer, index, 1, total, src);                    //Rightwards
+    //Up & leftwards:
+    diag.resetSources (false, false);
+    appendMoveSequence (sequence, tileBoard, forFirstPlayer, index, -numColumns - 1, total, diag);
 
+    //Up & rightwards:
+    diag.resetSources (true, false);
+    appendMoveSequence (sequence, tileBoard, forFirstPlayer, index, -numColumns + 1, total, diag);
+
+    //Down & leftwards:
     diag.resetSources (false, true);
-    appendMoveSequence (sequence, forFirstPlayer, index, -(numColumns + 1), total, diag);   //Up & leftwards
+    appendMoveSequence (sequence, tileBoard, forFirstPlayer, index, numColumns - 1, total, diag);
 
+    //Down & rightwards:
     diag.resetSources (true, true);
-    appendMoveSequence (sequence, forFirstPlayer, index, -(numColumns - 1), total, diag);   //Up & rightwards
+    appendMoveSequence (sequence, tileBoard, forFirstPlayer, index, numColumns + 1, total, diag);
+}
 
-    diag.resetSources (false, false);
-    appendMoveSequence (sequence, forFirstPlayer, index, numColumns - 1, total, diag);      //Down & leftwards
+void ReversiBoardGame::generateMoveSequence (std::vector<int>& sequence,
+                                             TileBoard& tileBoard,
+                                             const bool forFirstPlayer,
+                                             const int index)
+{
+    const int total         = tileBoard.getTotalNumTiles();
+    const int numColumns    = tileBoard.getNumberOfColumns();
+    const int numRows       = tileBoard.getNumberOfRows();
 
-    diag.resetSources (false, false);
-    appendMoveSequence (sequence, forFirstPlayer, index, numColumns + 1, total, diag);      //Down & rightwards
+    //Search for all possible sequences of tiles, in all directions, that a player can overtake:
+    searchVerticalMoveSequences (sequence, tileBoard, forFirstPlayer, index, numColumns, total);
+    searchHorizontalMoveSequences (sequence, tileBoard, forFirstPlayer, index, numRows, total);
+    searchDiagonalMoveSequences (sequence, tileBoard, forFirstPlayer, index, numColumns, numRows, total);
 
     //Sort the sequence, and remove duplicates:
     std::sort (sequence.begin(), sequence.end());
@@ -302,14 +341,14 @@ bool ReversiBoardGame::isPossibleMove (const bool forFirstPlayer,
         return false; //A tile that isn't blank already means that it cannot be directly changed
 
     std::vector<int> sequence;
-    generateMoveSequence (sequence, forFirstPlayer, index);
+    generateMoveSequence (sequence, *tileBoard, forFirstPlayer, index);
     return sequence.size() > 0;
 }
 
 void ReversiBoardGame::tileChanged (const int index, int state)
 {
     std::vector<int> sequence;
-    generateMoveSequence (sequence, isFirstPlayerTurn(), index);
+    generateMoveSequence (sequence, *tileBoard, isFirstPlayerTurn(), index);
 
     //Perform all the token flips in the sequence, if there are any tokens to flip:
     state = getCurrentPlayerAsTileState();

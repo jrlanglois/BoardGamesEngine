@@ -68,28 +68,54 @@ private:
     class DiagonalComparator;
 
     //==============================================================================
-    int findNextIndex (int sourceIndex,
-                       int stepAmount,
-                       int totalNumTiles,
-                       const Comparator& comparator) const;
+    static int findNextIndex (int sourceIndex,
+                              int stepAmount,
+                              int totalNumTiles,
+                              const Comparator& comparator);
 
-    void findMoveSequence (std::vector<int>& sequence,
+    static void findMoveSequence (std::vector<int>& sequence,
+                                    TileBoard& tileBoard,
                            bool forFirstPlayer,
                            int sourceIndex,
                            int stepAmount,
                            int totalNumTiles,
-                           Comparator& comparator) const;
+                           Comparator& comparator);
 
-    void appendMoveSequence (std::vector<int>& sequence,
-                             bool forFirstPlayer,
-                             int sourceIndex,
-                             int stepAmount,
-                             int totalNumTiles,
-                             Comparator& comparator) const;
+    static void appendMoveSequence (std::vector<int>& sequence,
+                                    TileBoard& tileBoard,
+                                    bool forFirstPlayer,
+                                    int sourceIndex,
+                                    int stepAmount,
+                                    int totalNumTiles,
+                                    Comparator& comparator);
 
-    void generateMoveSequence (std::vector<int>& sequences,
-                               bool forFirstPlayer,
-                               int sourceIndex) const;
+    //==============================================================================
+    static void searchVerticalMoveSequences (std::vector<int>& sequence,
+                                             TileBoard& tileBoard,
+                                             bool forFirstPlayer,
+                                             int index,
+                                             int numColumns,
+                                             int total);
+
+    static void searchHorizontalMoveSequences (std::vector<int>& sequence,
+                                               TileBoard& tileBoard,
+                                               bool forFirstPlayer,
+                                               int index,
+                                               int numRows,
+                                               int total);
+
+    static void searchDiagonalMoveSequences (std::vector<int>& sequence,
+                                             TileBoard& tileBoard,
+                                             bool forFirstPlayer,
+                                             int index,
+                                             int numColumns,
+                                             int numRows,
+                                             int total);
+
+    static void generateMoveSequence (std::vector<int>& sequences,
+                                      TileBoard& tileBoard,
+                                      bool forFirstPlayer,
+                                      int sourceIndex);
 
     //==============================================================================
     ReversiBoardGame() BGE_DELETED_FUNCTION;
