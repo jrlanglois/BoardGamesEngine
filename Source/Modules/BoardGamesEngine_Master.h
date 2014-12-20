@@ -47,6 +47,7 @@
     #include "Graphics/BoardGamesEngine_Graphics.h"
    #endif //BOARD_GAMES_ENGINE_GRAPHICS_H
 
+    #undef BGE_MODULE_AVAILABLE_GRAPHICS
     #define BGE_MODULE_AVAILABLE_GRAPHICS 1
 #endif
 
