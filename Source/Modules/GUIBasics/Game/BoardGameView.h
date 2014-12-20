@@ -103,7 +103,7 @@ protected:
     virtual PlayerView* createPlayerView (bool forFirstPlayer) = 0;
 
     /** Get the subclass' customised player view for the specified player. */
-    PlayerView* getPlayerView (bool forFirstPlayer);
+    PlayerView* getPlayerView (bool forFirstPlayer) const noexcept;
 
     //==============================================================================
     /** This is internally called to update the hints, if they are even showing. */

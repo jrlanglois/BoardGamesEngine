@@ -39,7 +39,7 @@ BoardGameView::~BoardGameView()
 }
 
 //==============================================================================
-PlayerView* BoardGameView::getPlayerView (const bool forFirstPlayer)
+PlayerView* BoardGameView::getPlayerView (const bool forFirstPlayer) const noexcept
 {
     return forFirstPlayer ? firstPlayerView.get()
                           : secondPlayerFirst.get();

@@ -58,7 +58,7 @@ void LocalisationManager::locateLanguagesFile()
     for (int i = 0; i < files.size(); ++i)
     {
         const juce::File& f = files.getUnchecked (i);
-        juce::ScopedPointer<juce::LocalisedStrings> ls = new juce::LocalisedStrings (f, true);
+        juce::ScopedPointer<juce::LocalisedStrings> ls (new juce::LocalisedStrings (f, true));
         languageFiles.add (new TranslationFile (f, ls->getLanguageName().trim()));
     }
 }

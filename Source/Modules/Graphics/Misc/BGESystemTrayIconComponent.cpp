@@ -35,7 +35,6 @@ void BGESystemTrayIconComponent::updateTooltipFromBoardGame (BoardGame& boardGam
     juce::String tooltip = TRANS ("Board Games Engine");
 
     tooltip += juce::newLine;
-
     tooltip += TRANS ("Score") + ": ";
     tooltip += juce::String (boardGame.getScore (true)) + " - " + juce::String (boardGame.getScore (false));
 
@@ -46,12 +45,9 @@ void BGESystemTrayIconComponent::bringWindowToFocus()
 {
     juce::Desktop& desktop = juce::Desktop::getInstance();
 
-    for (int i = desktop.getNumComponents(); --i >= 1;)
-        if (juce::Component* topLevelComp = desktop.getComponent (i))
-            topLevelComp->toFront (false);
-
-    if (juce::Component* topLevelComp = desktop.getComponent (0))
-        topLevelComp->toFront (true);
+    for (int i = desktop.getNumComponents(); --i >= 0;)
+        if (juce::Component* const topLevelComp = desktop.getComponent (i))
+            topLevelComp->toFront (i == 0);
 }
 
 //==============================================================================
