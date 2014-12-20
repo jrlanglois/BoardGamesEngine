@@ -58,8 +58,8 @@ public:
     void setShowingTileIndices (bool shouldShowTileIndices);
 
     //==============================================================================
-    bool isShowingMoveHints() const noexcept { return showingMoveHints; }
-    bool isShowingTileIndices() const noexcept { return showingTileIndices; }
+    bool isShowingMoveHints() const noexcept    { return showingMoveHints; }
+    bool isShowingTileIndices() const noexcept  { return showingTileIndices; }
 
     //==============================================================================
     /** @internal */

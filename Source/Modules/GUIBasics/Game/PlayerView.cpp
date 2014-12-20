@@ -25,7 +25,7 @@
 
     ==============================================================================
 */
-PlayerView::PlayerView (BoardGame& bg, const bool fp) :
+PlayerView::PlayerView (BoardGame& bg, const bool fp) noexcept :
     boardGame (bg),
     firstPlayer (fp)
 {

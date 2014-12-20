@@ -27,7 +27,7 @@
 */
 BoardGameView::BoardGameView (BoardGame& bg,
                               const bool showMoveHints,
-                              const bool showTileIndices) :
+                              const bool showTileIndices) noexcept :
     boardGame (bg),
     displayMoveHints (showMoveHints),
     displayTileIndices (showTileIndices)

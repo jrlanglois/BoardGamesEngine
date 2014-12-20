@@ -58,13 +58,13 @@ public:
 
     //==============================================================================
     /** Find out if it's the first player's turn */
-    bool isFirstPlayerTurn() const { return firstPlayerTurn; }
+    bool isFirstPlayerTurn() const noexcept             { return firstPlayerTurn; }
 
     /** Obtain the player whose turn it is as a Tile::State */
-    int getCurrentPlayerAsTileState() const { return firstPlayerTurn ? Tile::playerOne : Tile::playerTwo; }
+    int getCurrentPlayerAsTileState() const noexcept    { return firstPlayerTurn ? Tile::playerOne : Tile::playerTwo; }
 
     /** Returns the actively used tile board */
-    TileBoard& getTileBoard() const { return *tileBoard; }
+    TileBoard& getTileBoard() const noexcept            { return *tileBoard; }
 
     //==============================================================================
     /** Attempt starting a turn for the next player.

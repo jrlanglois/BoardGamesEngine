@@ -109,7 +109,7 @@ public:
     int getTotalNumTiles() const noexcept       { return numRows * numColumns; }
 
     /** Get the number of tiles that have the specified state. */
-    int getNumTilesOfCertainState (int stateToCheckFor) const;
+    int getNumTilesOfCertainState (int stateToCheckFor) const noexcept;
 
     //==============================================================================
     /** Serialise the state of your subclass' tile board into a std::string to
@@ -132,9 +132,7 @@ public:
 protected:
     //==============================================================================
     std::vector<Tile> tiles;
-    const int numRows;
-    const int numColumns;
-    const int uniqueId;
+    const int numRows, numColumns, uniqueId;
 
     //==============================================================================
     /** Call this in your subclass to setup an empty set of tiles.

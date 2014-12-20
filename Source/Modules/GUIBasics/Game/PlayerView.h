@@ -40,7 +40,7 @@ public:
         @param[in] boardGame        The board game to represent
         @param[in] showMoveHints    Initially show move hints or not
     */
-    PlayerView (BoardGame& boardGame, bool forFirstPlayer);
+    PlayerView (BoardGame& boardGame, bool forFirstPlayer) noexcept;
 
     /** Destructor */
     ~PlayerView();

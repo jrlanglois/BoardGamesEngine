@@ -28,7 +28,7 @@
 #ifndef BGE_REVERSI_TILE_BOARD_H
 #define BGE_REVERSI_TILE_BOARD_H
 
-/** A bass class for designing and setting up a tile board for Reversi.
+/** A base class for designing and setting up a tile board for Reversi.
 
     @see TileBoard, StandardReversiTileBoard, SmallReversiTileBoard, WideReversiTileBoard
 */

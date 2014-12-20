@@ -45,14 +45,14 @@ public:
     */
     BoardGameView (BoardGame& boardGame,
                    bool showMoveHints,
-                   bool showTileIndices);
+                   bool showTileIndices) noexcept;
 
     /** Destructor */
     ~BoardGameView();
 
     //==============================================================================
     /** Get the tile board */
-    TileBoard& getTileBoard() const { return boardGame.getTileBoard(); }
+    TileBoard& getTileBoard() const noexcept { return boardGame.getTileBoard(); }
 
     //==============================================================================
     /** You can optionally implement this method to perform additional steps
@@ -83,10 +83,10 @@ public:
     void setShowingTileIndices (bool shouldShowTileIndices);
 
     /** Find out if move hints are showing or not. */
-    bool isShowingMoveHints() const noexcept { return displayMoveHints; }
+    bool isShowingMoveHints() const noexcept    { return displayMoveHints; }
 
     /** Find out if tile indices are showing or not. */
-    bool isShowingTileIndices() const noexcept { return displayTileIndices; }
+    bool isShowingTileIndices() const noexcept  { return displayTileIndices; }
 
 protected:
     //==============================================================================

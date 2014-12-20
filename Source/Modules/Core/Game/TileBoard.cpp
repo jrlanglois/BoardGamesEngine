@@ -77,7 +77,7 @@ Tile TileBoard::getTile (const int column, const int row) const
     return getTile (getTileIndexAt (column, row));
 }
 
-int TileBoard::getNumTilesOfCertainState (const int stateToCheckFor) const
+int TileBoard::getNumTilesOfCertainState (const int stateToCheckFor) const noexcept
 {
     int count = 0;
 
