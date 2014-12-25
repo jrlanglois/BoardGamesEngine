@@ -108,15 +108,17 @@ public:
                        juce::dontSendNotification);
     }
 
-    /** (Unused) */
-    void attemptedTileStateChange (int, bool) override { }
-
-    void playerChanged (bool) override
+    void playerChanged (BoardGame*, bool) override
     {
         updateScore();
         resized();
         repaint();
     }
+
+    /** (Unused) */
+    void attemptedTileStateChange (BoardGame*, int, bool) override { }
+    /** (Unused) */
+    void gameEnded (BoardGame*) override { }
 
 private:
     //==============================================================================

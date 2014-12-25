@@ -30,6 +30,7 @@
 
 #include "TileBoardComponent.h"
 
+/** */
 class BoardGameComponent : public juce::Component,
                            public BoardGameView,
                            private juce::ChangeListener
@@ -51,7 +52,9 @@ public:
     /** @internal */
     void resized() override;
     /** @internal */
-    void attemptedTileStateChange (int index, bool wasSuccessfullyChanged) override;
+    void attemptedTileStateChange (BoardGame* boardGame, int index, bool wasSuccessfullyChanged) override;
+    /** @internal */
+    void gameEnded (BoardGame* boardGame) override;
     /** @internal */
     void initialise() override;
     /** @internal */

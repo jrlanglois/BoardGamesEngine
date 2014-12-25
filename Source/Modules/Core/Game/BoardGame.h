@@ -183,18 +183,26 @@ public:
         /** A notification for letting subclasses know that an attempt
             has been made at changing a tile's state.
 
+            @param[in] boardGame                The source board game
             @param[in] index                    The index of the tile
             @param[in] wasSuccessfullyChanged   Lets your subclass know if the attempt
                                                 at changing the tile to a new state was successful
         */
-        virtual void attemptedTileStateChange (int index, bool wasSuccessfullyChanged) = 0;
+        virtual void attemptedTileStateChange (BoardGame* boardGame, int index, bool wasSuccessfullyChanged) = 0;
+
+        /** A notification for letting subclasses know that the game is over.
+
+            @param[in] boardGame The source board game who has ended.
+        */
+        virtual void gameEnded (BoardGame* boardGame) = 0;
 
         /** A notification for letting subclasses know the player has changed.
 
-            @param[in] toFirstPlayer Lets your subclass know if the
-                                     next player's turn is the first player's.
+            @param[in] boardGame        The source board game
+            @param[in] toFirstPlayer    Lets your subclass know if the
+                                        next player's turn is that of the first.
         */
-        virtual void playerChanged (bool /*toFirstPlayer*/) { }
+        virtual void playerChanged (BoardGame* /*boardGame*/, bool /*toFirstPlayer*/) { }
     };
 
     /** Adds a listener that will receive various callbacks when something changes.

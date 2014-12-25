@@ -87,9 +87,11 @@ private:
     /** @internal */
     void changeListenerCallback (juce::ChangeBroadcaster* source) override;
     /** @internal */
-    void attemptedTileStateChange (int index, bool wasSuccessfullyChanged) override;
+    void attemptedTileStateChange (BoardGame* boardGame, int index, bool wasSuccessfullyChanged) override;
     /** @internal */
-    void playerChanged (bool toFirstPlayer) override;
+    void gameEnded (BoardGame* boardGame) override;
+    /** @internal */
+    void playerChanged (BoardGame* boardGame, bool toFirstPlayer) override;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

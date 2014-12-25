@@ -90,7 +90,7 @@ void BoardGameComponent::hideMoveHints()    { tileBoardComponent->setShowingMove
 void BoardGameComponent::showTileIndices()  { tileBoardComponent->setShowingTileIndices (true); }
 void BoardGameComponent::hideTileIndices()  { tileBoardComponent->setShowingTileIndices (false); }
 
-void BoardGameComponent::attemptedTileStateChange (const int, const bool wasSuccessfullyChanged)
+void BoardGameComponent::attemptedTileStateChange (BoardGame* const, const int, const bool wasSuccessfullyChanged)
 {
     if (wasSuccessfullyChanged)
     {
@@ -101,27 +101,27 @@ void BoardGameComponent::attemptedTileStateChange (const int, const bool wasSucc
     {
         soundManager.playSound (SoundManager::tileFailedChange);
     }
+}
 
-    if (boardGame.isGameOver())
-    {
-        const int player1Score = boardGame.getScore (true);
-        const int player2Score = boardGame.getScore (false);
-        const bool didPlayerOneWin = player1Score > player2Score;
+void BoardGameComponent::gameEnded (BoardGame* const)
+{
+    const int player1Score = boardGame.getScore (true);
+    const int player2Score = boardGame.getScore (false);
+    const bool didPlayerOneWin = player1Score > player2Score;
 
-        juce::String message = player1Score == player2Score
-                                    ? TRANS ("Tie game with a score of SSSS!")
-                                    : TRANS ("Player 1234 has won the game with a score of SSSS!")
-                                        .replace ("1234", juce::String (didPlayerOneWin ? 1 : 2)) ;
+    juce::String message = player1Score == player2Score
+                                ? TRANS ("Tie game with a score of SSSS!")
+                                : TRANS ("Player 1234 has won the game with a score of SSSS!")
+                                    .replace ("1234", juce::String (didPlayerOneWin ? 1 : 2)) ;
 
-        message = message.replace ("SSSS", juce::String (didPlayerOneWin ? player1Score : player2Score));
+    message = message.replace ("SSSS", juce::String (didPlayerOneWin ? player1Score : player2Score));
 
-        juce::AlertWindow aw (TRANS ("Game has ended!"), message, juce::AlertWindow::InfoIcon);
+    juce::AlertWindow aw (TRANS ("Game has ended!"), message, juce::AlertWindow::InfoIcon);
 
-        aw.addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey), juce::KeyPress (juce::KeyPress::escapeKey));
+    aw.addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey), juce::KeyPress (juce::KeyPress::escapeKey));
 
-        aw.runModalLoop(); //Just run the modal loop and no matter the result, reset the game.
-        reset();
-    }
+    aw.runModalLoop(); //Just run the modal loop and no matter the result, reset the game.
+    reset();
 }
 
 //==============================================================================

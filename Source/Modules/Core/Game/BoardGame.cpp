@@ -82,11 +82,15 @@ void BoardGame::endTurn()
         if (playerMoves.size() <= 0)
             firstPlayerTurn = ! firstPlayerTurn; //Since there aren't any moves, go back to the previous player
 
-        for (int i = 0; i < (int) listeners.size(); ++i)
-            listeners[i]->playerChanged (firstPlayerTurn);
+        for (int i = (int) listeners.size(); --i >= 0;)
+            listeners[i]->playerChanged (this, firstPlayerTurn);
     }
 
     isProcessingTurn = false;
+
+    if (isGameOver())
+        for (int i = (int) listeners.size(); --i >= 0;)
+            listeners[i]->gameEnded (this);
 }
 
 void BoardGame::reset()
@@ -119,8 +123,8 @@ bool BoardGame::setTileState (const int index, const int newState)
         wasSuccessful = true;
     }
 
-    for (int i = 0; i < (int) listeners.size(); ++i)
-        listeners[i]->attemptedTileStateChange (index, wasSuccessful);
+    for (int i = (int) listeners.size(); --i >= 0;)
+        listeners[i]->attemptedTileStateChange (this, index, wasSuccessful);
 
     return wasSuccessful;
 }

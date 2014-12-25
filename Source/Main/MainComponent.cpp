@@ -634,12 +634,17 @@ void MainComponent::buttonClicked (juce::Button* const button)
     }
 }
 
-void MainComponent::attemptedTileStateChange (const int, const bool)
+void MainComponent::attemptedTileStateChange (BoardGame* const, const int, const bool)
 {
     updateTrayIconTooltip();
 }
 
-void MainComponent::playerChanged (const bool)
+void MainComponent::gameEnded (BoardGame* const)
+{
+    updateTrayIconTooltip();
+}
+
+void MainComponent::playerChanged (BoardGame* const, const bool)
 {
     updateTrayIconTooltip();
 }
