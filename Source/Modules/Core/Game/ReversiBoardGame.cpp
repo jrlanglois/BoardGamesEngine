@@ -353,6 +353,6 @@ void ReversiBoardGame::tileChanged (const int index, int state)
     //Perform all the token flips in the sequence, if there are any tokens to flip:
     state = getCurrentPlayerAsTileState();
 
-    for (int i = sequence.size(); --i >= 0;)
+    for (int i = (int) sequence.size(); --i >= 0;)
         tileBoard->setTileStateWithoutChecking (sequence[i], state);
 }

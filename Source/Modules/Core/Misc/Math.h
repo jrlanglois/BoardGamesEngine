@@ -28,8 +28,6 @@
 #ifndef BGE_CORE_MATH_H
 #define BGE_CORE_MATH_H
 
-#include "Macros.h"
-
 /** Find out if the given integer value is odd.
 
     @returns True if the value is odd, false if it is even.

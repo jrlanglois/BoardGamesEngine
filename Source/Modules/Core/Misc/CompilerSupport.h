@@ -46,6 +46,8 @@
  #define BGE_CLANG                                  1
 #elif __GNUC__
  #define BGE_GCC                                    1
+#elif __INTEL_COMPILER
+ #define BGE_INTEL                                  1
 #else
  #error "Board Games Engine: unknown compiler!"
 #endif
@@ -124,18 +126,38 @@
 #endif
 
 //==============================================================================
+//Intel C++ Compiler (ICC)
+#if BGE_INTEL
+ #if __INTEL_COMPILER >= 1200
+  #define BGE_COMPILER_SUPPORTS_DELETED_FUNCTION    1
+  #define BGE_COMPILER_SUPPORTS_LAMBDAS             1
+ #endif
+
+ #if __INTEL_COMPILER >= 1210
+  #define BGE_COMPILER_SUPPORTS_NULLPTR             1
+ #endif
+
+ #if __INTEL_COMPILER >= 1400
+  #define BGE_COMPILER_SUPPORTS_MOVE_SEMANTICS      1
+  #define BGE_COMPILER_SUPPORTS_NOEXCEPT            1
+  #define BGE_COMPILER_SUPPORTS_OVERRIDE_AND_FINAL  1
+ #endif
+#endif
+
+//==============================================================================
 #if BGE_COMPILER_SUPPORTS_DELETED_FUNCTION
  /** This macro can be placed after a method declaration to allow the use of
      the C++11 feature "= delete" on all compilers.
 
-     On newer compilers that support it, it does the C++11 "= delete", but on
-     older ones it's just an empty definition.
+     On newer compilers that support it, it does the C++11 "= delete";
+     on older ones, it's just an empty definition.
  */
  #define BGE_DELETED_FUNCTION = delete
 #else
  #define BGE_DELETED_FUNCTION
 #endif
 
+//==============================================================================
 #if ! BGE_COMPILER_SUPPORTS_NOEXCEPT
  #undef noexcept
  #define noexcept throw()
@@ -146,11 +168,13 @@
  #endif
 #endif
 
+//==============================================================================
 #if ! BGE_COMPILER_SUPPORTS_NULLPTR
  #undef nullptr
  #define nullptr (0)
 #endif
 
+//==============================================================================
 #if ! BGE_COMPILER_SUPPORTS_OVERRIDE_AND_FINAL
  #undef override
  #define override

@@ -34,11 +34,20 @@
 } //Escape bge namespace since OS headers must be in global scope.
 
 #if defined (_WIN32) || defined (_WIN64)
-  #define BGE_WINDOWS           1
+  #define BGE_WINDOWS               1
+
+   #ifdef _WIN64
+    #define BGE_64BIT               1
+    #define BGE_USE_INTRINSICS      1
+   #endif
 
   #include <Windows.h>
 #elif defined (LINUX) || defined (__linux__)
-  #define BGE_LINUX             1
+  #define BGE_LINUX                 1
+
+  #if defined (__LP64__) || defined (_LP64) || defined (__arm64__)
+   #define BGE_64BIT                1
+  #endif
 #elif defined (__APPLE_CPP__) || defined (__APPLE_CC__)
   #define Point CarbonDummyPointName            //Workaround to avoid definition of "Point" by old Carbon headers
   #define Component CarbonDummyCompName
@@ -48,10 +57,14 @@
   #undef Component
 
   #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-   #define BGE_IPHONE           1
-   #define BGE_IOS              1
+   #define BGE_IPHONE   1
+   #define BGE_IOS      1
   #else
-   #define BGE_MAC              1
+   #define BGE_MAC      1
+  #endif
+
+  #ifdef __LP64__
+   #define BGE_64BIT    1
   #endif
 
   #include <sys/sysctl.h>
@@ -78,21 +91,21 @@ namespace bge //Back into bge namespace
 #endif
 
 //==============================================================================
-#if BGE_IOS || BGE_LINUX || BGE_ANDROID || BGE_PPC
-  /** This will try to break into the debugger if the app is currently being debugged.
+#if BGE_USE_INTRINSICS
+  #ifndef BGE_INTEL
+   #pragma intrinsic (__debugbreak)
+  #endif
 
-      If called by an app that's not being debugged, the behaviour isn't defined.
+  /** This will try to break into the debugger if the application is currently being debugged.
+
+      If called by an application that's not being debugged, the behaviour isn't defined.
       It may crash or not, depending on the platform.
 
       @see rassert()
   */
-  #define reversi_breakDebugger     { ::kill (0, SIGTRAP); }
-#elif BGE_USE_MSVC_INTRINSICS
-  #ifndef __INTEL_COMPILER
-    #pragma intrinsic (__debugbreak)
-  #endif
-
   #define reversi_breakDebugger     { __debugbreak(); }
+#elif BGE_IOS || BGE_LINUX || BGE_ANDROID || BGE_PPC
+  #define reversi_breakDebugger     { ::kill (0, SIGTRAP); }
 #elif BGE_GCC || BGE_MAC
    #define reversi_breakDebugger    { asm ("int $3"); }
 #else
@@ -100,6 +113,19 @@ namespace bge //Back into bge namespace
 #endif
 
 //==============================================================================
+#if BGE_MSVC
+    #define BGE_MACRO_WITH_FORCED_SEMICOLON(x) \
+        __pragma (warning (push)) \
+        __pragma (warning (disable: 4127)) \
+        do { x } while (false) \
+        __pragma (warning (pop))
+#else
+    /** This is the good old C++ trick for creating a macro that forces the user to put
+        a semicolon after it when they use it.
+    */
+    #define BGE_MACRO_WITH_FORCED_SEMICOLON(x) do { x } while (false)
+#endif
+
 #if BGE_DEBUG
     static bool BGE_CALLTYPE reversi_isRunningUnderDebugger()
     {
@@ -123,9 +149,9 @@ namespace bge //Back into bge namespace
        #endif
     }
 
- #define rassertfalse           if (reversi_isRunningUnderDebugger()) reversi_breakDebugger;
+ #define rassertfalse           BGE_MACRO_WITH_FORCED_SEMICOLON (if (reversi_isRunningUnderDebugger()) reversi_breakDebugger;)
 
- #define rassert(expression)    if (! (expression)) rassertfalse;
+ #define rassert(expression)    BGE_MACRO_WITH_FORCED_SEMICOLON (if (! (expression)) rassertfalse;)
 #else
  #define rassertfalse
 
