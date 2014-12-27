@@ -46,15 +46,17 @@
  #define BGE_CLANG                                  1
 #elif __GNUC__
  #define BGE_GCC                                    1
-#elif __INTEL_COMPILER
- #define BGE_INTEL                                  1
 #else
  #error "Board Games Engine: unknown compiler!"
 #endif
 
+#if __INTEL_COMPILER
+ #define BGE_INTEL                                  1
+#endif
+
 //==============================================================================
 //Visual Studio
-#if BGE_MSVC
+#if BGE_MSVC && ! BGE_INTEL
  #if _MSC_VER >= 1600
   #define BGE_COMPILER_SUPPORTS_NULLPTR             1
   #define BGE_COMPILER_SUPPORTS_MOVE_SEMANTICS      1
@@ -71,6 +73,25 @@
  #endif
 
  #pragma warning (default: 4191 4265 4355 4505 4738 4946)
+#endif
+
+//==============================================================================
+//Intel C++ Compiler (ICC)
+#if BGE_INTEL
+ #if __INTEL_COMPILER >= 1200
+  #define BGE_COMPILER_SUPPORTS_DELETED_FUNCTION    1
+  #define BGE_COMPILER_SUPPORTS_LAMBDAS             1
+ #endif
+
+ #if __INTEL_COMPILER >= 1210
+  #define BGE_COMPILER_SUPPORTS_NULLPTR             1
+ #endif
+
+ #if __INTEL_COMPILER >= 1400
+  #define BGE_COMPILER_SUPPORTS_MOVE_SEMANTICS      1
+  #define BGE_COMPILER_SUPPORTS_NOEXCEPT            1
+  #define BGE_COMPILER_SUPPORTS_OVERRIDE_AND_FINAL  1
+ #endif
 #endif
 
 //==============================================================================
@@ -122,25 +143,6 @@
 
  #if (__GNUC__ * 100 + __GNUC_MINOR__) >= 406 && ! defined (BGE_COMPILER_SUPPORTS_LAMBDAS)
   #define BGE_COMPILER_SUPPORTS_LAMBDAS             1
- #endif
-#endif
-
-//==============================================================================
-//Intel C++ Compiler (ICC)
-#if BGE_INTEL
- #if __INTEL_COMPILER >= 1200
-  #define BGE_COMPILER_SUPPORTS_DELETED_FUNCTION    1
-  #define BGE_COMPILER_SUPPORTS_LAMBDAS             1
- #endif
-
- #if __INTEL_COMPILER >= 1210
-  #define BGE_COMPILER_SUPPORTS_NULLPTR             1
- #endif
-
- #if __INTEL_COMPILER >= 1400
-  #define BGE_COMPILER_SUPPORTS_MOVE_SEMANTICS      1
-  #define BGE_COMPILER_SUPPORTS_NOEXCEPT            1
-  #define BGE_COMPILER_SUPPORTS_OVERRIDE_AND_FINAL  1
  #endif
 #endif
 
