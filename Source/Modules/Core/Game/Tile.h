@@ -44,7 +44,7 @@ struct Tile
 
     /** Constructor */
     Tile() :
-        state (blank)
+        state ((int) blank)
     {
     }
 

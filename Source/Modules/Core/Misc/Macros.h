@@ -161,7 +161,7 @@ namespace bge //Back into bge namespace
 //==============================================================================
 /** This is a shorthand macro for declaring stubs for a class' copy constructor and operator=. */
 #define BGE_DECLARE_NON_COPYABLE(ClassName) \
-    ClassName (const ClassName&) BGE_DELETED_FUNCTION;\
+    ClassName (const ClassName&) BGE_DELETED_FUNCTION; \
     ClassName& operator= (const ClassName&) BGE_DELETED_FUNCTION;
 
 /** This macro can be added to class definitions to disable the use of new/delete,
