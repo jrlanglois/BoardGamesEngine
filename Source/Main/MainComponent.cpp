@@ -240,13 +240,13 @@ public:
                                 private juce::ChangeListener
     {
     public:
-        CustomToolbarButton (int itemId,
+        CustomToolbarButton (int id,
                              const juce::String& labelText,
                              const juce::String& tooltipUntrans,
-                             juce::Drawable* normalImage,
-                             juce::Drawable* toggledOnImage,
+                             juce::Drawable* normalImg,
+                             juce::Drawable* toggledOnImg,
                              LocalisationManager& lm) :
-            juce::ToolbarButton (itemId, labelText, normalImage, toggledOnImage),
+            juce::ToolbarButton (id, labelText, normalImg, toggledOnImg),
             text (labelText),
             tooltip (tooltipUntrans),
             localisationManager (lm)

@@ -159,8 +159,8 @@ private:
         {
             if (checkIfLarger)
                 return next > last;
-            else
-                return next < last;
+
+            return next < last;
         }
 
         return false;

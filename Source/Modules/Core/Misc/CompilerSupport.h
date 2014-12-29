@@ -79,7 +79,7 @@
 //Intel C++ Compiler (ICC)
 #if BGE_INTEL
  #if __INTEL_COMPILER >= 1200
-  #define BGE_COMPILER_SUPPORTS_DELETED_FUNCTION    1
+  #define BGE_COMPILER_SUPPORTS_DELETED_FUNCTION    0 //Compiler is bugged, and doesn't actually support =delete
   #define BGE_COMPILER_SUPPORTS_LAMBDAS             1
  #endif
 
@@ -89,9 +89,11 @@
 
  #if __INTEL_COMPILER >= 1400
   #define BGE_COMPILER_SUPPORTS_MOVE_SEMANTICS      1
-  #define BGE_COMPILER_SUPPORTS_NOEXCEPT            1
+  #define BGE_COMPILER_SUPPORTS_NOEXCEPT            0 //Compiler is bugged, and doesn't actually support noexcept
   #define BGE_COMPILER_SUPPORTS_OVERRIDE_AND_FINAL  1
  #endif
+
+ #pragma warning disable 3280
 #endif
 
 //==============================================================================
