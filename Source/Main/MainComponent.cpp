@@ -270,7 +270,7 @@ public:
             setTooltip (TRANS (tooltip));
         }
 
-        void changeListenerCallback (juce::ChangeBroadcaster*)
+        void changeListenerCallback (juce::ChangeBroadcaster*) override
         {
             updateText();
         }
