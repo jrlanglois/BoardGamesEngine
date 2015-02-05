@@ -34,7 +34,9 @@ namespace bge
     #include "Game/ReversiTileBoardComponent.cpp"
     #include "Game/TileBoardComponent.cpp"
     #include "Misc/BGELookAndFeel.cpp"
+   #ifndef JUCE_IOS
     #include "Misc/BGESystemTrayIconComponent.cpp"
+   #endif //JUCE_IOS
     #include "Misc/Fonts.cpp"
     #include "Misc/LocalisationManager.cpp"
     #include "Misc/SettingsWindowComponent.cpp"

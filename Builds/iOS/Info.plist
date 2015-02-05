@@ -3,6 +3,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist>
   <dict>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
     <key>CFBundleExecutable</key>
     <string>${EXECUTABLE_NAME}</string>
     <key>CFBundleIconFile</key>
@@ -23,20 +27,5 @@
     <string>Jo&#235;l R. Langlois</string>
     <key>NSHighResolutionCapable</key>
     <true/>
-    <key>CFBundleDocumentTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleTypeExtensions</key>
-        <array>
-          <string>reversi</string>
-        </array>
-        <key>CFBundleTypeName</key>
-        <string>reversi</string>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>NSPersistentStoreTypeKey</key>
-        <string>XML</string>
-      </dict>
-    </array>
   </dict>
 </plist>

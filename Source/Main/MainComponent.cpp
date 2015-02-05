@@ -415,6 +415,7 @@ MainComponent::MainComponent() :
 {
     setLookAndFeel (&laf);
 
+    #ifndef JUCE_IOS
     {
         const int size = 128;
         const int halfSize = size / 2;
@@ -430,6 +431,7 @@ MainComponent::MainComponent() :
 
         systemTrayIconComponent.setIconImage (image);
     }
+    #endif //JUCE_IOS
 
     toolbarItemFactory = new ToolbarItemFactory (*this, localisationManager);
     toolbar->addDefaultItems (*toolbarItemFactory);
@@ -500,8 +502,10 @@ void MainComponent::changeGame (BoardGame* const newBoardGame)
 
 void MainComponent::updateTrayIconTooltip()
 {
+   #ifndef JUCE_IOS
     if (boardGame != nullptr)
         systemTrayIconComponent.updateTooltipFromBoardGame (*boardGame);
+   #endif
 }
 
 //==============================================================================

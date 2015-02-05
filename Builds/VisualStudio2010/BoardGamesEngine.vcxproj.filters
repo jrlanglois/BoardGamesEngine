@@ -8,21 +8,6 @@
     <Filter Include="BoardGamesEngine\Main">
       <UniqueIdentifier>{EBEE07BB-4EB9-95CC-D24B-18A771DEC734}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BoardGamesEngine\Media">
-      <UniqueIdentifier>{FB1D8385-CF25-8729-53A4-8976346763DC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BoardGamesEngine\Media\Graphics">
-      <UniqueIdentifier>{272468C7-3E5B-552A-B7FD-929C41858B1F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BoardGamesEngine\Media\Languages">
-      <UniqueIdentifier>{B914F6CA-6234-02E2-F328-C1B3DACA17DC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BoardGamesEngine\Media\Music">
-      <UniqueIdentifier>{5B07F930-1965-E4F1-25E4-79BA91D66725}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BoardGamesEngine\Media\SFX">
-      <UniqueIdentifier>{09D62F3A-86E7-6146-3094-D38D7DECB68C}</UniqueIdentifier>
-    </Filter>
     <Filter Include="BoardGamesEngine\Modules">
       <UniqueIdentifier>{3F4C19EA-11A8-9B63-815B-B332797E6958}</UniqueIdentifier>
     </Filter>
@@ -408,6 +393,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\juce\modules\juce_audio_basics\midi\juce_MidiMessageSequence.cpp">
       <Filter>Juce Modules\juce_audio_basics\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_FFT.cpp">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_IIRFilter.cpp">
       <Filter>Juce Modules\juce_audio_basics\effects</Filter>
@@ -1639,6 +1627,9 @@
       <Filter>Juce Modules\juce_audio_basics\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_Decibels.h">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_FFT.h">
       <Filter>Juce Modules\juce_audio_basics\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_IIRFilter.h">
@@ -2873,45 +2864,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Media\Graphics\about.svg">
-      <Filter>BoardGamesEngine\Media\Graphics</Filter>
-    </None>
-    <None Include="..\..\Media\Graphics\AppIcon.ai">
-      <Filter>BoardGamesEngine\Media\Graphics</Filter>
-    </None>
-    <None Include="..\..\Media\Graphics\AppIcon.svg">
-      <Filter>BoardGamesEngine\Media\Graphics</Filter>
-    </None>
-    <None Include="..\..\Media\Graphics\gear.svg">
-      <Filter>BoardGamesEngine\Media\Graphics</Filter>
-    </None>
-    <None Include="..\..\Media\Graphics\open.svg">
-      <Filter>BoardGamesEngine\Media\Graphics</Filter>
-    </None>
-    <None Include="..\..\Media\Graphics\restart.svg">
-      <Filter>BoardGamesEngine\Media\Graphics</Filter>
-    </None>
-    <None Include="..\..\Media\Graphics\save.svg">
-      <Filter>BoardGamesEngine\Media\Graphics</Filter>
-    </None>
-    <None Include="..\..\Media\Languages\en-ca.txt">
-      <Filter>BoardGamesEngine\Media\Languages</Filter>
-    </None>
-    <None Include="..\..\Media\Languages\en-us.txt">
-      <Filter>BoardGamesEngine\Media\Languages</Filter>
-    </None>
-    <None Include="..\..\Media\Languages\fr-ca.txt">
-      <Filter>BoardGamesEngine\Media\Languages</Filter>
-    </None>
-    <None Include="..\..\Media\Music\bensound-theelevatorbossanova.mp3">
-      <Filter>BoardGamesEngine\Media\Music</Filter>
-    </None>
-    <None Include="..\..\Media\SFX\Tile_Change.wav">
-      <Filter>BoardGamesEngine\Media\SFX</Filter>
-    </None>
-    <None Include="..\..\Media\SFX\Tile_FailedChange.wav">
-      <Filter>BoardGamesEngine\Media\SFX</Filter>
-    </None>
     <None Include="..\..\Source\Modules\Core\juce_module_info">
       <Filter>BoardGamesEngine\Modules\Core</Filter>
     </None>

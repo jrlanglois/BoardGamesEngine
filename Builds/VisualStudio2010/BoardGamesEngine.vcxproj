@@ -318,6 +318,9 @@
     <ClCompile Include="..\..\..\juce\modules\juce_audio_basics\midi\juce_MidiMessageSequence.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_FFT.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_IIRFilter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1387,6 +1390,7 @@
     <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\midi\juce_MidiMessage.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\midi\juce_MidiMessageSequence.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_Decibels.h"/>
+    <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_FFT.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_IIRFilter.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_audio_basics\effects\juce_Reverb.h"/>
@@ -1799,19 +1803,6 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Media\Graphics\about.svg"/>
-    <None Include="..\..\Media\Graphics\AppIcon.ai"/>
-    <None Include="..\..\Media\Graphics\AppIcon.svg"/>
-    <None Include="..\..\Media\Graphics\gear.svg"/>
-    <None Include="..\..\Media\Graphics\open.svg"/>
-    <None Include="..\..\Media\Graphics\restart.svg"/>
-    <None Include="..\..\Media\Graphics\save.svg"/>
-    <None Include="..\..\Media\Languages\en-ca.txt"/>
-    <None Include="..\..\Media\Languages\en-us.txt"/>
-    <None Include="..\..\Media\Languages\fr-ca.txt"/>
-    <None Include="..\..\Media\Music\bensound-theelevatorbossanova.mp3"/>
-    <None Include="..\..\Media\SFX\Tile_Change.wav"/>
-    <None Include="..\..\Media\SFX\Tile_FailedChange.wav"/>
     <None Include="..\..\Source\Modules\Core\juce_module_info"/>
     <None Include="..\..\Source\Modules\Graphics\juce_module_info"/>
     <None Include="..\..\Source\Modules\GUIBasics\juce_module_info"/>

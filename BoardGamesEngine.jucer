@@ -12,31 +12,6 @@
             file="Source/Main/MainComponent.cpp"/>
       <FILE id="DZcB4D" name="MainComponent.h" compile="0" resource="0" file="Source/Main/MainComponent.h"/>
     </GROUP>
-    <GROUP id="{D793EB2D-606B-43E2-8B02-20390E4E5721}" name="Media">
-      <GROUP id="{9806CADA-564F-4B8E-0244-566EDDC807E8}" name="Graphics">
-        <FILE id="VQWl6q" name="about.svg" compile="0" resource="0" file="Media/Graphics/about.svg"/>
-        <FILE id="BxzsAx" name="AppIcon.ai" compile="0" resource="0" file="Media/Graphics/AppIcon.ai"/>
-        <FILE id="fzweqK" name="AppIcon.svg" compile="0" resource="0" file="Media/Graphics/AppIcon.svg"/>
-        <FILE id="B3Xicx" name="gear.svg" compile="0" resource="0" file="Media/Graphics/gear.svg"/>
-        <FILE id="zmc48D" name="open.svg" compile="0" resource="0" file="Media/Graphics/open.svg"/>
-        <FILE id="Ajm3qK" name="restart.svg" compile="0" resource="0" file="Media/Graphics/restart.svg"/>
-        <FILE id="Rp5jAQ" name="save.svg" compile="0" resource="0" file="Media/Graphics/save.svg"/>
-      </GROUP>
-      <GROUP id="{9B8F3B50-E095-755F-39DF-A0CCC1F187C8}" name="Languages">
-        <FILE id="EiNqkL" name="en-ca.txt" compile="0" resource="0" file="Media/Languages/en-ca.txt"/>
-        <FILE id="uU1Dkl" name="en-us.txt" compile="0" resource="0" file="Media/Languages/en-us.txt"/>
-        <FILE id="VomaWi" name="fr-ca.txt" compile="0" resource="0" file="Media/Languages/fr-ca.txt"/>
-      </GROUP>
-      <GROUP id="{31EE7EA4-069E-A776-2458-923475C69E7B}" name="Music">
-        <FILE id="wL5icI" name="bensound-theelevatorbossanova.mp3" compile="0"
-              resource="0" file="Media/Music/bensound-theelevatorbossanova.mp3"/>
-      </GROUP>
-      <GROUP id="{FA6EFFF9-4E21-21CE-FA47-39A131293E0F}" name="SFX">
-        <FILE id="nvMS7H" name="Tile_Change.wav" compile="0" resource="0" file="Media/SFX/Tile_Change.wav"/>
-        <FILE id="UZ8x2a" name="Tile_FailedChange.wav" compile="0" resource="0"
-              file="Media/SFX/Tile_FailedChange.wav"/>
-      </GROUP>
-    </GROUP>
     <GROUP id="{D364E44D-64A4-9446-30B7-D157FB49E069}" name="Modules">
       <GROUP id="{ED82FD22-5CA4-3F94-F61F-0DC35F534535}" name="Core">
         <GROUP id="{28ECE919-FE2F-1D9D-AEF6-3FE69FD8605A}" name="Game">
@@ -267,6 +242,27 @@
         <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
+    <XCODE_IPHONE targetFolder="Builds/iOS">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" iosCompatibility="default" isDebug="1" optimisation="1"
+                       targetName="BoardGamesEngine"/>
+        <CONFIGURATION name="Release" iosCompatibility="default" isDebug="0" optimisation="2"
+                       targetName="BoardGamesEngine"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
+      </MODULEPATHS>
+    </XCODE_IPHONE>
     <CODEBLOCKS targetFolder="Builds/CodeBlocks" smallIcon="fzweqK" bigIcon="fzweqK">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>

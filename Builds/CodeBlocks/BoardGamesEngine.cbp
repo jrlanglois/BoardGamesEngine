@@ -100,58 +100,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../Media/Graphics/about.svg">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Graphics/AppIcon.ai">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Graphics/AppIcon.svg">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Graphics/gear.svg">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Graphics/open.svg">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Graphics/restart.svg">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Graphics/save.svg">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Languages/en-ca.txt">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Languages/en-us.txt">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Languages/fr-ca.txt">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/Music/bensound-theelevatorbossanova.mp3">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/SFX/Tile_Change.wav">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Media/SFX/Tile_FailedChange.wav">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../Source/Modules/Core/Game/BoardGame.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -414,6 +362,14 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../juce/modules/juce_audio_basics/effects/juce_Decibels.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_basics/effects/juce_FFT.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_basics/effects/juce_FFT.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
