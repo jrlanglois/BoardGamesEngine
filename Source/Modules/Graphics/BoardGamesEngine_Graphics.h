@@ -40,7 +40,7 @@
           of course be externally and explicitly enabled or disabled.
 */
 #ifndef BGE_SILENT_AUDIO
- #define BGE_SILENT_AUDIO 0
+ #define BGE_SILENT_AUDIO 1
 #endif
 
 //=============================================================================
@@ -51,10 +51,16 @@ namespace bge
     {
         inline static juce::String getReversiFolder()
         {
+           #if JUCE_IOS
+            return juce::File::getSpecialLocation (juce::File::currentExecutableFile)
+                    .getFullPathName()
+                    .upToFirstOccurrenceOf ("BoardGamesEngine.app/", true, true);
+           #else
             return juce::File::getSpecialLocation (juce::File::currentExecutableFile)
                     .getFullPathName()
                     .replace ("\\", "/", true) //N.B.: Needed for Windows paths
                     .upToFirstOccurrenceOf ("BoardGamesEngine/", true, true);
+           #endif
         }
 
         inline static juce::String getMediaFolder()
@@ -96,9 +102,11 @@ namespace bge
     #include "Misc/BGELookAndFeel.h"
    #endif //BGE_LOOK_AND_FEEL_H
 
+  #ifndef JUCE_IOS
    #ifndef BGE_SYSTEM_TRAY_ICON_COMPONENT_H
     #include "Misc/BGESystemTrayIconComponent.h"
    #endif //BGE_SYSTEM_TRAY_ICON_COMPONENT_H
+  #endif //JUCE_IOS
 
    #ifndef BGE_SOUND_MANAGER_H
     #include "Misc/SoundManager.h"
