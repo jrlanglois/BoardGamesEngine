@@ -29,17 +29,6 @@
 #define BGE_COMPILER_SUPPORT_H
 
 //==============================================================================
-/** C++11 feature macro clean-ups */
-#undef BGE_COMPILER_SUPPORTS_NULLPTR
-#undef BGE_COMPILER_SUPPORTS_NOEXCEPT
-#undef BGE_COMPILER_SUPPORTS_MOVE_SEMANTICS
-#undef BGE_COMPILER_SUPPORTS_DELETED_FUNCTION
-#undef BGE_COMPILER_SUPPORTS_LAMBDAS
-#undef BGE_COMPILER_SUPPORTS_OVERRIDE_AND_FINAL
-#undef BGE_COMPILER_SUPPORTS_ARC
-#undef BGE_DELETED_FUNCTION
-
-//==============================================================================
 #if _MSC_VER
  #define BGE_MSVC                                   1
 #elif __clang__
