@@ -52,6 +52,14 @@ namespace bge
     #include "Game/BoardGame.h"
    #endif //BOARD_GAME_H
 
+   #ifndef BGE_CHECKERS_BOARD_GAME_H
+    #include "Game/CheckersBoardGame.h"
+   #endif //BGE_CHECKERS_BOARD_GAME_H
+
+   #ifndef BGE_CHECKERS_TILE_BOARD_H
+    #include "Game/CheckersTileBoard.h"
+   #endif //BGE_CHECKERS_TILE_BOARD_H
+
    #ifndef BGE_REVERSI_BOARD_GAME_H
     #include "Game/ReversiBoardGame.h"
    #endif //BGE_REVERSI_BOARD_GAME_H

@@ -50,7 +50,7 @@ protected:
     //==============================================================================
     /** Constructor
 
-        @param[in] tileBoard The Reversi-based tile board to control
+        @param[in] tileBoard A reversi based tile board to control
     */
     ReversiBoardGame (ReversiTileBoard* tileBoard);
 

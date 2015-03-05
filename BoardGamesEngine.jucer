@@ -42,6 +42,14 @@
         <GROUP id="{28ECE919-FE2F-1D9D-AEF6-3FE69FD8605A}" name="Game">
           <FILE id="xvYsa6" name="BoardGame.cpp" compile="0" resource="0" file="Source/Modules/Core/Game/BoardGame.cpp"/>
           <FILE id="Db8fKf" name="BoardGame.h" compile="0" resource="0" file="Source/Modules/Core/Game/BoardGame.h"/>
+          <FILE id="siQkLt" name="CheckersBoardGame.cpp" compile="0" resource="0"
+                file="Source/Modules/Core/Game/CheckersBoardGame.cpp"/>
+          <FILE id="XBGj24" name="CheckersBoardGame.h" compile="0" resource="0"
+                file="Source/Modules/Core/Game/CheckersBoardGame.h"/>
+          <FILE id="KOWM7p" name="CheckersTileBoard.cpp" compile="0" resource="0"
+                file="Source/Modules/Core/Game/CheckersTileBoard.cpp"/>
+          <FILE id="wD5jrq" name="CheckersTileBoard.h" compile="0" resource="0"
+                file="Source/Modules/Core/Game/CheckersTileBoard.h"/>
           <FILE id="XktAgO" name="ReversiBoardGame.cpp" compile="0" resource="0"
                 file="Source/Modules/Core/Game/ReversiBoardGame.cpp"/>
           <FILE id="FpcFC0" name="ReversiBoardGame.h" compile="0" resource="0"
@@ -142,7 +150,7 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <VS2015 targetFolder="Builds/VisualStudio2015" toolset="v140" smallIcon="fzweqK"
+    <VS2015 targetFolder="Builds/VisualStudio2015" toolset="v140_xp" smallIcon="fzweqK"
             bigIcon="fzweqK">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
@@ -168,7 +176,7 @@
         <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
       </MODULEPATHS>
     </VS2015>
-    <VS2013 targetFolder="Builds/VisualStudio2013" toolset="v120" smallIcon="fzweqK"
+    <VS2013 targetFolder="Builds/VisualStudio2013" toolset="v120_xp" smallIcon="fzweqK"
             bigIcon="fzweqK">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
@@ -194,7 +202,7 @@
         <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
       </MODULEPATHS>
     </VS2013>
-    <VS2012 targetFolder="Builds/VisualStudio2012" toolset="v110" smallIcon="fzweqK"
+    <VS2012 targetFolder="Builds/VisualStudio2012" toolset="v110_xp" smallIcon="fzweqK"
             bigIcon="fzweqK">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
@@ -220,7 +228,7 @@
         <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
       </MODULEPATHS>
     </VS2012>
-    <VS2010 targetFolder="Builds/VisualStudio2010">
+    <VS2010 targetFolder="Builds/VisualStudio2010" toolset="v100_xp">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>

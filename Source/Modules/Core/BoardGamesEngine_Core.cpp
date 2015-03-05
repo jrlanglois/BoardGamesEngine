@@ -30,6 +30,8 @@
 namespace bge
 {
     #include "Game/BoardGame.cpp"
+    #include "Game/CheckersBoardGame.cpp"
+    #include "Game/CheckersTileBoard.cpp"
     #include "Game/ReversiBoardGame.cpp"
     #include "Game/ReversiTileBoard.cpp"
     #include "Game/TileBoard.cpp"

@@ -160,6 +160,22 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../Source/Modules/Core/Game/CheckersBoardGame.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../Source/Modules/Core/Game/CheckersBoardGame.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../Source/Modules/Core/Game/CheckersTileBoard.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../Source/Modules/Core/Game/CheckersTileBoard.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../Source/Modules/Core/Game/ReversiBoardGame.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -414,6 +430,14 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../juce/modules/juce_audio_basics/effects/juce_Decibels.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_basics/effects/juce_FFT.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_basics/effects/juce_FFT.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -1789,6 +1813,14 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../juce/modules/juce_cryptography/hashing/juce_Whirlpool.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_cryptography/hashing/juce_Whirlpool.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../juce/modules/juce_cryptography/juce_module_info">
       <Option compile="0"/>
       <Option link="0"/>
@@ -1810,6 +1842,14 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../juce/modules/juce_data_structures/values/juce_ValueTree.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_data_structures/values/juce_ValueTreeSynchroniser.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_data_structures/values/juce_ValueTreeSynchroniser.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

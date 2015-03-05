@@ -25,57 +25,49 @@
 
     ==============================================================================
 */
-#ifndef BGE_TILE_H
-#define BGE_TILE_H
+#ifndef BGE_CHECKERS_TILE_BOARD_H
+#define BGE_CHECKERS_TILE_BOARD_H
 
-/** A unique space on a tile board
 
-    @see TileBoard
+/** A base class for designing and setting up a tile board for Reversi.
+
+    @see TileBoard, StandardReversiTileBoard, SmallReversiTileBoard, WideReversiTileBoard
 */
-struct Tile
+class CheckersTileBoard : public TileBoard
 {
-    /** Default states a tile can have */
-    enum State
-    {
-        blank       = 0,        //< A reserved value for having no states present at all in a tile
-        playerOne   = 1 << 0,   //< A bit to represent that a tile contains the first player
-        playerTwo   = 1 << 1    //< A bit to represent that a tile contains the second player
-    };
-
-    /** Constructor */
-    Tile() :
-        state ((int) blank)
-    {
-    }
-
+public:
+    //==============================================================================
     /** Constructor
 
-        @param[in] initialState The initial state of the tile
+        @param[in] id           The unique identification tag to use for saving and loading states of your subclass
+        @param[in] numColumns   The number of columns your subclass' edition of Reversi will have
+        @param[in] numRows      The number of rows your subclass' edition of Reversi will have
     */
-    Tile (int initialState) :
-        state (initialState)
+    CheckersTileBoard();
+
+    //==============================================================================
+    /** Extra tile states */
+    enum ExtraTileState
     {
-    }
+        kinged = 1 << 2
+    };
 
     //==============================================================================
-    /** Find out if this tile contains no player or other custom states at all */
-    bool isBlank() const noexcept       { return state == blank; }
-
-    /** Find out if this tile contains the first player */
-    bool hasPlayerOne() const noexcept  { return hasBitSet (1); }
-
-    /** Find out if this tile contains the second player */
-    bool hasPlayerTwo() const noexcept  { return hasBitSet (2); }
-
-    /** Find out if this tile contains the first and/or second player */
-    bool hasPlayer() const noexcept     { return hasPlayerOne() || hasPlayerTwo(); }
+    /** Unique identification tags for the Checkers subclasses */
+    enum UniqueId
+    {
+        checkersStandard = 38956466
+    };
 
     //==============================================================================
-    /** Find out if the state has the specified bit toggled */
-    bool hasBitSet (int bitIndex) const noexcept { return (state & (1 << bitIndex)) != 0; }
+    /** @internal */
+    std::string saveState() const override;
+    /** @internal */
+    bool loadFromState (const std::string& state) override;
 
+private:
     //==============================================================================
-    int state; //< The state of this tile, comprised of bit flags.
+    BGE_DECLARE_NON_COPYABLE (CheckersTileBoard)
 };
 
-#endif //BGE_TILE_H
+#endif //BGE_CHECKERS_TILE_BOARD_H
