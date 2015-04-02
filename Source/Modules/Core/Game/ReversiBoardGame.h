@@ -74,12 +74,12 @@ private:
                               const Comparator& comparator);
 
     static void findMoveSequence (std::vector<int>& sequence,
-                                    TileBoard& tileBoard,
-                           bool forFirstPlayer,
-                           int sourceIndex,
-                           int stepAmount,
-                           int totalNumTiles,
-                           Comparator& comparator);
+                                  TileBoard& tileBoard,
+                                  bool forFirstPlayer,
+                                  int sourceIndex,
+                                  int stepAmount,
+                                  int totalNumTiles,
+                                  Comparator& comparator);
 
     static void appendMoveSequence (std::vector<int>& sequence,
                                     TileBoard& tileBoard,
