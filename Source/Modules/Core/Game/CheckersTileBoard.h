@@ -28,7 +28,6 @@
 #ifndef BGE_CHECKERS_TILE_BOARD_H
 #define BGE_CHECKERS_TILE_BOARD_H
 
-
 /** A base class for designing and setting up a tile board for Reversi.
 
     @see TileBoard, StandardReversiTileBoard, SmallReversiTileBoard, WideReversiTileBoard
