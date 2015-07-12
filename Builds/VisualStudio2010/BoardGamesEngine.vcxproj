@@ -1370,6 +1370,7 @@
     <ClInclude Include="..\..\Source\Modules\Core\Game\ReversiTileBoard.h"/>
     <ClInclude Include="..\..\Source\Modules\Core\Game\Tile.h"/>
     <ClInclude Include="..\..\Source\Modules\Core\Game\TileBoard.h"/>
+    <ClInclude Include="..\..\Source\Modules\Core\Misc\VectorIterator.h"/>
     <ClInclude Include="..\..\Source\Modules\Core\Misc\CompilerSupport.h"/>
     <ClInclude Include="..\..\Source\Modules\Core\Misc\Macros.h"/>
     <ClInclude Include="..\..\Source\Modules\Core\Misc\Math.h"/>

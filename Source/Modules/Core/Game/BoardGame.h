@@ -254,8 +254,7 @@ protected:
 
 private:
     //==============================================================================
-    bool firstPlayerTurn;
-    bool isProcessingTurn;
+    bool firstPlayerTurn, isProcessingTurn;
 
     //==============================================================================
     BoardGame() BGE_DELETED_FUNCTION;

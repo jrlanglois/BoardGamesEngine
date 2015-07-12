@@ -178,6 +178,7 @@
 		27C42B19857CFCABD544DE23 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MouseInputSource.h"; path = "../../../juce/modules/juce_gui_basics/mouse/juce_MouseInputSource.h"; sourceTree = "SOURCE_ROOT"; };
 		27E78DFEC8CB8BAA6BD36A87 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_linux_Messaging.cpp"; path = "../../../juce/modules/juce_events/native/juce_linux_Messaging.cpp"; sourceTree = "SOURCE_ROOT"; };
 		28995B0BF5725CFC2EC6BD5D = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_SplashScreen.cpp"; path = "../../../juce/modules/juce_gui_extra/misc/juce_SplashScreen.cpp"; sourceTree = "SOURCE_ROOT"; };
+		28FEA3069908CB6A79946D94 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VectorIterator.h; path = ../../Source/Modules/Core/Misc/VectorIterator.h; sourceTree = "SOURCE_ROOT"; };
 		290CA741D066D208C6723EDB = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ArrowButton.cpp"; path = "../../../juce/modules/juce_gui_basics/buttons/juce_ArrowButton.cpp"; sourceTree = "SOURCE_ROOT"; };
 		2927416E9441AA2D07B15F5E = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_StringPairArray.cpp"; path = "../../../juce/modules/juce_core/text/juce_StringPairArray.cpp"; sourceTree = "SOURCE_ROOT"; };
 		295A8C4D110ED2BD03BAB10A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BGESystemTrayIconComponent.h; path = ../../Source/Modules/Graphics/Misc/BGESystemTrayIconComponent.h; sourceTree = "SOURCE_ROOT"; };
@@ -988,6 +989,7 @@
 					31E46017880259C414625761,
 					EC87D1F1D7099ED846D16C69, ); name = Game; sourceTree = "<group>"; };
 		3B47D72E7FA32A14729CFDD1 = {isa = PBXGroup; children = (
+					28FEA3069908CB6A79946D94,
 					CC35F2E3069F43E17F44CC6E,
 					A04B9D3C4506EE13EE91F763,
 					3F0D3E587A16269E042E1C27,

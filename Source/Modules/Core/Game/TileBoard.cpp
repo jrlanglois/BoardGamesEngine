@@ -52,7 +52,7 @@ void TileBoard::initialise()
 void TileBoard::setTileStateWithoutChecking (const int index, const int newState)
 {
     rassert (isPositiveAndBelow (index, getTotalNumTiles()));
-    tiles.at (index) = Tile (newState);
+    tiles[index] = Tile (newState);
 }
 
 void TileBoard::setTileStateWithoutChecking (const int column, const int row, const int newState)

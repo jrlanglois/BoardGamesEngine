@@ -57,11 +57,6 @@ std::string ReversiTileBoard::saveState() const
     return state;
 }
 
-#if BGE_MSVC
- #pragma warning (push)
- #pragma warning (disable: 4239)
-#endif
-
 bool ReversiTileBoard::loadFromState (const std::string& state)
 {
     const size_t firstSpace = state.find_first_of (" ");
@@ -84,10 +79,6 @@ bool ReversiTileBoard::loadFromState (const std::string& state)
 
     return true;
 }
-
-#if BGE_MSVC
- #pragma warning (pop)
-#endif
 
 //==============================================================================
 StandardReversiTileBoard::StandardReversiTileBoard() :

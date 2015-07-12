@@ -91,6 +91,10 @@ namespace bge
    #ifndef BGE_CORE_MISC_H
     #include "Misc/Misc.h"
    #endif //BGE_CORE_MISC_H
+
+   #ifndef BGE_VECTOR_ITERATOR_H
+    #include "Misc/VectorIterator.h"
+   #endif //BGE_VECTOR_ITERATOR_H
 }
 
 #endif //BOARD_GAMES_ENGINE_CORE_H

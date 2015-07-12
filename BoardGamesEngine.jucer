@@ -63,6 +63,8 @@
           <FILE id="lM5SIo" name="TileBoard.h" compile="0" resource="0" file="Source/Modules/Core/Game/TileBoard.h"/>
         </GROUP>
         <GROUP id="{E9D909CF-34F2-4E10-D6BF-140F46B55E59}" name="Misc">
+          <FILE id="uvbD7N" name="VectorIterator.h" compile="0" resource="0"
+                file="Source/Modules/Core/Misc/VectorIterator.h"/>
           <FILE id="uoz5eG" name="CompilerSupport.h" compile="0" resource="0"
                 file="Source/Modules/Core/Misc/CompilerSupport.h"/>
           <FILE id="gW4sEe" name="Macros.h" compile="0" resource="0" file="Source/Modules/Core/Misc/Macros.h"/>

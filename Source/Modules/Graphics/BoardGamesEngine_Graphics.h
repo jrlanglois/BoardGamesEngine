@@ -40,7 +40,7 @@
           of course be externally and explicitly enabled or disabled.
 */
 #ifndef BGE_SILENT_AUDIO
- #define BGE_SILENT_AUDIO 1
+ #define BGE_SILENT_AUDIO 0
 #endif
 
 //=============================================================================
