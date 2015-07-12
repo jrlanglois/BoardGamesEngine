@@ -2,7 +2,7 @@
     ==============================================================================
 
     This file is part of the Board Games Engine library.
-    Copyright (c) 2014 - Joel R. Langlois
+    Copyright (c) 2014 to present - Joel R. Langlois
 
     Permission is granted to use this software under the terms of GPL v2 (or any later version).
 
@@ -95,6 +95,8 @@ void BoardGame::endTurn()
 
 void BoardGame::reset()
 {
+    rassert (tileBoard != nullptr);
+
     tileBoard->reset();
     firstPlayerTurn = true;
 }
