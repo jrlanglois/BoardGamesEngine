@@ -357,5 +357,6 @@
                JUCE_PLUGINHOST_VST="disabled" JUCE_PLUGINHOST_VST3="disabled"
                JUCE_PLUGINHOST_AU="disabled" JUCE_ENABLE_REPAINT_DEBUGGING="disabled"
                JUCE_WEB_BROWSER="disabled" JUCE_ENABLE_LIVE_CONSTANT_EDITOR="disabled"
-               JUCE_WASAPI_EXCLUSIVE="disabled"/>
+               JUCE_WASAPI_EXCLUSIVE="disabled" JUCE_USE_MP3AUDIOFORMAT="disabled"
+               JUCE_USE_LAME_AUDIO_FORMAT="disabled"/>
 </JUCERPROJECT>
