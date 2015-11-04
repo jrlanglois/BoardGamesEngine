@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="aFrj8F" name="BoardGamesEngine" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.jrlanglois.BoardGamesEngine" includeBinaryInAppConfig="0"
-              jucerVersion="3.2.0" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
+              jucerVersion="4.0.1" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
               companyEmail="joel.r.langlois@gmail.com" maxBinaryFileSize=""
               defines="BGE_INCLUDE_JUCE_BASED_MODULES=1">
   <MAINGROUP id="NqTpeL" name="BoardGamesEngine">

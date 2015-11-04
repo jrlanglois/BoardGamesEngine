@@ -377,10 +377,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../juce/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../juce/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h">
       <Option compile="0"/>
       <Option link="0"/>
@@ -990,6 +986,38 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../juce/modules/juce_audio_processors/scanning/juce_PluginListComponent.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_processors/utilities/juce_AudioParameterBool.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_processors/utilities/juce_AudioParameterChoice.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_processors/utilities/juce_AudioParameterFloat.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_processors/utilities/juce_AudioParameterInt.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_processors/utilities/juce_AudioProcessorParameters.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_processors/utilities/juce_AudioProcessorParameterWithID.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../juce/modules/juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
