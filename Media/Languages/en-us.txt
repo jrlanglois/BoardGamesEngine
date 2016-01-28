@@ -1,4 +1,4 @@
-﻿language: English (USA)
+language: English (USA)
 countries: us
 
 "PLAYER #" = "PLAYER #"

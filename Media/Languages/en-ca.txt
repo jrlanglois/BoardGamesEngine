@@ -1,4 +1,4 @@
-﻿language: English (International)
+language: English (International)
 countries: ca uk au nz
 
 "PLAYER #" = "PLAYER #"

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="aFrj8F" name="BoardGamesEngine" projectType="guiapp" version="1.0.0"
+<JUCERPROJECT id="aFrj8F" name="BoardGamesEngine" projectType="guiapp" version="1.5.0"
               bundleIdentifier="com.jrlanglois.BoardGamesEngine" includeBinaryInAppConfig="0"
-              jucerVersion="4.0.2" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
+              jucerVersion="4.1.0" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
               companyEmail="joel.r.langlois@gmail.com" maxBinaryFileSize=""
               defines="BGE_INCLUDE_JUCE_BASED_MODULES=1">
   <MAINGROUP id="NqTpeL" name="BoardGamesEngine">
@@ -277,10 +277,12 @@
         <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <CODEBLOCKS_LINUX targetFolder="Builds/CodeBlocksLinux">
+    <XCODE_IPHONE targetFolder="Builds/iOS">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="BoardGamesEngine"/>
+        <CONFIGURATION name="Debug" iosCompatibility="default" isDebug="1" optimisation="1"
+                       targetName="BoardGamesEngine"/>
+        <CONFIGURATION name="Release" iosCompatibility="default" isDebug="0" optimisation="3"
+                       targetName="BoardGamesEngine"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
@@ -295,7 +297,7 @@
         <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
       </MODULEPATHS>
-    </CODEBLOCKS_LINUX>
+    </XCODE_IPHONE>
     <CODEBLOCKS targetFolder="Builds/CodeBlocks" smallIcon="fzweqK" bigIcon="fzweqK">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>
@@ -315,6 +317,25 @@
         <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS>
+    <CODEBLOCKS_LINUX targetFolder="Builds/CodeBlocksLinux">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="BoardGamesEngine"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
+      </MODULEPATHS>
+    </CODEBLOCKS_LINUX>
     <LINUX_MAKE targetFolder="Builds/Linux" smallIcon="fzweqK" bigIcon="fzweqK">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"

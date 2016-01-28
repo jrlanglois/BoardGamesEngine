@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string>Icon.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>com.jrlanglois.BoardGamesEngine</string>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
     <key>CFBundleName</key>
     <string>BoardGamesEngine</string>
     <key>CFBundlePackageType</key>
@@ -16,9 +16,9 @@
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.0</string>
+    <string>1.5.0</string>
     <key>CFBundleVersion</key>
-    <string>1.0.0</string>
+    <string>1.5.0</string>
     <key>NSHumanReadableCopyright</key>
     <string>Jo&#235;l R. Langlois</string>
     <key>NSHighResolutionCapable</key>

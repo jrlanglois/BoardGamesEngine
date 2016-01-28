@@ -1,4 +1,4 @@
-﻿language: Français (Canada)
+language: Français (Canada)
 countries: ca
 
 "PLAYER #" = "JOUEUR #"
