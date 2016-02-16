@@ -836,6 +836,7 @@
 		D37ECD4FD13CB05433427F0F = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_PathStrokeType.cpp"; path = "../../../juce/modules/juce_graphics/geometry/juce_PathStrokeType.cpp"; sourceTree = "SOURCE_ROOT"; };
 		D4525576ED24421DCF3A8697 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_audio_basics.h"; path = "../../../juce/modules/juce_audio_basics/juce_audio_basics.h"; sourceTree = "SOURCE_ROOT"; };
 		D4E1DBC4BF97A71B7CEEA3CA = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ReversiTileBoard.cpp; path = ../../Source/Modules/Core/Game/ReversiTileBoard.cpp; sourceTree = "SOURCE_ROOT"; };
+		D4F9D0C44FB538244AAF28FA = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_StatisticsAccumulator.h"; path = "../../../juce/modules/juce_core/maths/juce_StatisticsAccumulator.h"; sourceTree = "SOURCE_ROOT"; };
 		D57767E01161DB52198D2A2B = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_KeyMappingEditorComponent.cpp"; path = "../../../juce/modules/juce_gui_extra/misc/juce_KeyMappingEditorComponent.cpp"; sourceTree = "SOURCE_ROOT"; };
 		D59F83D731E6C8DEBBA53FA3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_BooleanPropertyComponent.cpp"; path = "../../../juce/modules/juce_gui_basics/properties/juce_BooleanPropertyComponent.cpp"; sourceTree = "SOURCE_ROOT"; };
 		D5D3FC01EBC361A06A7B564A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_PluginListComponent.h"; path = "../../../juce/modules/juce_audio_processors/scanning/juce_PluginListComponent.h"; sourceTree = "SOURCE_ROOT"; };
@@ -1348,7 +1349,8 @@
 					474835DF749911195AAB780C,
 					AC6FA3476D82B9BEA77088DE,
 					45400E2463F5C5DA73F25238,
-					8B397CC00CE63815C93CB075, ); name = maths; sourceTree = "<group>"; };
+					8B397CC00CE63815C93CB075,
+					D4F9D0C44FB538244AAF28FA, ); name = maths; sourceTree = "<group>"; };
 		CF473AA5044564620C1E268D = {isa = PBXGroup; children = (
 					A129B07ABC801AF3C46790F3,
 					9B4B19F34A3E4A31D4A4FF0B,
