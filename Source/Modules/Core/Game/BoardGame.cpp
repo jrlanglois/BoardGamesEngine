@@ -44,7 +44,7 @@ void BoardGame::addListener (Listener* const newListener)
     if (newListener != nullptr)
     {
         if (! std::binary_search (listeners.begin(), listeners.end(), newListener))
-            listeners.push_back (newListener);
+            listeners.emplace_back (newListener);
     }
     else
     {
@@ -165,7 +165,7 @@ void BoardGame::getAllPossibleMoves (std::vector<int>& moves,
 
     for (int i = 0; i < totalNumTiles; ++i)
         if (isPossibleMove (forFirstPlayer, i))
-            moves.push_back (i);
+            moves.emplace_back (i);
 }
 
 void BoardGame::getAllPossibleMoves (std::vector<int>& moves)

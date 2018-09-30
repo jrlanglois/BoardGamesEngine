@@ -36,7 +36,7 @@ public:
     }
 
     //==============================================================================
-    void paintButton (juce::Graphics& g,
+    void paintButton (Graphics& g,
                       bool isMouseOverButton,
                       bool isButtonDown) override
     {
@@ -50,8 +50,8 @@ public:
             isButtonDown = false;
         }
 
-        g.setColour (juce::Colours::black.withAlpha (0.5f));
-        g.drawRoundedRectangle (getLocalBounds().reduced (2).toFloat(), juce::float_Pi, 1.0f);
+        g.setColour (Colours::black.withAlpha (0.5f));
+        g.drawRoundedRectangle (getLocalBounds().reduced (2).toFloat(), float_Pi, 1.0f);
 
         BGELookAndFeel::drawReversiToken (g,
                                           isShowingMoveHints() ? boardGame.isFirstPlayerTurn() : tile.hasPlayerOne(),
@@ -63,17 +63,17 @@ public:
         {
             if (tile.hasPlayer() && tile.hasPlayerOne())
             {
-                g.setColour (juce::Colours::white);
+                g.setColour (Colours::white);
             }
             else
             {
                 g.setColour (isShowingMoveHints() && boardGame.isFirstPlayerTurn()
-                                ? juce::Colours::white
-                                : juce::Colours::black);
+                                ? Colours::white
+                                : Colours::black);
             }
 
-            g.drawText (juce::String (getIndex()), getLocalBounds().toFloat().reduced (6.0f),
-                        juce::Justification::centred, false);
+            g.drawText (String (getIndex()), getLocalBounds().toFloat().reduced (6.0f),
+                        Justification::centred, false);
         }
     }
 

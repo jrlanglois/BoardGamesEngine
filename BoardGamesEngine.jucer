@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="aFrj8F" name="BoardGamesEngine" projectType="guiapp" version="1.5.0"
               bundleIdentifier="com.jrlanglois.BoardGamesEngine" includeBinaryInAppConfig="0"
-              jucerVersion="4.1.0" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
+              jucerVersion="5.3.2" companyName="Jo&#235;l R. Langlois" companyWebsite="www.jrlanglois.com"
               companyEmail="joel.r.langlois@gmail.com" maxBinaryFileSize=""
               defines="BGE_INCLUDE_JUCE_BASED_MODULES=1">
   <MAINGROUP id="NqTpeL" name="BoardGamesEngine">
@@ -204,64 +204,11 @@
         <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
       </MODULEPATHS>
     </VS2013>
-    <VS2012 targetFolder="Builds/VisualStudio2012" toolset="v110_xp" smallIcon="fzweqK"
-            bigIcon="fzweqK">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Reversi"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="2" targetName="Reversi"/>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="Reversi"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="2" targetName="Reversi"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../juce/modules"/>
-        <MODULEPATH id="juce_events" path="../juce/modules"/>
-        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
-      </MODULEPATHS>
-    </VS2012>
-    <VS2010 targetFolder="Builds/VisualStudio2010" toolset="v100_xp">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="2" targetName="BoardGamesEngine"/>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="2" targetName="BoardGamesEngine"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
-        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
-        <MODULEPATH id="juce_events" path="../juce/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
-        <MODULEPATH id="juce_core" path="../juce/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../juce/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../juce/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../juce/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../juce/modules"/>
-      </MODULEPATHS>
-    </VS2010>
     <XCODE_MAC targetFolder="Builds/MacOSX" documentExtensions=".reversi" smallIcon="fzweqK"
                bigIcon="fzweqK">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="1" optimisation="1" targetName="Reversi"/>
-        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="0" optimisation="2" targetName="Reversi"/>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Reversi"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Reversi"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../juce/modules"/>
@@ -279,10 +226,8 @@
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" iosCompatibility="default" isDebug="1" optimisation="1"
-                       targetName="BoardGamesEngine"/>
-        <CONFIGURATION name="Release" iosCompatibility="default" isDebug="0" optimisation="3"
-                       targetName="BoardGamesEngine"/>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="BoardGamesEngine"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="BoardGamesEngine"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
@@ -371,13 +316,14 @@
     <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
   </MODULES>
-  <JUCEOPTIONS JUCE_ASIO="disabled" JUCE_WASAPI="enabled" JUCE_DIRECTSOUND="enabled"
-               JUCE_ALSA="disabled" JUCE_JACK="disabled" JUCE_USE_ANDROID_OPENSLES="disabled"
-               JUCE_USE_CDREADER="disabled" JUCE_USE_CDBURNER="disabled" JUCE_USE_FLAC="enabled"
-               JUCE_USE_OGGVORBIS="enabled" JUCE_USE_WINDOWS_MEDIA_FORMAT="enabled"
-               JUCE_PLUGINHOST_VST="disabled" JUCE_PLUGINHOST_VST3="disabled"
-               JUCE_PLUGINHOST_AU="disabled" JUCE_ENABLE_REPAINT_DEBUGGING="disabled"
-               JUCE_WEB_BROWSER="disabled" JUCE_ENABLE_LIVE_CONSTANT_EDITOR="disabled"
-               JUCE_WASAPI_EXCLUSIVE="disabled" JUCE_USE_MP3AUDIOFORMAT="disabled"
-               JUCE_USE_LAME_AUDIO_FORMAT="disabled"/>
+  <JUCEOPTIONS JUCE_ASIO="0" JUCE_WASAPI="1" JUCE_DIRECTSOUND="1" JUCE_ALSA="0"
+               JUCE_JACK="0" JUCE_USE_ANDROID_OPENSLES="0" JUCE_USE_CDREADER="disabled"
+               JUCE_USE_CDBURNER="disabled" JUCE_USE_FLAC="1" JUCE_USE_OGGVORBIS="1"
+               JUCE_USE_WINDOWS_MEDIA_FORMAT="1" JUCE_PLUGINHOST_VST="0" JUCE_PLUGINHOST_VST3="0"
+               JUCE_PLUGINHOST_AU="0" JUCE_ENABLE_REPAINT_DEBUGGING="0" JUCE_WEB_BROWSER="0"
+               JUCE_ENABLE_LIVE_CONSTANT_EDITOR="0" JUCE_WASAPI_EXCLUSIVE="0"
+               JUCE_USE_MP3AUDIOFORMAT="0" JUCE_USE_LAME_AUDIO_FORMAT="0"/>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
 </JUCERPROJECT>

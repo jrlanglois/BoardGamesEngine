@@ -72,6 +72,8 @@
  #error "Board Games Engine: unknown platform!"
 #endif
 
+#undef Rectangle
+
 namespace bge //Back into bge namespace
 {
 

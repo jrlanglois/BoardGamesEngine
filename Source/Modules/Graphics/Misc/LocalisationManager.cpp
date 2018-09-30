@@ -40,7 +40,7 @@ void LocalisationManager::setLanguageFile (const int index)
         if (TranslationFile* const tf = languageFiles[index])
         {
             currentFileIndex = index;
-            juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (tf->file, true));
+            LocalisedStrings::setCurrentMappings (new LocalisedStrings (tf->file, true));
             sendChangeMessage();
         }
     }
@@ -48,24 +48,24 @@ void LocalisationManager::setLanguageFile (const int index)
 
 void LocalisationManager::locateLanguagesFile()
 {
-    juce::File languagesFolder (PathHelpers::getMediaFolder() + "Languages/");
+    File languagesFolder (PathHelpers::getMediaFolder() + "Languages/");
     jassert (languagesFolder.exists() && languagesFolder.isDirectory()); //Something has gone horribly wrong with the path!
 
-    juce::Array<juce::File> files;
-    languagesFolder.findChildFiles (files, juce::File::findFiles, false, "*.txt");
+    Array<File> files;
+    languagesFolder.findChildFiles (files, File::findFiles, false, "*.txt");
     jassert (files.size() >= 3); //Missing default files!
 
     for (int i = 0; i < files.size(); ++i)
     {
-        const juce::File& f = files.getUnchecked (i);
-        const juce::LocalisedStrings ls (f, true);
+        const File& f = files.getUnchecked (i);
+        const LocalisedStrings ls (f, true);
         languageFiles.add (new TranslationFile (f, ls.getLanguageName().trim()));
     }
 }
 
-juce::StringArray LocalisationManager::getLanguageFileNames() const
+StringArray LocalisationManager::getLanguageFileNames() const
 {
-    juce::StringArray names;
+    StringArray names;
 
     for (int i = 0; i < languageFiles.size(); ++i)
         names.add (languageFiles.getUnchecked (i)->name);

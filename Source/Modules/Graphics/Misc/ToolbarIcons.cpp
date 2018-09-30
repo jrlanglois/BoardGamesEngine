@@ -29,7 +29,7 @@ namespace ToolbarIcons
 {
 
 //==============================================================================
-static const juce::uint8 internalTemp0[] =
+static const uint8 internalTemp0[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n"
 "<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\r\n"
 "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\r\n"
@@ -41,10 +41,10 @@ static const juce::uint8 internalTemp0[] =
 "\tc0,0-5.058,22.862-5.058,23.042H5V10L5,10z\"/>\r\n"
 "</svg>\r\n";
 
-const juce::uint8* open_svg = internalTemp0;
+const uint8* open_svg = internalTemp0;
 
 //==============================================================================
-static const juce::uint8 internalTemp1[] =
+static const uint8 internalTemp1[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n"
 "<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\r\n"
 "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\r\n"
@@ -59,10 +59,10 @@ static const juce::uint8 internalTemp1[] =
 "</g>\r\n"
 "</svg>\r\n";
 
-const juce::uint8* save_svg = internalTemp1;
+const uint8* save_svg = internalTemp1;
 
 //==============================================================================
-static const juce::uint8 internalTemp2[] =
+static const uint8 internalTemp2[] =
 "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"32px\"\r\n"
 "\t height=\"32px\" viewBox=\"0 0 32 32\" style=\"enable-background:new 0 0 32 32;\" xml:space=\"preserve\">\r\n"
 "<g id=\"Layer_1\">\r\n"
@@ -77,10 +77,10 @@ static const juce::uint8 internalTemp2[] =
 "</g>\r\n"
 "</svg>\r\n";
 
-const juce::uint8* gear_svg = internalTemp2;
+const uint8* gear_svg = internalTemp2;
 
 //==============================================================================
-static const juce::uint8 internalTemp3[] =
+static const uint8 internalTemp3[] =
 "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n"
 "\t width=\"512px\" height=\"512px\" viewBox=\"0 0 512 512\" enable-background=\"new 0 0 512 512\" xml:space=\"preserve\">\r\n"
 "<path d=\"M416,351.998h-32c-35.344,0-64-28.656-64-64v-20.563c14.156-16.828,24.313-36.734,30.625-57.766\r\n"
@@ -92,10 +92,10 @@ static const juce::uint8 internalTemp3[] =
 "\tc0,0-58,16-96,96v32c0,17.688,14.313,32,32,32h448c17.688,0,32-14.313,32-32v-32C474,367.998,416,351.998,416,351.998z\"/>\r\n"
 "</svg>\r\n";
 
-const juce::uint8* about_svg = internalTemp3;
+const uint8* about_svg = internalTemp3;
 
 //==============================================================================
-static const juce::uint8 internalTemp4[] =
+static const uint8 internalTemp4[] =
 "<svg version=\"1.1\" id=\"Artwork\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n"
 "\t width=\"512px\" height=\"512px\" viewBox=\"0 0 512 512\" enable-background=\"new 0 0 512 512\" xml:space=\"preserve\">\r\n"
 "<g>\r\n"
@@ -115,6 +115,6 @@ static const juce::uint8 internalTemp4[] =
 "</g>\r\n"
 "</svg>\r\n";
 
-const juce::uint8* restart_svg = internalTemp4;
+const uint8* restart_svg = internalTemp4;
 
 }

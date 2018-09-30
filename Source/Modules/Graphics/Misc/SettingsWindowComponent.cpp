@@ -25,17 +25,17 @@
 
     ==============================================================================
 */
-SettingsWindowComponent::AlignedComponents::AlignedComponents (const juce::String& text,
-                                                               const juce::String& t,
-                                                               juce::Component* r) :
-    label (new juce::Label()),
+SettingsWindowComponent::AlignedComponents::AlignedComponents (const String& text,
+                                                               const String& t,
+                                                               Component* r) :
+    label (new Label()),
     comp (r),
     labelText (text),
     tooltip (t)
 {
     jassert (label != nullptr && comp != nullptr);
 
-    label->setJustificationType (juce::Justification::centredRight);
+    label->setJustificationType (Justification::centredRight);
     update();
 
     addAndMakeVisible (label);
@@ -44,15 +44,15 @@ SettingsWindowComponent::AlignedComponents::AlignedComponents (const juce::Strin
 
 void SettingsWindowComponent::AlignedComponents::update()
 {
-    label->setText (TRANS (labelText) + ":", juce::dontSendNotification);
+    label->setText (TRANS (labelText) + ":", dontSendNotification);
 
-    if (juce::SettableTooltipClient* const stc = dynamic_cast<juce::SettableTooltipClient*> (comp.get()))
+    if (SettableTooltipClient* const stc = dynamic_cast<SettableTooltipClient*> (comp.get()))
         stc->setTooltip (TRANS (labelText));
 }
 
 void SettingsWindowComponent::AlignedComponents::resized()
 {
-    const int leftWidth = juce::roundToInt (getWidth() * 0.33);
+    const int leftWidth = roundToInt (getWidth() * 0.33);
 
     label->setBounds (0, 0, leftWidth, getHeight());
     comp->setBounds (label->getRight(), 0, getWidth() - leftWidth, getHeight());
@@ -68,10 +68,10 @@ SettingsWindowComponent::SettingsWindowComponent (LocalisationManager& lm,
 
     //Language settings:
     {
-        juce::ComboBox* cb = new juce::ComboBox();
-        cb->setComponentID (juce::String (languageId));
+        ComboBox* cb = new ComboBox();
+        cb->setComponentID (String (languageId));
 
-        const juce::StringArray names (localisationManager.getLanguageFileNames());
+        const StringArray names (localisationManager.getLanguageFileNames());
 
         for (int i = 0; i < names.size(); ++i)
             cb->addItem (names.strings.getUnchecked (i), i + 1);
@@ -117,32 +117,32 @@ SettingsWindowComponent::~SettingsWindowComponent()
 }
 
 //==============================================================================
-class SettingsSlider : public juce::Slider
+class SettingsSlider : public Slider
 {
 public:
     SettingsSlider (double initialValue) :
-        juce::Slider (juce::Slider::LinearHorizontal, juce::Slider::NoTextBox)
+        Slider (Slider::LinearHorizontal, Slider::NoTextBox)
     {
-        setPopupDisplayEnabled (true, nullptr);
+        setPopupDisplayEnabled (true, true, nullptr);
         setRange (0.0, 1.0, 0.01);
-        setValue (initialValue, juce::dontSendNotification);
+        setValue (initialValue, dontSendNotification);
         setTextValueSuffix ("%");
     }
 
-    juce::String getTextFromValue (double value) override
+    String getTextFromValue (double value) override
     {
-        return juce::String (value * 100.0) + getTextValueSuffix();
+        return String (value * 100.0) + getTextValueSuffix();
     }
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SettingsSlider)
 };
 
-juce::Slider* SettingsWindowComponent::createSlider (const int componentId,
+Slider* SettingsWindowComponent::createSlider (const int componentId,
                                                      const double initialValue) const
 {
-    juce::Slider* const slider = new SettingsSlider (initialValue);
-    slider->setComponentID (juce::String (componentId));
+    auto* slider = new SettingsSlider (initialValue);
+    slider->setComponentID (String (componentId));
     return slider;
 }
 
@@ -159,18 +159,18 @@ void SettingsWindowComponent::resized()
 //==============================================================================
 void SettingsWindowComponent::updateToTranslation()
 {
-    for (int i = alignedComponents.size(); --i >= 0;)
-        alignedComponents.getUnchecked (i)->update();
+    for (auto& comp : alignedComponents)
+        comp->update();
 }
 
-void SettingsWindowComponent::changeListenerCallback (juce::ChangeBroadcaster*)
+void SettingsWindowComponent::changeListenerCallback (ChangeBroadcaster*)
 {
     updateToTranslation();
 }
 
-void SettingsWindowComponent::sliderValueChanged (juce::Slider* const slider)
+void SettingsWindowComponent::sliderValueChanged (Slider* const slider)
 {
-    const float value = (float) slider->getValue();
+    const auto value = (float) slider->getValue();
 
     switch (slider->getComponentID().getIntValue())
     {
@@ -182,7 +182,7 @@ void SettingsWindowComponent::sliderValueChanged (juce::Slider* const slider)
     };
 }
 
-void SettingsWindowComponent::comboBoxChanged (juce::ComboBox* const comboBox)
+void SettingsWindowComponent::comboBoxChanged (ComboBox* const comboBox)
 {
     switch (comboBox->getComponentID().getIntValue())
     {

@@ -28,7 +28,7 @@
 #ifndef BGE_LOCALISATION_MANAGER_H
 #define BGE_LOCALISATION_MANAGER_H
 
-class LocalisationManager : public juce::ChangeBroadcaster
+class LocalisationManager : public ChangeBroadcaster
 {
 public:
     LocalisationManager();
@@ -40,24 +40,24 @@ public:
     class TranslationFile
     {
     public:
-        TranslationFile (const juce::File& f,
-                         const juce::String& n) :
+        TranslationFile (const File& f,
+                         const String& n) :
             file (f),
             name (n)
         {
         }
 
-        const juce::File file;
-        const juce::String name;
+        const File file;
+        const String name;
 
     private:
         TranslationFile() JUCE_DELETED_FUNCTION;
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TranslationFile)
     };
 
-    const juce::OwnedArray<TranslationFile>& getLanguageFiles() const noexcept { return languageFiles; }
+    const OwnedArray<TranslationFile>& getLanguageFiles() const noexcept { return languageFiles; }
 
-    juce::StringArray getLanguageFileNames() const;
+    StringArray getLanguageFileNames() const;
 
     //==============================================================================
     void setLanguageFile (int index);
@@ -66,7 +66,7 @@ private:
     //==============================================================================
     int currentFileIndex;
 
-    juce::OwnedArray<TranslationFile> languageFiles;
+    OwnedArray<TranslationFile> languageFiles;
 
     //==============================================================================
     void locateLanguagesFile();

@@ -38,26 +38,26 @@ public:
     //==============================================================================
     BoardGame* restore (bool& userCancelledOperation) const
     {
-        const juce::File dataFolder (getDataFolder());
+        const File dataFolder (getDataFolder());
 
-        juce::FileChooser fc (TRANS ("Choose an existing game file"),
+        FileChooser fc (TRANS ("Choose an existing game file"),
                               dataFolder,
                               "*.reversi");
 
-        juce::ScopedPointer<BoardGame> newBoardGame;
+        ScopedPointer<BoardGame> newBoardGame;
 
         userCancelledOperation = ! fc.browseForFileToOpen();
         if (! userCancelledOperation)
         {
-            juce::ScopedPointer<juce::InputStream> fis (fc.getResult().createInputStream());
-            juce::String result;
+            ScopedPointer<InputStream> fis (fc.getResult().createInputStream());
+            String result;
 
             if (fis != nullptr)
                 result = fis->readString();
 
             if (result.isNotEmpty())
             {
-                const std::string state (result.toStdString());
+                const auto state = result.toStdString();
 
                 newBoardGame = new StandardReversiBoardGame();
                 if (newBoardGame->getTileBoard().loadFromState (state))
@@ -79,36 +79,29 @@ public:
     //==============================================================================
     bool save (TileBoard& tileBoard) const
     {
-        const juce::File dataFolder (getDataFolder());
+        const File dataFolder (getDataFolder());
 
-        juce::FileChooser fc (TRANS ("Choose a location to save the game file"),
+        FileChooser fc (TRANS ("Choose a location to save the game file"),
                               dataFolder,
                               "*.reversi");
 
-        bool successful = true;
-
         if (fc.browseForFileToSave (true))
-        {
-            juce::ScopedPointer<juce::OutputStream> fos (fc.getResult().createOutputStream());
+            if (ScopedPointer<OutputStream> fos = fc.getResult().createOutputStream())
+                return fos->writeText (String (tileBoard.saveState()), false, false, "\r\n");
 
-            successful = fos != nullptr;
-            if (successful)
-                successful = fos->writeText (juce::String (tileBoard.saveState()), false, false);
-        }
-
-        return successful;
+        return false;
     }
 
 private:
     //==============================================================================
-    juce::String getDefaultDataFolderPath() const
+    String getDefaultDataFolderPath() const
     {
-        return juce::File::getSpecialLocation (juce::File::userDocumentsDirectory).getFullPathName() + "/Reversi/";
+        return File::getSpecialLocation (File::userDocumentsDirectory).getFullPathName() + "/Reversi/";
     }
 
-    juce::File getDataFolder() const
+    File getDataFolder() const
     {
-        const juce::File dataFolder (getDefaultDataFolderPath());
+        const File dataFolder (getDefaultDataFolderPath());
 
         if (! dataFolder.exists())
         {
@@ -146,7 +139,7 @@ public:
     };
 
     //==============================================================================
-    ToolbarItemFactory (juce::Button::Listener& bl,
+    ToolbarItemFactory (Button::Listener& bl,
                         LocalisationManager& lm) :
         buttonListener (bl),
         localisationManager (lm)
@@ -158,15 +151,15 @@ public:
                                          ToolbarIcons::open_svg, ToolbarIcons::open_svgSize));
 
         {
-            juce::Path checkerBoard;
+            Path checkerBoard;
             checkerBoard.addRectangle (0.0f, 0.0f, 1.0f, 1.0f);
             checkerBoard.addRectangle (1.0f, 1.0f, 1.0f, 1.0f);
-            checkerBoard.addLineSegment (juce::Line<float> (2.0f, 0.0f, 2.0f, 1.0f), 0.1f); //Vertical, top-right
-            checkerBoard.addLineSegment (juce::Line<float> (1.0f, 0.0f, 2.0f, 0.0f), 0.1f); //Horizontal, top-right
-            checkerBoard.addLineSegment (juce::Line<float> (0.0f, 1.0f, 0.0f, 2.0f), 0.1f); //Vertical, bottom-left
-            checkerBoard.addLineSegment (juce::Line<float> (0.0f, 2.0f, 2.0f, 2.0f), 0.1f); //Horizontal, bottom-left
+            checkerBoard.addLineSegment (Line<float> (2.0f, 0.0f, 2.0f, 1.0f), 0.1f); //Vertical, top-right
+            checkerBoard.addLineSegment (Line<float> (1.0f, 0.0f, 2.0f, 0.0f), 0.1f); //Horizontal, top-right
+            checkerBoard.addLineSegment (Line<float> (0.0f, 1.0f, 0.0f, 2.0f), 0.1f); //Vertical, bottom-left
+            checkerBoard.addLineSegment (Line<float> (0.0f, 2.0f, 2.0f, 2.0f), 0.1f); //Horizontal, bottom-left
 
-            juce::DrawablePath* dp = new juce::DrawablePath();
+            DrawablePath* dp = new DrawablePath();
             dp->setPath (checkerBoard);
 
             buttonInfos.add (new ButtonInfo (changeGame,
@@ -176,10 +169,10 @@ public:
         }
 
         {
-            juce::DrawableImage* di = new juce::DrawableImage();
+            auto* di = new DrawableImage();
             createHintButtonImage (*di, true);
 
-            juce::DrawableImage* toggledOn = new juce::DrawableImage();
+            auto* toggledOn = new DrawableImage();
             createHintButtonImage (*toggledOn, false);
 
             buttonInfos.add (new ButtonInfo (showHints,
@@ -189,10 +182,10 @@ public:
         }
 
         {
-            juce::DrawableImage* di = new juce::DrawableImage();
+            auto* di = new DrawableImage();
             createTileIndexButtonImage (*di, true);
 
-            juce::DrawableImage* toggledOn = new juce::DrawableImage();
+            auto* toggledOn = new DrawableImage();
             createTileIndexButtonImage (*toggledOn, false);
 
             buttonInfos.add (new ButtonInfo (showTileIndices,
@@ -212,41 +205,41 @@ public:
     }
 
     //==============================================================================
-    void getAllToolbarItemIds (juce::Array<int>& ids) override
+    void getAllToolbarItemIds (Array<int>& ids) override
     {
         for (int i = 0; i < numItems; ++i)
             ids.add (i + 1);
 
-        ids.add (juce::ToolbarItemFactory::separatorBarId);
+        ids.add (ToolbarItemFactory::separatorBarId);
     }
 
-    void getDefaultItemSet (juce::Array<int>& ids) override
+    void getDefaultItemSet (Array<int>& ids) override
     {
         ids.add (save);
         ids.add (open);
-        ids.add (juce::ToolbarItemFactory::separatorBarId);
+        ids.add (ToolbarItemFactory::separatorBarId);
         ids.add (showHints);
         ids.add (showTileIndices);
-        ids.add (juce::ToolbarItemFactory::separatorBarId);
+        ids.add (ToolbarItemFactory::separatorBarId);
         ids.add (changeGame);
         ids.add (restart);
-        ids.add (juce::ToolbarItemFactory::separatorBarId);
+        ids.add (ToolbarItemFactory::separatorBarId);
         ids.add (about);
         ids.add (settings);
     }
 
     //==============================================================================
-    class CustomToolbarButton : public juce::ToolbarButton,
-                                private juce::ChangeListener
+    class CustomToolbarButton : public ToolbarButton,
+                                private ChangeListener
     {
     public:
         CustomToolbarButton (int id,
-                             const juce::String& labelText,
-                             const juce::String& tooltipUntrans,
-                             juce::Drawable* normalImg,
-                             juce::Drawable* toggledOnImg,
+                             const String& labelText,
+                             const String& tooltipUntrans,
+                             Drawable* normalImg,
+                             Drawable* toggledOnImg,
                              LocalisationManager& lm) :
-            juce::ToolbarButton (id, labelText, normalImg, toggledOnImg),
+            ToolbarButton (id, labelText, normalImg, toggledOnImg),
             text (labelText),
             tooltip (tooltipUntrans),
             localisationManager (lm)
@@ -261,7 +254,7 @@ public:
         }
 
     private:
-        const juce::String text, tooltip;
+        const String text, tooltip;
         LocalisationManager& localisationManager;
 
         void updateText()
@@ -270,7 +263,7 @@ public:
             setTooltip (TRANS (tooltip));
         }
 
-        void changeListenerCallback (juce::ChangeBroadcaster*) override
+        void changeListenerCallback (ChangeBroadcaster*) override
         {
             updateText();
         }
@@ -280,26 +273,26 @@ public:
     };
 
     //==============================================================================
-    juce::ToolbarItemComponent* createItem (int itemId) override
+    ToolbarItemComponent* createItem (int itemId) override
     {
-        for (int i = buttonInfos.size(); --i >= 0;)
+        for (auto* bi : buttonInfos)
         {
-            if (ButtonInfo* const bi = buttonInfos.getUnchecked (i))
+            if (bi != nullptr)
             {
                 if (bi->id == itemId)
                 {
-                    CustomToolbarButton* button = new CustomToolbarButton (itemId,
-                                                                           bi->name,
-                                                                           bi->tooltip,
-                                                                           bi->drawable->createCopy(),
-                                                                           bi->toggleOnImage != nullptr ? bi->toggleOnImage->createCopy() : nullptr,
-                                                                           localisationManager);
+                    auto* button = new CustomToolbarButton (itemId,
+                                                            bi->name,
+                                                            bi->tooltip,
+                                                            bi->drawable->createCopy(),
+                                                            bi->toggleOnImage != nullptr ? bi->toggleOnImage->createCopy() : nullptr,
+                                                            localisationManager);
                     button->addListener (&buttonListener);
 
                     if (bi->togglesState)
                     {
                         button->setClickingTogglesState (true);
-                        button->setToggleState (bi->initialToggleState, juce::dontSendNotification);
+                        button->setToggleState (bi->initialToggleState, dontSendNotification);
                     }
 
                     return button;
@@ -316,8 +309,8 @@ private:
     {
     public:
         ButtonInfo (ItemId idTag,
-                    const juce::String& n,
-                    const juce::String& t,
+                    const String& n,
+                    const String& t,
                     const void* pathData, size_t pathSizeBytes) :
             id (idTag),
             name (n),
@@ -325,13 +318,13 @@ private:
             togglesState (false),
             initialToggleState (false)
         {
-            drawable = juce::Drawable::createFromImageData (pathData, pathSizeBytes);
+            drawable = Drawable::createFromImageData (pathData, pathSizeBytes);
         }
 
         ButtonInfo (ItemId idTag,
-                    const juce::String& n,
-                    const juce::String& t,
-                    juce::Drawable* d,
+                    const String& n,
+                    const String& t,
+                    Drawable* d,
                     bool isToggle = false,
                     bool firstState = false) :
             id (idTag),
@@ -345,9 +338,9 @@ private:
 
         //==============================================================================
         const ItemId id;
-        const juce::String name; //< Untranslated
-        const juce::String tooltip; //< Untranslated
-        juce::ScopedPointer<juce::Drawable> drawable, toggleOnImage;
+        const String name; //< Untranslated
+        const String tooltip; //< Untranslated
+        ScopedPointer<Drawable> drawable, toggleOnImage;
         const bool togglesState, initialToggleState;
 
     private:
@@ -357,23 +350,23 @@ private:
     };
 
     //==============================================================================
-    juce::Button::Listener& buttonListener;
+    Button::Listener& buttonListener;
     LocalisationManager& localisationManager;
-    juce::OwnedArray<ButtonInfo> buttonInfos;
+    OwnedArray<ButtonInfo> buttonInfos;
 
     //==============================================================================
-    static void createHintButtonImage (juce::DrawableImage& destination, bool isCrossedOut)
+    static void createHintButtonImage (DrawableImage& destination, bool isCrossedOut)
     {
         const juce::Rectangle<float> b (64.0f, 64.0f);
-        juce::Image image (juce::Image::ARGB, (int) b.getWidth(), (int) b.getHeight(), true);
-        juce::Graphics g (image);
-        g.setColour (juce::Colours::black);
-        g.drawRoundedRectangle (b.reduced (1.0f), juce::float_Pi, 1.0f);
+        Image image (Image::ARGB, (int) b.getWidth(), (int) b.getHeight(), true);
+        Graphics g (image);
+        g.setColour (Colours::black);
+        g.drawRoundedRectangle (b.reduced (1.0f), float_Pi, 1.0f);
         g.fillEllipse (b.reduced (6.0f));
 
         if (isCrossedOut)
         {
-            g.setColour (juce::Colours::red.withAlpha (0.8f));
+            g.setColour (Colours::red.withAlpha (0.8f));
             g.drawLine (0.0f, b.getHeight(),
                         b.getWidth(), 0.0f,
                         b.getWidth() * 0.1f);
@@ -382,19 +375,19 @@ private:
         destination.setImage (image);
     }
 
-    static void createTileIndexButtonImage (juce::DrawableImage& destination, bool isCrossedOut)
+    static void createTileIndexButtonImage (DrawableImage& destination, bool isCrossedOut)
     {
         const juce::Rectangle<float> b (64.0f, 64.0f);
-        juce::Image image (juce::Image::ARGB, (int) b.getWidth(), (int) b.getHeight(), true);
-        juce::Graphics g (image);
-        g.setColour (juce::Colours::black);
-        g.drawRoundedRectangle (b.reduced (1.0f), juce::float_Pi, 1.0f);
-        g.setFont (juce::Font (b.getHeight()));
-        g.drawText ("#", b.reduced (3.0f), juce::Justification::centred, false);
+        Image image (Image::ARGB, (int) b.getWidth(), (int) b.getHeight(), true);
+        Graphics g (image);
+        g.setColour (Colours::black);
+        g.drawRoundedRectangle (b.reduced (1.0f), float_Pi, 1.0f);
+        g.setFont (Font (b.getHeight()));
+        g.drawText ("#", b.reduced (3.0f), Justification::centred, false);
 
         if (isCrossedOut)
         {
-            g.setColour (juce::Colours::red.withAlpha (0.8f));
+            g.setColour (Colours::red.withAlpha (0.8f));
             g.drawLine (0.0f, b.getHeight(),
                         b.getWidth(), 0.0f,
                         b.getWidth() * 0.1f);
@@ -410,18 +403,18 @@ private:
 
 //==============================================================================
 MainComponent::MainComponent() :
-    toolbar (new juce::Toolbar()),
+    toolbar (new Toolbar()),
     boardGame (new StandardReversiBoardGame())
 {
     setLookAndFeel (&laf);
 
-    #ifndef JUCE_IOS
+   #if ! JUCE_IOS
     {
         const int size = 128;
         const int halfSize = size / 2;
 
-        juce::Image image (juce::Image::ARGB, 128, 128, true);
-        juce::Graphics g (image);
+        Image image (Image::ARGB, 128, 128, true);
+        Graphics g (image);
 
         const juce::Rectangle<int> b (halfSize, halfSize);
         BGELookAndFeel::drawReversiToken (g, true, false, false, false, false, b);
@@ -431,11 +424,11 @@ MainComponent::MainComponent() :
 
         systemTrayIconComponent.setIconImage (image);
     }
-    #endif //JUCE_IOS
+   #endif //JUCE_IOS
 
     toolbarItemFactory = new ToolbarItemFactory (*this, localisationManager);
     toolbar->addDefaultItems (*toolbarItemFactory);
-    toolbar->setColour (juce::Toolbar::backgroundColourId, juce::Colours::white);
+    toolbar->setColour (Toolbar::backgroundColourId, Colours::white);
     addAndMakeVisible (toolbar);
 
     initialisBoardGameComponent();
@@ -464,7 +457,7 @@ void MainComponent::initialisBoardGameComponent()
 
         for (int i = toolbar->getNumItems(); --i >= 0;)
         {
-            juce::ToolbarItemComponent* const c = toolbar->getItemComponent (i);
+            auto* c = toolbar->getItemComponent (i);
 
             if (c->getItemId() == ToolbarItemFactory::showHints)
                 showingMoveHints = c->getToggleState();
@@ -502,7 +495,7 @@ void MainComponent::changeGame (BoardGame* const newBoardGame)
 
 void MainComponent::updateTrayIconTooltip()
 {
-   #ifndef JUCE_IOS
+   #if ! JUCE_IOS
     if (boardGame != nullptr)
         systemTrayIconComponent.updateTooltipFromBoardGame (*boardGame);
    #endif
@@ -521,22 +514,22 @@ void MainComponent::resized()
                                        getHeight() - (margin * 2) - buttonHeight);
 }
 
-void MainComponent::changeListenerCallback (juce::ChangeBroadcaster* const source)
+void MainComponent::changeListenerCallback (ChangeBroadcaster* const source)
 {
     if (source == settingsWindow)
         settingsWindow = nullptr;
 }
 
-void MainComponent::buttonClicked (juce::Button* const button)
+void MainComponent::buttonClicked (Button* const button)
 {
-    if (juce::ToolbarItemComponent* const tic = dynamic_cast<juce::ToolbarItemComponent*> (button))
+    if (auto* tic = dynamic_cast<ToolbarItemComponent*> (button))
     {
         switch (tic->getItemId())
         {
             case ToolbarItemFactory::open:
             {
                 bool userCancelledOperation = false;
-                BoardGame* const newBoardGame = ReversiGameStateHandler().restore (userCancelledOperation);
+                auto* newBoardGame = ReversiGameStateHandler().restore (userCancelledOperation);
 
                 if (newBoardGame != nullptr)
                 {
@@ -544,10 +537,10 @@ void MainComponent::buttonClicked (juce::Button* const button)
                 }
                 else if (! userCancelledOperation)
                 {
-                    juce::AlertWindow::showMessageBox (juce::AlertWindow::WarningIcon,
-                                                       TRANS ("Error"),
-                                                       TRANS ("Failed loading the game file! The file may be corrupt, or may be for a different game."),
-                                                       "OK");
+                    AlertWindow::showMessageBox (AlertWindow::WarningIcon,
+                                                 TRANS ("Error"),
+                                                 TRANS ("Failed loading the game file! The file may be corrupt, or may be for a different game."),
+                                                 "OK");
                 }
             }
             break;
@@ -556,21 +549,21 @@ void MainComponent::buttonClicked (juce::Button* const button)
             {
                 if (! ReversiGameStateHandler().save (boardGameComponent->getTileBoard()))
                 {
-                    juce::AlertWindow::showMessageBox (juce::AlertWindow::WarningIcon,
-                                                       TRANS ("Error"),
-                                                       TRANS ("Failed saving the game file."),
-                                                       "OK");
+                    AlertWindow::showMessageBox (AlertWindow::WarningIcon,
+                                                 TRANS ("Error"),
+                                                 TRANS ("Failed saving the game file."),
+                                                 "OK");
                 }
             }
             break;
 
             case ToolbarItemFactory::about:
-                juce::Process::openDocument ("http://www.jrlanglois.com/CV/jrlanglois-cv.pdf", juce::String::empty);
+                Process::openDocument ("http://www.jrlanglois.com/CV/jrlanglois-cv.pdf", {});
             break;
 
             case ToolbarItemFactory::changeGame:
             {
-                juce::PopupMenu popup;
+                PopupMenu popup;
                 popup.addItem (1, TRANS ("Reversi (Regular)"));
                 popup.addItem (2, TRANS ("Reversi (Small)"));
                 popup.addItem (3, TRANS ("Reversi (Wide)"));
@@ -603,12 +596,12 @@ void MainComponent::buttonClicked (juce::Button* const button)
             {
                 enum { resultYes = 1, resultNo = 2 };
 
-                juce::AlertWindow aw (TRANS ("Restart"),
-                                      TRANS ("Are you sure you want to restart the game?"),
-                                      juce::AlertWindow::InfoIcon);
+                AlertWindow aw (TRANS ("Restart"),
+                                TRANS ("Are you sure you want to restart the game?"),
+                                AlertWindow::InfoIcon);
 
-                aw.addButton (TRANS ("Yes"), resultYes, juce::KeyPress (juce::KeyPress::returnKey));
-                aw.addButton (TRANS ("No"), resultNo, juce::KeyPress (juce::KeyPress::escapeKey));
+                aw.addButton (TRANS ("Yes"), resultYes, KeyPress (KeyPress::returnKey));
+                aw.addButton (TRANS ("No"), resultNo, KeyPress (KeyPress::escapeKey));
 
                 if (aw.runModalLoop() == resultYes)
                     boardGameComponent->reset();

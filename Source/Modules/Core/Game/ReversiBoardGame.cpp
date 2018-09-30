@@ -117,14 +117,11 @@ public:
         sourceIndex (sourceIndex_),
         nc (numColumns),
         nr (numRows),
-        lastIndex (sourceIndex_),
-        incColumns (false),
-        incRows (true)
+        lastIndex (sourceIndex_)
     {
     }
 
-    void resetSources (bool incrementingColumns,
-                       bool incrementingRows)
+    void resetSources (bool incrementingColumns, bool incrementingRows)
     {
         lastIndex = sourceIndex;
         incColumns = incrementingColumns;
@@ -133,8 +130,21 @@ public:
 
     bool isValid (int nextIndex) const noexcept override
     {
-        return isValid (lastIndex, nextIndex, nc, incColumns, &findColumnOfTile)
-            && isValid (lastIndex, nextIndex, nr, incRows, &findRowOfTile);
+        static auto isValidReally = [](int lastIndex, int nextIndex, int range, bool checkIfLarger,
+                                       std::function<int(int, int)> findForTile)
+        {
+            rassert (findForTile != nullptr);
+            const auto last = findForTile (lastIndex, range);
+            const auto next = findForTile (nextIndex, range);
+
+            if (last != next)
+                return checkIfLarger ? next > last : next < last;
+
+            return false;
+        };
+
+        return isValidReally (lastIndex, nextIndex, nc, incColumns, findColumnOfTile<decltype(nextIndex)>)
+            && isValidReally (lastIndex, nextIndex, nr, incRows, findRowOfTile<decltype(nextIndex)>);
     }
 
     void tick (int step)
@@ -145,26 +155,8 @@ public:
 private:
     const int sourceIndex;
     const int nc, nr;
-    int lastIndex;
-    bool incColumns, incRows;
-
-    typedef int (*findForTileFunction)(int, int);
-    static bool isValid (int lastIndex, int nextIndex, int range, bool checkIfLarger, findForTileFunction findForTile) noexcept
-    {
-        rassert (findForTile != nullptr);
-        const int last = findForTile (lastIndex, range);
-        const int next = findForTile (nextIndex, range);
-
-        if (last != next)
-        {
-            if (checkIfLarger)
-                return next > last;
-
-            return next < last;
-        }
-
-        return false;
-    }
+    int lastIndex = 0;
+    bool incColumns = false, incRows = true;
 
     DiagonalComparator() BGE_DELETED_FUNCTION;
     BGE_DECLARE_NON_COPYABLE (DiagonalComparator)
@@ -176,7 +168,7 @@ int ReversiBoardGame::findNextIndex (const int sourceIndex,
                                      const int totalNumTiles,
                                      const Comparator& comparator)
 {
-    const int nextIndex = sourceIndex + stepAmount;
+    const auto nextIndex = sourceIndex + stepAmount;
 
     if (isPositiveAndBelow (nextIndex, totalNumTiles))
         if (comparator.isValid (nextIndex))
@@ -193,18 +185,17 @@ void ReversiBoardGame::findMoveSequence (std::vector<int>& sequence,
                                          const int totalNumTiles,
                                          Comparator& comparator)
 {
-    Tile nextTile (tb.getTile (sourceIndex));
+    auto nextTile = tb.getTile (sourceIndex);
     if (! nextTile.isBlank())
         return; //This tile cannot be played on directly since it already contains a player
 
     int nextIndex = sourceIndex;
     int numTokens = 0;
-    DiagonalComparator* const diagonalComparator = dynamic_cast<DiagonalComparator*> (&comparator);
+    auto* diagonalComparator = dynamic_cast<DiagonalComparator*> (&comparator);
 
     for (;;)
     {
-        nextIndex = findNextIndex (nextIndex, stepAmount,
-                                   totalNumTiles, comparator);
+        nextIndex = findNextIndex (nextIndex, stepAmount, totalNumTiles, comparator);
 
         if (! isPositiveAndBelow (nextIndex, totalNumTiles))
         {
@@ -215,13 +206,14 @@ void ReversiBoardGame::findMoveSequence (std::vector<int>& sequence,
         if (diagonalComparator != nullptr)
             diagonalComparator->tick (stepAmount);
 
-        const Tile previousTile (nextTile);
+        auto previousTile = nextTile;
         nextTile = tb.getTile (nextIndex);
 
         if (nextTile.isBlank())
         {
             if (previousTile.hasPlayer() && forFirstPlayer != previousTile.hasPlayerOne())
                 sequence.clear();
+
             if (numTokens <= 0)
                 sequence.clear();
 
@@ -231,7 +223,7 @@ void ReversiBoardGame::findMoveSequence (std::vector<int>& sequence,
         if (forFirstPlayer != nextTile.hasPlayerOne())
         {
             ++numTokens;
-            sequence.push_back (nextIndex);
+            sequence.emplace_back (nextIndex);
         }
         else
         {
@@ -258,7 +250,7 @@ void ReversiBoardGame::appendMoveSequence (std::vector<int>& destination,
     findMoveSequence (sequence, tb, forFirstPlayer, sourceIndex,
                       stepAmount, totalNumTiles, comparator);
 
-    if (sequence.size() > 0)
+    if (! sequence.empty())
         destination.insert (destination.end(), sequence.begin(), sequence.end());
 }
 
@@ -341,7 +333,7 @@ bool ReversiBoardGame::isPossibleMove (const bool fp, const int index) const
 
     std::vector<int> sequence;
     generateMoveSequence (sequence, *tileBoard, fp, index);
-    return sequence.size() > 0;
+    return ! sequence.empty();
 }
 
 void ReversiBoardGame::tileChanged (const int index, int state)

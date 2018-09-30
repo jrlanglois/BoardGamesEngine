@@ -27,36 +27,36 @@
 */
 #include "MainComponent.h"
 
-class ReversiApplication : public juce::JUCEApplication
+class ReversiApplication : public JUCEApplication
 {
 public:
     ReversiApplication() { }
 
     //==============================================================================
     /** @internal */
-    const juce::String getApplicationName() override            { return ProjectInfo::projectName; }
+    const String getApplicationName() override              { return ProjectInfo::projectName; }
     /** @internal */
-    const juce::String getApplicationVersion() override         { return ProjectInfo::versionString; }
+    const String getApplicationVersion() override           { return ProjectInfo::versionString; }
     /** @internal */
-    bool moreThanOneInstanceAllowed() override                  { return true; }
+    bool moreThanOneInstanceAllowed() override              { return true; }
     /** @internal */
-    void initialise (const juce::String&) override              { mainWindow = new MainWindow (getApplicationName()); }
+    void initialise (const String&) override                { mainWindow = new MainWindow (getApplicationName()); }
     /** @internal */
-    void shutdown() override                                    { mainWindow = nullptr; }
+    void shutdown() override                                { mainWindow = nullptr; }
     /** @internal */
-    void systemRequestedQuit() override                         { quit(); }
+    void systemRequestedQuit() override                     { quit(); }
     /** @internal */
-    void anotherInstanceStarted (const juce::String&) override  {}
+    void anotherInstanceStarted (const String&) override    {}
 
 private:
     //==============================================================================
-    class MainWindow : public juce::DocumentWindow
+    class MainWindow : public DocumentWindow
     {
     public:
-        MainWindow (const juce::String& name) :
-            juce::DocumentWindow (name + " --- Jo\xc3\xabl R. Langlois",
-                                  juce::Colour (71, 115, 187),
-                                  juce::DocumentWindow::allButtons)
+        MainWindow (const String& name) :
+            DocumentWindow (name + " --- Jo\xc3\xabl R. Langlois",
+                                  Colour (71, 115, 187),
+                                  DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
             setContentOwned (new MainComponent(), true);
@@ -65,13 +65,13 @@ private:
             centreWithSize (getWidth(), getHeight());
             setVisible (true);
 
-            if (juce::ComponentBoundsConstrainer* const cbc = getConstrainer())
+            if (auto* cbc = getConstrainer())
                 cbc->setMinimumSize (600, 600);
         }
 
         void closeButtonPressed() override
         {
-            juce::JUCEApplication::getInstance()->systemRequestedQuit();
+            JUCEApplication::getInstance()->systemRequestedQuit();
         }
 
     private:
@@ -81,7 +81,7 @@ private:
     };
 
     //==============================================================================
-    juce::ScopedPointer<juce::DocumentWindow> mainWindow;
+    ScopedPointer<DocumentWindow> mainWindow;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReversiApplication)

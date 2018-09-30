@@ -49,21 +49,21 @@ namespace bge
     //=============================================================================
     namespace PathHelpers
     {
-        inline static juce::String getReversiFolder()
+        inline static String getReversiFolder()
         {
            #if JUCE_IOS
-            return juce::File::getSpecialLocation (juce::File::currentExecutableFile)
+            return File::getSpecialLocation (File::currentExecutableFile)
                     .getFullPathName()
                     .upToFirstOccurrenceOf ("BoardGamesEngine.app/", true, true);
            #else
-            return juce::File::getSpecialLocation (juce::File::currentExecutableFile)
+            return File::getSpecialLocation (File::currentExecutableFile)
                     .getFullPathName()
                     .replace ("\\", "/", true) //N.B.: Needed for Windows paths
                     .upToFirstOccurrenceOf ("BoardGamesEngine/", true, true);
            #endif
         }
 
-        inline static juce::String getMediaFolder()
+        inline static String getMediaFolder()
         {
             return getReversiFolder() + "Media/";
         }

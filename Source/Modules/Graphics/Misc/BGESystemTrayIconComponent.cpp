@@ -32,26 +32,26 @@ BGESystemTrayIconComponent::BGESystemTrayIconComponent()
 //==============================================================================
 void BGESystemTrayIconComponent::updateTooltipFromBoardGame (BoardGame& boardGame)
 {
-    juce::String tooltip = TRANS ("Board Games Engine");
+    String tooltip = TRANS ("Board Games Engine");
 
-    tooltip += juce::newLine;
+    tooltip += newLine;
     tooltip += TRANS ("Score") + ": ";
-    tooltip += juce::String (boardGame.getScore (true)) + " - " + juce::String (boardGame.getScore (false));
+    tooltip += String (boardGame.getScore (true)) + " - " + String (boardGame.getScore (false));
 
     setIconTooltip (tooltip);
 }
 
 void BGESystemTrayIconComponent::bringWindowToFocus()
 {
-    juce::Desktop& desktop = juce::Desktop::getInstance();
+    Desktop& desktop = Desktop::getInstance();
 
     for (int i = desktop.getNumComponents(); --i >= 0;)
-        if (juce::Component* const topLevelComp = desktop.getComponent (i))
+        if (Component* const topLevelComp = desktop.getComponent (i))
             topLevelComp->toFront (i == 0);
 }
 
 //==============================================================================
-void BGESystemTrayIconComponent::mouseDown (const juce::MouseEvent& e)
+void BGESystemTrayIconComponent::mouseDown (const MouseEvent& e)
 {
     bringWindowToFocus();
 
@@ -63,9 +63,9 @@ void BGESystemTrayIconComponent::mouseDown (const juce::MouseEvent& e)
             exit
         };
 
-        juce::PopupMenu menu;
+        PopupMenu menu;
 
-        menu.addSectionHeader (juce::JUCEApplication::getInstance()->getApplicationName());
+        menu.addSectionHeader (JUCEApplication::getInstance()->getApplicationName());
         menu.addSeparator();
 
         menu.addItem (about, TRANS ("About"));
@@ -73,8 +73,8 @@ void BGESystemTrayIconComponent::mouseDown (const juce::MouseEvent& e)
 
         switch (menu.show())
         {
-            case about: juce::Process::openDocument ("http://www.jrlanglois.com/CV/jrlanglois-cv.pdf", juce::String::empty); break;
-            case exit:  juce::JUCEApplication::getInstance()->quit(); break;
+            case about: Process::openDocument ("http://www.jrlanglois.com/CV/jrlanglois-cv.pdf", String::empty); break;
+            case exit:  JUCEApplication::getInstance()->quit(); break;
 
             default: break;
         };

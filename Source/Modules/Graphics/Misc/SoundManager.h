@@ -71,19 +71,19 @@ public:
 
 private:
     //==============================================================================
-    juce::AudioFormatManager audioFormatManager;
-    juce::AudioDeviceManager deviceManager;
-    juce::AudioSourcePlayer audioSourcePlayer;
-    juce::MixerAudioSource mixerAudioSource;
+    AudioFormatManager audioFormatManager;
+    AudioDeviceManager deviceManager;
+    AudioSourcePlayer audioSourcePlayer;
+    MixerAudioSource mixerAudioSource;
 
     class Sound;
-    juce::ScopedPointer<Sound> music;
-    juce::OwnedArray<Sound> soundEffects;
+    ScopedPointer<Sound> music;
+    OwnedArray<Sound> soundEffects;
 
     //==============================================================================
     void setupSoundLibrary();
-    void addSound (const juce::String& sourcePath,
-                   const juce::String& fileName);
+    void addSound (const String& sourcePath,
+                   const String& fileName);
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SoundManager)

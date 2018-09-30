@@ -34,8 +34,8 @@
 /** Base-class for designing a component that represents a board of tiles
 
 */
-class TileBoardComponent : public juce::Component,
-                           public juce::Button::Listener
+class TileBoardComponent : public Component,
+                           public Button::Listener
 {
 public:
     /** Constructor
@@ -65,12 +65,12 @@ public:
     /** @internal */
     void resized() override;
     /** @internal */
-    void paint (juce::Graphics& g) override;
+    void paint (Graphics& g) override;
     /** @internal */
-    void buttonClicked (juce::Button* button) override;
+    void buttonClicked (Button* button) override;
 
     //==============================================================================
-    class TileComponent : public juce::Button
+    class TileComponent : public Button
     {
     public:
         TileComponent (BoardGame& boardGame,
@@ -117,7 +117,7 @@ private:
     TileBoard& tileBoard;
     SoundManager& soundManager;
     bool showingMoveHints, showingTileIndices;
-    juce::OwnedArray<TileComponent> tiles;
+    OwnedArray<TileComponent> tiles;
 
     //==============================================================================
     void showMoveHints();

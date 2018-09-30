@@ -43,16 +43,13 @@ struct Tile
     };
 
     /** Constructor */
-    Tile() :
-        state ((int) blank)
-    {
-    }
+    Tile() noexcept {}
 
     /** Constructor
 
         @param[in] initialState The initial state of the tile
     */
-    Tile (int initialState) :
+    Tile (int initialState) noexcept :
         state (initialState)
     {
     }
@@ -75,7 +72,7 @@ struct Tile
     bool hasBitSet (int bitIndex) const noexcept { return (state & (1 << bitIndex)) != 0; }
 
     //==============================================================================
-    int state; //< The state of this tile, comprised of bit flags.
+    int state = (int) blank; //< The state of this tile, comprised of bit flags.
 };
 
 #endif //BGE_TILE_H

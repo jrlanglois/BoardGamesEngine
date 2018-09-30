@@ -31,9 +31,9 @@
 #include "TileBoardComponent.h"
 
 /** */
-class BoardGameComponent : public juce::Component,
+class BoardGameComponent : public Component,
                            public BoardGameView,
-                           private juce::ChangeListener
+                           private ChangeListener
 {
 public:
     /** Constructor */
@@ -48,7 +48,7 @@ public:
 
     //==============================================================================
     /** @internal */
-    void paint (juce::Graphics& g) override;
+    void paint (Graphics& g) override;
     /** @internal */
     void resized() override;
     /** @internal */
@@ -70,7 +70,7 @@ public:
 
     //==============================================================================
     /** */
-    class PlayerComponent : public juce::Component,
+    class PlayerComponent : public Component,
                             public PlayerView
     {
     public:
@@ -111,15 +111,15 @@ private:
     };
 
     //==============================================================================
-    juce::ScopedPointer<TileBoardComponent> tileBoardComponent;
-    juce::Array<PlayerComponent*> playerComponents;
+    ScopedPointer<TileBoardComponent> tileBoardComponent;
+    Array<PlayerComponent*> playerComponents;
 
     //==============================================================================
     void setupComponents();
 
     //==============================================================================
     /** @internal */
-    void changeListenerCallback (juce::ChangeBroadcaster* source) override;
+    void changeListenerCallback (ChangeBroadcaster* source) override;
 
     //==============================================================================
     BoardGameComponent() BGE_DELETED_FUNCTION;

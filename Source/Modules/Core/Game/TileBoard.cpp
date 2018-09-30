@@ -45,7 +45,7 @@ void TileBoard::initialise()
     tiles.clear();
 
     for (int i = getTotalNumTiles(); --i >= 0;)
-        tiles.push_back (Tile());
+        tiles.emplace_back (Tile());
 }
 
 //==============================================================================
@@ -81,8 +81,8 @@ int TileBoard::getNumTilesOfCertainState (const int stateToCheckFor) const noexc
 {
     int count = 0;
 
-    for (int i = (int) tiles.size(); --i >= 0;)
-        if (tiles[i].state == stateToCheckFor)
+    for (const auto& t : tiles)
+        if (t.state == stateToCheckFor)
             ++count;
 
     return count;

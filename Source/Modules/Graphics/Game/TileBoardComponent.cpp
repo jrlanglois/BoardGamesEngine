@@ -29,7 +29,7 @@
 TileBoardComponent::TileComponent::TileComponent (BoardGame& bg,
                                                   const int i,
                                                   const bool ti) :
-    juce::Button (juce::String (i)),
+    Button (String (i)),
     boardGame (bg),
     index (i),
     showMoveHints (false),
@@ -137,13 +137,13 @@ void TileBoardComponent::resized()
             tiles.getUnchecked (i + (j * numC))->setBounds (i * tileWidth, j * tileHeight, tileWidth, tileHeight);
 }
 
-void TileBoardComponent::paint (juce::Graphics& g)
+void TileBoardComponent::paint (Graphics& g)
 {
-    g.setColour (juce::Colours::darkgrey.withAlpha (0.5f));
-    g.fillRoundedRectangle (getLocalBounds().toFloat(), juce::float_Pi);
+    g.setColour (Colours::darkgrey.withAlpha (0.5f));
+    g.fillRoundedRectangle (getLocalBounds().toFloat(), float_Pi);
 }
 
-void TileBoardComponent::buttonClicked (juce::Button* const button)
+void TileBoardComponent::buttonClicked (Button* const button)
 {
     for (int i = tiles.size(); --i >= 0;)
     {

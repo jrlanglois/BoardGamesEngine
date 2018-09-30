@@ -30,17 +30,17 @@ class ReversiBoardGameComponent::ReversiPlayerComponent : public BoardGameCompon
 public:
     ReversiPlayerComponent (BoardGame& bg, bool fp) :
         PlayerComponent (bg, fp),
-        playerName (juce::String::empty, TRANS ("PLAYER #").replace ("#", juce::String (fp ? 1 : 2)))
+        playerName (String::empty, TRANS ("PLAYER #").replace ("#", String (fp ? 1 : 2)))
     {
         boardGame.addListener (this);
 
-        playerName.setFont (juce::Font ("Norwester", 36.0f, juce::Font::plain));
-        playerName.setColour (juce::Label::textColourId, juce::Colours::white);
-        playerName.setJustificationType (juce::Justification::centred);
+        playerName.setFont (Font ("Norwester", 36.0f, Font::plain));
+        playerName.setColour (Label::textColourId, Colours::white);
+        playerName.setJustificationType (Justification::centred);
 
-        score.setFont (juce::Font (28.0f));
-        score.setColour (juce::Label::textColourId, juce::Colours::white);
-        score.setJustificationType (juce::Justification::centredLeft);
+        score.setFont (Font (28.0f));
+        score.setColour (Label::textColourId, Colours::white);
+        score.setJustificationType (Justification::centredLeft);
 
         updateText();
 
@@ -54,13 +54,13 @@ public:
     }
 
     //==============================================================================
-    void paint (juce::Graphics& g) override
+    void paint (Graphics& g) override
     {
-        g.fillAll (juce::Colour (0xff7A7878));
+        g.fillAll (Colour (0xff7A7878));
 
         enum { playerTokenReductionPixels = 8 };
 
-        const int tokenSize = juce::jmin (getWidth(), getHeight());
+        const int tokenSize = jmin (getWidth(), getHeight());
 
         BGELookAndFeel::drawReversiToken (g,
                                           firstPlayer, false, false,
@@ -68,11 +68,11 @@ public:
                                           juce::Rectangle<int> (tokenSize, tokenSize).reduced (playerTokenReductionPixels));
     }
 
-    void paintOverChildren (juce::Graphics& g) override
+    void paintOverChildren (Graphics& g) override
     {
         if (boardGame.isFirstPlayerTurn() == firstPlayer)
         {
-            g.setColour (juce::Colours::red);
+            g.setColour (Colours::red);
             g.drawRect (getLocalBounds(), 2);
         }
     }
@@ -80,7 +80,7 @@ public:
     void resized() override
     {
         const int halfHeight = getHeight() / 2;
-        const int tokenSize = juce::jmin (getWidth(), getHeight());
+        const int tokenSize = jmin (getWidth(), getHeight());
 
         playerName.setBounds (0,
                               0,
@@ -96,16 +96,16 @@ public:
     //==============================================================================
     void updateText() override
     {
-        playerName.setText (TRANS ("PLAYER #").replace ("#", juce::String (firstPlayer ? 1 : 2)),
-                            juce::dontSendNotification);
+        playerName.setText (TRANS ("PLAYER #").replace ("#", String (firstPlayer ? 1 : 2)),
+                            dontSendNotification);
 
         updateScore();
     }
 
     void updateScore() override
     {
-        score.setText (TRANS ("SCORE") + ": " + juce::String (boardGame.getScore (firstPlayer)),
-                       juce::dontSendNotification);
+        score.setText (TRANS ("SCORE") + ": " + String (boardGame.getScore (firstPlayer)),
+                       dontSendNotification);
     }
 
     void playerChanged (BoardGame*, bool) override
@@ -122,7 +122,7 @@ public:
 
 private:
     //==============================================================================
-    juce::Label playerName, score;
+    Label playerName, score;
 
     //==============================================================================
     BGE_DECLARE_NON_COPYABLE (ReversiPlayerComponent)

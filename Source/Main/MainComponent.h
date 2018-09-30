@@ -30,9 +30,9 @@
 
 #include "../Modules/BoardGamesEngine_Master.h"
 
-class MainComponent : public juce::Component,
-                      private juce::Button::Listener,
-                      private juce::ChangeListener,
+class MainComponent : public Component,
+                      private Button::Listener,
+                      private ChangeListener,
                       private BoardGame::Listener
 {
 public:
@@ -47,23 +47,23 @@ private:
     //==============================================================================
     LocalisationManager localisationManager;
     SoundManager soundManager;
-   #ifndef JUCE_IOS
+   #if ! JUCE_IOS
     BGESystemTrayIconComponent systemTrayIconComponent;
    #endif //JUCE_IOS
 
     BGELookAndFeel laf;
-    juce::TooltipWindow tooltipWindow;
+    TooltipWindow tooltipWindow;
 
-    juce::ScopedPointer<juce::Toolbar> toolbar;
+    ScopedPointer<Toolbar> toolbar;
 
     class ToolbarItemFactory;
-    juce::ScopedPointer<ToolbarItemFactory> toolbarItemFactory;
+    ScopedPointer<ToolbarItemFactory> toolbarItemFactory;
 
-    juce::ScopedPointer<SettingsWindow> settingsWindow;
+    ScopedPointer<SettingsWindow> settingsWindow;
 
     //==============================================================================
-    juce::ScopedPointer<BoardGame> boardGame;
-    juce::ScopedPointer<BoardGameComponent> boardGameComponent;
+    ScopedPointer<BoardGame> boardGame;
+    ScopedPointer<BoardGameComponent> boardGameComponent;
 
     //==============================================================================
     enum
@@ -85,9 +85,9 @@ private:
 
     //==============================================================================
     /** @internal */
-    void buttonClicked (juce::Button* button) override;
+    void buttonClicked (Button* button) override;
     /** @internal */
-    void changeListenerCallback (juce::ChangeBroadcaster* source) override;
+    void changeListenerCallback (ChangeBroadcaster* source) override;
     /** @internal */
     void attemptedTileStateChange (BoardGame* boardGame, int index, bool wasSuccessfullyChanged) override;
     /** @internal */

@@ -109,26 +109,26 @@ void BoardGameComponent::gameEnded (BoardGame* const)
     const int player2Score = boardGame.getScore (false);
     const bool didPlayerOneWin = player1Score > player2Score;
 
-    juce::String message = player1Score == player2Score
+    String message = player1Score == player2Score
                                 ? TRANS ("Tie game with a score of SSSS!")
                                 : TRANS ("Player 1234 has won the game with a score of SSSS!")
-                                    .replace ("1234", juce::String (didPlayerOneWin ? 1 : 2)) ;
+                                    .replace ("1234", String (didPlayerOneWin ? 1 : 2)) ;
 
-    message = message.replace ("SSSS", juce::String (didPlayerOneWin ? player1Score : player2Score));
+    message = message.replace ("SSSS", String (didPlayerOneWin ? player1Score : player2Score));
 
-    juce::AlertWindow aw (TRANS ("Game has ended!"), message, juce::AlertWindow::InfoIcon);
+    AlertWindow aw (TRANS ("Game has ended!"), message, AlertWindow::InfoIcon);
 
-    aw.addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey), juce::KeyPress (juce::KeyPress::escapeKey));
+    aw.addButton ("OK", 1, KeyPress (KeyPress::returnKey), KeyPress (KeyPress::escapeKey));
 
     aw.runModalLoop(); //Just run the modal loop and no matter the result, reset the game.
     reset();
 }
 
 //==============================================================================
-void BoardGameComponent::paint (juce::Graphics& g)
+void BoardGameComponent::paint (Graphics& g)
 {
-    g.setColour (juce::Colours::black);
-    g.drawRoundedRectangle (tileBoardComponent->getBounds().toFloat(), juce::float_Pi, (float) tileBoardBorderThickness);
+    g.setColour (Colours::black);
+    g.drawRoundedRectangle (tileBoardComponent->getBounds().toFloat(), float_Pi, (float) tileBoardBorderThickness);
 }
 
 void BoardGameComponent::resized()
@@ -145,15 +145,15 @@ void BoardGameComponent::resized()
     const int numRows = getTileBoard().getNumberOfRows();
 
     const int boardSpaceHeight = getHeight() - playerCompHeight;
-    const int tileBoardSize = juce::jmin (getWidth() - tileBoardBorderMargin,
+    const int tileBoardSize = jmin (getWidth() - tileBoardBorderMargin,
                                           boardSpaceHeight - margin - tileBoardBorderMargin);
 
     int tileBoardWidth = numColumns > numRows
                                 ? tileBoardSize
-                                : juce::roundToInt ((double) tileBoardSize * ((double) numColumns / (double) numRows));
+                                : roundToInt ((double) tileBoardSize * ((double) numColumns / (double) numRows));
 
     const int tileBoardHeight = numColumns > numRows
-                                    ? juce::roundToInt ((double) tileBoardSize * ((double) numRows / (double) numColumns))
+                                    ? roundToInt ((double) tileBoardSize * ((double) numRows / (double) numColumns))
                                     : tileBoardSize;
 
     tileBoardComponent->setBounds ((getWidth() / 2) - (tileBoardWidth / 2),
@@ -163,7 +163,7 @@ void BoardGameComponent::resized()
 
     const int numPlayerComps    = playerComponents.size();
     const int playerCompsY      = getHeight() - playerCompHeight;
-    const int playerCompsWidth  = juce::jmin (250, (getWidth() / numPlayerComps) - ((numPlayerComps - 2) * margin));
+    const int playerCompsWidth  = jmin (250, (getWidth() / numPlayerComps) - ((numPlayerComps - 2) * margin));
 
     int playerCompsX = (getWidth() / 2) - ((playerCompsWidth * numPlayerComps) + ((numPlayerComps - 2) * margin)) / 2;
 
@@ -179,7 +179,7 @@ void BoardGameComponent::resized()
     }
 }
 
-void BoardGameComponent::changeListenerCallback (juce::ChangeBroadcaster*)
+void BoardGameComponent::changeListenerCallback (ChangeBroadcaster*)
 {
     for (int i = playerComponents.size(); --i >= 0;)
         playerComponents.getUnchecked (i)->updateText();

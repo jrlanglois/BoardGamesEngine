@@ -28,17 +28,17 @@
 #ifndef BGE_LOOK_AND_FEEL_H
 #define BGE_LOOK_AND_FEEL_H
 
-class BGELookAndFeel : public juce::LookAndFeel_V3
+class BGELookAndFeel : public LookAndFeel_V3
 {
 public:
     BGELookAndFeel();
     ~BGELookAndFeel();
 
     //==============================================================================
-    juce::Typeface::Ptr getTypefaceForFont (const juce::Font&) override;
+    Typeface::Ptr getTypefaceForFont (const Font&) override;
 
     //==============================================================================
-    static void drawReversiToken (juce::Graphics& g,
+    static void drawReversiToken (Graphics& g,
                                   bool isFirstPlayer,
                                   bool isTileBlank,
                                   bool isMoveHint,
@@ -48,8 +48,8 @@ public:
 
 private:
     //==============================================================================
-    juce::Typeface::Ptr norwester;
-    juce::Typeface::Ptr droidSans;
+    Typeface::Ptr norwester;
+    Typeface::Ptr droidSans;
 
     //==============================================================================
     void loadAndSetTypefaces();

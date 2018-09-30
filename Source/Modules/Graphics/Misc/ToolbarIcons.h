@@ -35,19 +35,19 @@
 */
 namespace ToolbarIcons
 {
-    extern const juce::uint8*   open_svg;
+    extern const uint8*   open_svg;
     static const int            open_svgSize        = 874;
 
-    extern const juce::uint8*   save_svg;
+    extern const uint8*   save_svg;
     static const int            save_svgSize        = 731;
 
-    extern const juce::uint8*   about_svg;
+    extern const uint8*   about_svg;
     static const int            about_svg_Size      = 1062;
 
-    extern const juce::uint8*   gear_svg;
+    extern const uint8*   gear_svg;
     static const int            gear_svg_Size       = 953;
 
-    extern const juce::uint8*   restart_svg;
+    extern const uint8*   restart_svg;
     static const int            restart_svg_Size    = 1502;
 }
 

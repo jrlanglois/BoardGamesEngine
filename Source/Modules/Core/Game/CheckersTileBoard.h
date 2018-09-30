@@ -70,3 +70,4 @@ private:
 };
 
 #endif //BGE_CHECKERS_TILE_BOARD_H
+

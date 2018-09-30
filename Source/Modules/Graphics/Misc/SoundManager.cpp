@@ -25,11 +25,11 @@
 
     ==============================================================================
 */
-class SoundManager::Sound : private juce::ChangeListener
+class SoundManager::Sound : private ChangeListener
 {
 public:
-    Sound (juce::AudioFormatManager& audioFormatManager,
-           const juce::File& path,
+    Sound (AudioFormatManager& audioFormatManager,
+           const File& path,
            bool shouldLoop)
     {
         reader = audioFormatManager.createReaderFor (path.createInputStream());
@@ -37,10 +37,10 @@ public:
         jassert (reader != nullptr); //Is there something wrong with the file path?
         if (reader != nullptr)
         {
-            readerSource = new juce::AudioFormatReaderSource (reader, true);
+            readerSource = new AudioFormatReaderSource (reader, true);
             readerSource->setLooping (shouldLoop);
 
-            transport = new juce::AudioTransportSource();
+            transport = new AudioTransportSource();
             transport->setSource (readerSource);
             transport->setLooping (shouldLoop);
 
@@ -81,13 +81,13 @@ public:
     }
 
     //==============================================================================
-    juce::AudioTransportSource* getTransport() const noexcept { return transport; }
+    AudioTransportSource* getTransport() const noexcept { return transport; }
 
 private:
     //==============================================================================
-    juce::AudioFormatReader* reader;
-    juce::ScopedPointer<juce::AudioFormatReaderSource> readerSource;
-    juce::ScopedPointer<juce::AudioTransportSource> transport;
+    AudioFormatReader* reader;
+    ScopedPointer<AudioFormatReaderSource> readerSource;
+    ScopedPointer<AudioTransportSource> transport;
 
     //==============================================================================
     void reset()
@@ -96,7 +96,7 @@ private:
             transport->setPosition (0.0);
     }
 
-    void changeListenerCallback (juce::ChangeBroadcaster*) override
+    void changeListenerCallback (ChangeBroadcaster*) override
     {
         reset();
     }
@@ -132,8 +132,8 @@ SoundManager::~SoundManager()
 //==============================================================================
 void SoundManager::setupSoundLibrary()
 {
-    const juce::String appLoc (PathHelpers::getMediaFolder());
-    music = new Sound (audioFormatManager, juce::File (appLoc + "Music/bensound-theelevatorbossanova.mp3"), true);
+    const String appLoc (PathHelpers::getMediaFolder());
+    music = new Sound (audioFormatManager, File (appLoc + "Music/bensound-theelevatorbossanova.mp3"), true);
     music->getTransport()->setGain (0.6f);
     mixerAudioSource.addInputSource (music->getTransport(), false);
 
@@ -141,10 +141,10 @@ void SoundManager::setupSoundLibrary()
     addSound (appLoc, "SFX/Tile_FailedChange.wav");
 }
 
-void SoundManager::addSound (const juce::String& sourcePath,
-                             const juce::String& fileName)
+void SoundManager::addSound (const String& sourcePath,
+                             const String& fileName)
 {
-    Sound* const s = soundEffects.add (new Sound (audioFormatManager, juce::File (sourcePath + fileName), false));
+    Sound* const s = soundEffects.add (new Sound (audioFormatManager, File (sourcePath + fileName), false));
     mixerAudioSource.addInputSource (s->getTransport(), false);
 }
 
@@ -200,13 +200,13 @@ float SoundManager::getGain (const SoundCategory category) const
 
         case categoryMusic:
             if (music != nullptr)
-                if (juce::AudioTransportSource* const ats = music->getTransport())
+                if (AudioTransportSource* const ats = music->getTransport())
                     return ats->getGain();
         break;
 
         case categorySoundEffects:
             if (Sound* const sound = soundEffects.getFirst())
-                if (juce::AudioTransportSource* const ats = sound->getTransport())
+                if (AudioTransportSource* const ats = sound->getTransport())
                     return ats->getGain();
         break;
 

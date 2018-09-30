@@ -40,17 +40,17 @@ BGELookAndFeel::~BGELookAndFeel()
 //==============================================================================
 void BGELookAndFeel::loadAndSetTypefaces()
 {
-    norwester = juce::Typeface::createSystemTypefaceFor (Fonts::norwester_otf,
+    norwester = Typeface::createSystemTypefaceFor (Fonts::norwester_otf,
                                                          Fonts::norwester_otf_Size);
 
-    droidSans = juce::Typeface::createSystemTypefaceFor (Fonts::droidsans_ttf,
+    droidSans = Typeface::createSystemTypefaceFor (Fonts::droidsans_ttf,
                                                          Fonts::droidsans_ttf_Size);
 
     setDefaultSansSerifTypefaceName ("Droid Sans");
 }
 
 //==============================================================================
-void BGELookAndFeel::drawReversiToken (juce::Graphics& g,
+void BGELookAndFeel::drawReversiToken (Graphics& g,
                                        const bool isFirstPlayer,
                                        const bool isTileBlank,
                                        const bool isMoveHint,
@@ -62,23 +62,23 @@ void BGELookAndFeel::drawReversiToken (juce::Graphics& g,
     {
         const juce::Rectangle<float> a (area.reduced (2).toFloat());
 
-        juce::Colour baseColour = isFirstPlayer
-                                    ? juce::Colours::black
-                                    : juce::Colours::white;
+        Colour baseColour = isFirstPlayer
+                                    ? Colours::black
+                                    : Colours::white;
 
         if (isMoveHint) baseColour = baseColour.withAlpha (0.15f);
         if (isButtonDown) baseColour = baseColour.withAlpha (0.5f);
 
-        const juce::Colour startColour = isFirstPlayer
+        const Colour startColour = isFirstPlayer
                                             ? baseColour.brighter()
                                             : baseColour;
 
-        const juce::Colour endColour = isFirstPlayer
+        const Colour endColour = isFirstPlayer
                                             ? baseColour
                                             : baseColour.darker();
 
         { //Draw the base circle:
-            const juce::ColourGradient gradient (startColour, 0.0f, 0.0f,
+            const ColourGradient gradient (startColour, 0.0f, 0.0f,
                                                  endColour, a.getWidth(), a.getHeight(),
                                                  false);
             g.setFillType (gradient);
@@ -88,7 +88,7 @@ void BGELookAndFeel::drawReversiToken (juce::Graphics& g,
         { //Draw the inner circle:
             const juce::Rectangle<float> ic (a.reduced (a.getWidth() * 0.1f));
 
-            const juce::ColourGradient gradient (endColour, ic.getX(), ic.getY(),
+            const ColourGradient gradient (endColour, ic.getX(), ic.getY(),
                                                  startColour, ic.getWidth(), ic.getHeight(),
                                                  false);
             g.setFillType (gradient);
@@ -98,19 +98,19 @@ void BGELookAndFeel::drawReversiToken (juce::Graphics& g,
 
     if (isMouseOver)
     {
-        g.setColour (juce::Colours::white.withAlpha (0.35f));
-        g.fillRoundedRectangle (area.toFloat(), juce::float_Pi);
+        g.setColour (Colours::white.withAlpha (0.35f));
+        g.fillRoundedRectangle (area.toFloat(), float_Pi);
     }
 }
 
 //==============================================================================
-juce::Typeface::Ptr BGELookAndFeel::getTypefaceForFont (const juce::Font& f)
+Typeface::Ptr BGELookAndFeel::getTypefaceForFont (const Font& f)
 {
-    if (f.getTypefaceName() == juce::Font::getDefaultSansSerifFontName())
+    if (f.getTypefaceName() == Font::getDefaultSansSerifFontName())
         return droidSans;
 
     if (f.getTypefaceName().containsIgnoreCase ("norwester"))
         return norwester;
 
-    return juce::LookAndFeel_V3::getTypefaceForFont (f);
+    return LookAndFeel_V3::getTypefaceForFont (f);
 }

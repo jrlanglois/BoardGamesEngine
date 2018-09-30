@@ -30,10 +30,10 @@
 
 #include "SoundManager.h"
 
-class SettingsWindowComponent : public juce::Component,
-                                private juce::ChangeListener,
-                                private juce::Slider::Listener,
-                                private juce::ComboBox::Listener
+class SettingsWindowComponent : public Component,
+                                private ChangeListener,
+                                private Slider::Listener,
+                                private ComboBox::Listener
 {
 public:
     SettingsWindowComponent (LocalisationManager& lm,
@@ -59,12 +59,12 @@ private:
     };
 
     //==============================================================================
-    class AlignedComponents : public juce::Component
+    class AlignedComponents : public Component
     {
     public:
-        AlignedComponents (const juce::String& text,
-                           const juce::String& t,
-                           juce::Component* r);
+        AlignedComponents (const String& text,
+                           const String& t,
+                           Component* r);
 
         //==============================================================================
         void update();
@@ -74,19 +74,19 @@ private:
         void resized() override;
 
         //==============================================================================
-        juce::ScopedPointer<juce::Label> label;
-        juce::ScopedPointer<juce::Component> comp;
+        ScopedPointer<Label> label;
+        ScopedPointer<Component> comp;
 
     private:
         //==============================================================================
-        const juce::String labelText; //< Untranslated
-        const juce::String tooltip; //< Untranslated
+        const String labelText; //< Untranslated
+        const String tooltip; //< Untranslated
 
         //==============================================================================
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AlignedComponents)
     };
 
-    juce::OwnedArray<AlignedComponents> alignedComponents;
+    OwnedArray<AlignedComponents> alignedComponents;
 
     //==============================================================================
     enum ComponentIds
@@ -98,11 +98,11 @@ private:
     };
 
     //==============================================================================
-    juce::Slider* createSlider (int componentId, double initialValue) const;
+    Slider* createSlider (int componentId, double initialValue) const;
 
     template<typename ComponentType>
-    void addAlignedComps (const juce::String& labelText,
-                          const juce::String& tooltip,
+    void addAlignedComps (const String& labelText,
+                          const String& tooltip,
                           ComponentType* comp)
     {
         jassert (comp != nullptr);
@@ -115,11 +115,11 @@ private:
 
     //==============================================================================
     /** @internal */
-    void changeListenerCallback (juce::ChangeBroadcaster* source) override;
+    void changeListenerCallback (ChangeBroadcaster* source) override;
     /** @internal */
-    void sliderValueChanged (juce::Slider* slider) override;
+    void sliderValueChanged (Slider* slider) override;
     /** @internal */
-    void comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged) override;
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
 
     //==============================================================================
     SettingsWindowComponent() JUCE_DELETED_FUNCTION;
@@ -127,16 +127,16 @@ private:
 };
 
 //==============================================================================
-class SettingsWindow : public juce::DocumentWindow,
-                       public juce::ChangeBroadcaster,
-                       private juce::ChangeListener
+class SettingsWindow : public DocumentWindow,
+                       public ChangeBroadcaster,
+                       private ChangeListener
 {
 public:
     SettingsWindow (LocalisationManager& lm,
                     SoundManager& sm) :
-        juce::DocumentWindow (TRANS ("Settings"),
-                              juce::Colour (71, 115, 187),
-                              juce::DocumentWindow::closeButton),
+        DocumentWindow (TRANS ("Settings"),
+                              Colour (71, 115, 187),
+                              DocumentWindow::closeButton),
         localisationManager (lm)
     {
         localisationManager.addChangeListener (this);
@@ -165,7 +165,7 @@ private:
 
     //==============================================================================
     /** @internal */
-    void changeListenerCallback (juce::ChangeBroadcaster*)
+    void changeListenerCallback (ChangeBroadcaster*)
     {
         setName (TRANS ("Settings"));
     }

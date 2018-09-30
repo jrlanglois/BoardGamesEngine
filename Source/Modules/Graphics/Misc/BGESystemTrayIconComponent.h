@@ -28,7 +28,7 @@
 #ifndef BGE_SYSTEM_TRAY_ICON_COMPONENT_H
 #define BGE_SYSTEM_TRAY_ICON_COMPONENT_H
 
-class BGESystemTrayIconComponent : public juce::SystemTrayIconComponent
+class BGESystemTrayIconComponent : public SystemTrayIconComponent
 {
 public:
     BGESystemTrayIconComponent();
@@ -38,7 +38,7 @@ public:
 
     //==============================================================================
     /** @internal */
-    void mouseDown (const juce::MouseEvent& e) override;
+    void mouseDown (const MouseEvent& e) override;
 
 private:
     //==============================================================================
