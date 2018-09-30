@@ -43,10 +43,10 @@ void BGESystemTrayIconComponent::updateTooltipFromBoardGame (BoardGame& boardGam
 
 void BGESystemTrayIconComponent::bringWindowToFocus()
 {
-    Desktop& desktop = Desktop::getInstance();
+    auto& desktop = Desktop::getInstance();
 
     for (int i = desktop.getNumComponents(); --i >= 0;)
-        if (Component* const topLevelComp = desktop.getComponent (i))
+        if (auto* topLevelComp = desktop.getComponent (i))
             topLevelComp->toFront (i == 0);
 }
 

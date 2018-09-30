@@ -95,8 +95,8 @@ public:
     private:
         //==============================================================================
         const int index;
-        bool showMoveHints;
-        bool showTileIndices;
+        bool showMoveHints = false;
+        bool showTileIndices = false;
 
         //==============================================================================
         TileComponent() BGE_DELETED_FUNCTION;

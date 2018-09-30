@@ -40,11 +40,8 @@ BGELookAndFeel::~BGELookAndFeel()
 //==============================================================================
 void BGELookAndFeel::loadAndSetTypefaces()
 {
-    norwester = Typeface::createSystemTypefaceFor (Fonts::norwester_otf,
-                                                         Fonts::norwester_otf_Size);
-
-    droidSans = Typeface::createSystemTypefaceFor (Fonts::droidsans_ttf,
-                                                         Fonts::droidsans_ttf_Size);
+    norwester = Typeface::createSystemTypefaceFor (Fonts::norwester_otf, Fonts::norwester_otf_Size);
+    droidSans = Typeface::createSystemTypefaceFor (Fonts::droidsans_ttf, Fonts::droidsans_ttf_Size);
 
     setDefaultSansSerifTypefaceName ("Droid Sans");
 }
@@ -60,37 +57,37 @@ void BGELookAndFeel::drawReversiToken (Graphics& g,
 {
     if (! isTileBlank || isMoveHint)
     {
-        const juce::Rectangle<float> a (area.reduced (2).toFloat());
+        const auto a = area.reduced (2).toFloat();
 
-        Colour baseColour = isFirstPlayer
-                                    ? Colours::black
-                                    : Colours::white;
+        auto baseColour = isFirstPlayer
+                            ? Colours::black
+                            : Colours::white;
 
         if (isMoveHint) baseColour = baseColour.withAlpha (0.15f);
         if (isButtonDown) baseColour = baseColour.withAlpha (0.5f);
 
-        const Colour startColour = isFirstPlayer
-                                            ? baseColour.brighter()
-                                            : baseColour;
+        const auto startColour = isFirstPlayer
+                                    ? baseColour.brighter()
+                                    : baseColour;
 
-        const Colour endColour = isFirstPlayer
-                                            ? baseColour
-                                            : baseColour.darker();
+        const auto endColour = isFirstPlayer
+                                ? baseColour
+                                : baseColour.darker();
 
         { //Draw the base circle:
             const ColourGradient gradient (startColour, 0.0f, 0.0f,
-                                                 endColour, a.getWidth(), a.getHeight(),
-                                                 false);
+                                           endColour, a.getWidth(), a.getHeight(),
+                                           false);
             g.setFillType (gradient);
             g.fillEllipse (a);
         }
 
         { //Draw the inner circle:
-            const juce::Rectangle<float> ic (a.reduced (a.getWidth() * 0.1f));
+            const auto ic = a.reduced (a.getWidth() * 0.1f);
 
             const ColourGradient gradient (endColour, ic.getX(), ic.getY(),
-                                                 startColour, ic.getWidth(), ic.getHeight(),
-                                                 false);
+                                           startColour, ic.getWidth(), ic.getHeight(),
+                                           false);
             g.setFillType (gradient);
             g.fillEllipse (ic);
         }

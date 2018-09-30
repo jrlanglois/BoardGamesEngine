@@ -43,9 +43,7 @@ TileBoard::~TileBoard()
 void TileBoard::initialise()
 {
     tiles.clear();
-
-    for (int i = getTotalNumTiles(); --i >= 0;)
-        tiles.emplace_back (Tile());
+    tiles.resize (getTotalNumTiles());
 }
 
 //==============================================================================

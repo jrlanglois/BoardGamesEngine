@@ -64,7 +64,7 @@ public:
 
 private:
     //==============================================================================
-    int currentFileIndex;
+    int currentFileIndex = -1;
 
     OwnedArray<TranslationFile> languageFiles;
 

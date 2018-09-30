@@ -48,8 +48,7 @@ public:
 
 private:
     //==============================================================================
-    Typeface::Ptr norwester;
-    Typeface::Ptr droidSans;
+    Typeface::Ptr norwester, droidSans;
 
     //==============================================================================
     void loadAndSetTypefaces();

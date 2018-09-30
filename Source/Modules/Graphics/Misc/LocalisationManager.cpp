@@ -25,8 +25,7 @@
 
     ==============================================================================
 */
-LocalisationManager::LocalisationManager() :
-    currentFileIndex (-1)
+LocalisationManager::LocalisationManager()
 {
     locateLanguagesFile();
     setLanguageFile (0);
@@ -37,7 +36,7 @@ void LocalisationManager::setLanguageFile (const int index)
 {
     if (currentFileIndex != index)
     {
-        if (TranslationFile* const tf = languageFiles[index])
+        if (auto* tf = languageFiles[index])
         {
             currentFileIndex = index;
             LocalisedStrings::setCurrentMappings (new LocalisedStrings (tf->file, true));
@@ -55,9 +54,8 @@ void LocalisationManager::locateLanguagesFile()
     languagesFolder.findChildFiles (files, File::findFiles, false, "*.txt");
     jassert (files.size() >= 3); //Missing default files!
 
-    for (int i = 0; i < files.size(); ++i)
+    for (const auto& f : files)
     {
-        const File& f = files.getUnchecked (i);
         const LocalisedStrings ls (f, true);
         languageFiles.add (new TranslationFile (f, ls.getLanguageName().trim()));
     }
@@ -66,9 +64,10 @@ void LocalisationManager::locateLanguagesFile()
 StringArray LocalisationManager::getLanguageFileNames() const
 {
     StringArray names;
+    names.strings.ensureStorageAllocated (languageFiles.size());
 
-    for (int i = 0; i < languageFiles.size(); ++i)
-        names.add (languageFiles.getUnchecked (i)->name);
+    for (const auto& f : languageFiles)
+        names.add (f->name);
 
     return names;
 }

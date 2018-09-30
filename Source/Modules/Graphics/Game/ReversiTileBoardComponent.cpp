@@ -42,7 +42,7 @@ public:
     {
         enum { playerTokenReductionPixels = 6 };
 
-        const Tile tile (boardGame.getTileBoard().getTile (getIndex()));
+        const auto tile = boardGame.getTileBoard().getTile (getIndex());
 
         if (! isEnabled())
         {

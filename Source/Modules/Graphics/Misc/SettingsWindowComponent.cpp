@@ -46,7 +46,7 @@ void SettingsWindowComponent::AlignedComponents::update()
 {
     label->setText (TRANS (labelText) + ":", dontSendNotification);
 
-    if (SettableTooltipClient* const stc = dynamic_cast<SettableTooltipClient*> (comp.get()))
+    if (auto* stc = dynamic_cast<SettableTooltipClient*> (comp.get()))
         stc->setTooltip (TRANS (labelText));
 }
 
@@ -68,10 +68,10 @@ SettingsWindowComponent::SettingsWindowComponent (LocalisationManager& lm,
 
     //Language settings:
     {
-        ComboBox* cb = new ComboBox();
+        auto* cb = new ComboBox();
         cb->setComponentID (String (languageId));
 
-        const StringArray names (localisationManager.getLanguageFileNames());
+        const auto names = localisationManager.getLanguageFileNames();
 
         for (int i = 0; i < names.size(); ++i)
             cb->addItem (names.strings.getUnchecked (i), i + 1);
@@ -174,9 +174,9 @@ void SettingsWindowComponent::sliderValueChanged (Slider* const slider)
 
     switch (slider->getComponentID().getIntValue())
     {
-        case volumeMasterId: soundManager.setGain (SoundManager::categoryMaster, value); break;
-        case volumeMusicId: soundManager.setGain (SoundManager::categoryMusic, value); break;
-        case volumeSFXId: soundManager.setGain (SoundManager::categorySoundEffects, value); break;
+        case volumeMasterId:    soundManager.setGain (SoundManager::categoryMaster, value); break;
+        case volumeMusicId:     soundManager.setGain (SoundManager::categoryMusic, value); break;
+        case volumeSFXId:       soundManager.setGain (SoundManager::categorySoundEffects, value); break;
 
         default: jassertfalse; break; //Unknown id!
     };

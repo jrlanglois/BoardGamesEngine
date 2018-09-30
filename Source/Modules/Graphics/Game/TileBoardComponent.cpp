@@ -93,8 +93,8 @@ void TileBoardComponent::showMoveHints()
 
 void TileBoardComponent::hideMoveHints()
 {
-    for (int i = tiles.size(); --i >= 0;)
-        tiles.getUnchecked (i)->setShowingMoveHint (false);
+    for (auto& tile : tiles)
+        tile->setShowingMoveHint (false);
 }
 
 void TileBoardComponent::setShowingMoveHints (const bool shouldShowHints)
@@ -117,8 +117,8 @@ void TileBoardComponent::setShowingTileIndices (const bool shouldShowTileIndices
     {
         showingTileIndices = shouldShowTileIndices;
 
-        for (int i = tiles.size(); --i >= 0;)
-            tiles.getUnchecked (i)->setShowingTileIndices (showingTileIndices);
+        for (auto& tile : tiles)
+            tile->setShowingTileIndices (showingTileIndices);
     }
 }
 
@@ -166,7 +166,7 @@ void TileBoardComponent::initialise()
     const int numTiles = tileBoard.getTotalNumTiles();
     for (int i = 0; i < numTiles; ++i)
     {
-        TileComponent* const tileComponent = createTileComponent (i);
+        auto* tileComponent = createTileComponent (i);
         jassert (tileComponent != nullptr);
 
         tiles.add (tileComponent)->addListener (this);

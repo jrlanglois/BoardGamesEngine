@@ -59,10 +59,10 @@ struct Tile
     bool isBlank() const noexcept       { return state == blank; }
 
     /** Find out if this tile contains the first player */
-    bool hasPlayerOne() const noexcept  { return hasBitSet (1); }
+    bool hasPlayerOne() const noexcept  { return hasBitSet (playerOne); }
 
     /** Find out if this tile contains the second player */
-    bool hasPlayerTwo() const noexcept  { return hasBitSet (2); }
+    bool hasPlayerTwo() const noexcept  { return hasBitSet (playerTwo); }
 
     /** Find out if this tile contains the first and/or second player */
     bool hasPlayer() const noexcept     { return hasPlayerOne() || hasPlayerTwo(); }

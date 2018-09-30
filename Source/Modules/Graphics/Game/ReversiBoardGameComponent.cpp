@@ -79,13 +79,10 @@ public:
 
     void resized() override
     {
-        const int halfHeight = getHeight() / 2;
-        const int tokenSize = jmin (getWidth(), getHeight());
+        const auto halfHeight = getHeight() / 2;
+        const auto tokenSize = jmin (getWidth(), getHeight());
 
-        playerName.setBounds (0,
-                              0,
-                              getWidth(),
-                              halfHeight);
+        playerName.setBounds (0, 0, getWidth(), halfHeight);
 
         score.setBounds (tokenSize,
                          halfHeight,

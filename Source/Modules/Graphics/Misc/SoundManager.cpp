@@ -85,7 +85,7 @@ public:
 
 private:
     //==============================================================================
-    AudioFormatReader* reader;
+    AudioFormatReader* reader = nullptr;
     ScopedPointer<AudioFormatReaderSource> readerSource;
     ScopedPointer<AudioTransportSource> transport;
 
@@ -93,7 +93,7 @@ private:
     void reset()
     {
         if (transport != nullptr)
-            transport->setPosition (0.0);
+            transport->setPosition ({});
     }
 
     void changeListenerCallback (ChangeBroadcaster*) override
@@ -132,7 +132,7 @@ SoundManager::~SoundManager()
 //==============================================================================
 void SoundManager::setupSoundLibrary()
 {
-    const String appLoc (PathHelpers::getMediaFolder());
+    const auto appLoc = PathHelpers::getMediaFolder();
     music = new Sound (audioFormatManager, File (appLoc + "Music/bensound-theelevatorbossanova.mp3"), true);
     music->getTransport()->setGain (0.6f);
     mixerAudioSource.addInputSource (music->getTransport(), false);
@@ -144,13 +144,13 @@ void SoundManager::setupSoundLibrary()
 void SoundManager::addSound (const String& sourcePath,
                              const String& fileName)
 {
-    Sound* const s = soundEffects.add (new Sound (audioFormatManager, File (sourcePath + fileName), false));
+    auto*  s = soundEffects.add (new Sound (audioFormatManager, File (sourcePath + fileName), false));
     mixerAudioSource.addInputSource (s->getTransport(), false);
 }
 
 void SoundManager::playSound (const SoundEffect soundEffect)
 {
-    if (Sound* const sound = soundEffects[(int) soundEffect])
+    if (auto* sound = soundEffects[(int) soundEffect])
         sound->play();
 }
 
@@ -177,8 +177,8 @@ void SoundManager::setGain (const SoundCategory category, const float gain)
         case categoryMusic: music->setGain (gain); break;
 
         case categorySoundEffects:
-            for (int i = soundEffects.size(); --i >= 0;)
-                soundEffects.getUnchecked (i)->setGain (gain);
+            for (auto& sf : soundEffects)
+                sf->setGain (gain);
         break;
 
         default: jassertfalse; break;
@@ -200,13 +200,13 @@ float SoundManager::getGain (const SoundCategory category) const
 
         case categoryMusic:
             if (music != nullptr)
-                if (AudioTransportSource* const ats = music->getTransport())
+                if (auto* ats = music->getTransport())
                     return ats->getGain();
         break;
 
         case categorySoundEffects:
-            if (Sound* const sound = soundEffects.getFirst())
-                if (AudioTransportSource* const ats = sound->getTransport())
+            if (auto* sound = soundEffects.getFirst())
+                if (auto* ats = sound->getTransport())
                     return ats->getGain();
         break;
 
@@ -218,5 +218,5 @@ float SoundManager::getGain (const SoundCategory category) const
     (void) category;
    #endif
 
-    return 0.0f;
+    return {};
 }

@@ -36,19 +36,19 @@
 namespace ToolbarIcons
 {
     extern const uint8*   open_svg;
-    static const int            open_svgSize        = 874;
+    static const int      open_svgSize        = 874;
 
     extern const uint8*   save_svg;
-    static const int            save_svgSize        = 731;
+    static const int      save_svgSize        = 731;
 
     extern const uint8*   about_svg;
-    static const int            about_svg_Size      = 1062;
+    static const int      about_svg_Size      = 1062;
 
     extern const uint8*   gear_svg;
-    static const int            gear_svg_Size       = 953;
+    static const int      gear_svg_Size       = 953;
 
     extern const uint8*   restart_svg;
-    static const int            restart_svg_Size    = 1502;
+    static const int      restart_svg_Size    = 1502;
 }
 
 #endif //BGE_TOOLBARICONS_H
